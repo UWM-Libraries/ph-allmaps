@@ -20,6 +20,23 @@
         font-family: sans-serif;
       }
 
+      main {
+        width: 100%;
+        height: 100%;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       #map {
         width: 100%;
         height: 100%;
@@ -27,7 +44,22 @@
     </style>
   </head>
   <body>
-    <div id="map"></div>
+    <main aria-labelledby="page-title">
+      <h1 id="page-title" class="sr-only">
+        Paris 1300 road network on an 1821 Paris map
+      </h1>
+      <p id="map-description" class="sr-only">
+        Interactive map showing an 1821 historical map of Paris with an overlay
+        of the reconstructed road network for Paris in 1300. Use standard map
+        pan and zoom interactions to explore the overlay.
+      </p>
+      <div
+        id="map"
+        role="img"
+        aria-label="1821 Paris map with 1300 road network overlay"
+        aria-describedby="map-description"
+      ></div>
+    </main>
 
     <script>
       const width = 10784;
@@ -53,9 +85,9 @@
   <style>
     polyline {
       fill: none;
-      stroke: #b2381f;
-      stroke-opacity: 0.78;
-      stroke-width: 7;
+      stroke: #00FFFF;
+      stroke-opacity: 1.0;
+      stroke-width: 10;
       stroke-linecap: round;
       stroke-linejoin: round;
       vector-effect: non-scaling-stroke;
@@ -82,7 +114,7 @@
               })
             }),
             new ol.layer.Image({
-              opacity: 0.9,
+              opacity: 1.0,
               source: new ol.source.ImageStatic({
                 url: overlayUrl,
                 imageExtent: extent,
@@ -93,7 +125,7 @@
           view: new ol.View({
             projection,
             center: ol.extent.getCenter(extent),
-            zoom: 2,
+            zoom: 4,
             maxZoom: 8,
             extent,
             showFullExtent: true
