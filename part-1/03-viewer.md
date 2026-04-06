@@ -1,10 +1,3 @@
----
-layout: lesson
-title: "Lesson 3: Viewing and Using Maps Georeferenced in Allmaps"
-position: 3
-permalink: /lessons/viewer/
----
-
 # Lesson 3: Doing more with Allmaps
 
 ## Allmaps Viewer
@@ -84,21 +77,3 @@ Now you can use your georeferenced map directly in desktop GIS!
 You can even use the **Export** tool to save the result as a **GeoTIFF**, a standard format for georeferenced images.
 
 More info on the Allmaps Tile Server is available in this [Observable notebook](https://observablehq.com/@allmaps/allmaps-tile-server).
-
-## More You Can Do
-
-What will *you* do with your georeferenced maps?
-
-Here are just a few exciting examples:
-
-- [Stories from Urban Atlases of Waltham](https://www.leventhalmap.org/articles/waltham-urban-atlas-essays/)
-- [Atlascope](https://www.atlascope.org/)
-- [Architectural Drawings in Allmaps](https://viewer.allmaps.org/?url=https%3A%2F%2Fsammeltassen.nl%2Fiiif-manifests%2Fallmaps%2Frivierahal-blijdorp.json)
-- [Georeferenced Aerial Photographs](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2F4bcc9463d2a68df4)
-
-To go even further, explore the collection of [Allmaps Observable Notebooks](https://observablehq.com/@allmaps):
-
-- Use IIIF maps in MapLibre, Leaflet, or OpenLayers
-- Draw vector **GeoJSON** layers on top of Allmaps
-- Georeference based on **toponyms** (place names)
-- Learn more about the **code and architecture** of Allmaps

@@ -1,11 +1,4 @@
----
-layout: lesson
-title: "Lesson 2: Using Allmaps to Georeference Maps"
-position: 2
-permalink: /lessons/Allmaps/
----
-
-# Lesson 2: Georeferencing in Allmaps
+# Georeferencing in Allmaps
 
 In this lesson, we'll get hands-on experience georeferencing maps in **Allmaps**.
 
@@ -92,5 +85,5 @@ On the bottom right, under **maps** you can find:
 
 ![The share menu in Allmaps]({{ '/assets/images/georef_nz6_Share.png' | relative_url }})
 
-We'll explore the Viewer in the next lesson. For now, click the **View in Allmaps Viewer** link in the share menu to continue.
+Click the **View in Allmaps Viewer** link in the share menu to continue.
 
