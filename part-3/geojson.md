@@ -8,18 +8,26 @@ In the command-line examples below, `jq` is a small tool for inspecting and resh
 
 For the main walkthrough, this example overlays the full medieval road network from around 1300 on the 1821 AGSL map of Paris.
 
-* https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/ (AGSL Map of Paris, 1821)
-* original source file: part-3/voiries1300_2009.json
-* lesson-ready file: part-3/voiries1300_2009_clean.json
-* original ALPAGE source page: https://alpage.huma-num.fr/ancient-urban-fabric/
-* original ALPAGE download: https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip
-* Stanford redistribution record: https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546
-* Viewer URL: https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb
-* Georef annotation: https://annotations.allmaps.org/images/adeae8a56aaf59fb
+<div class="table-wrapper" markdown="block">
+
+| Resource | Location / URL |
+| --- | --- |
+| AGSL Map of Paris, 1821 | `https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/` |
+| Original source file | `part-3/voiries1300_2009.json` |
+| Lesson-ready file | `part-3/voiries1300_2009_clean.json` |
+| Original ALPAGE source page | `https://alpage.huma-num.fr/ancient-urban-fabric/` |
+| Original ALPAGE download | `https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip` |
+| Stanford redistribution record | `https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546` |
+| Viewer URL | `https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb` |
+| Georef annotation | `https://annotations.allmaps.org/images/adeae8a56aaf59fb` |
+
+</div>
 
 ### Data note
 
 The road network was originally published by ALPAGE as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe. The Stanford/Geodiscovery record linked above is a later redistribution of that ALPAGE dataset. The local file `part-3/voiries1300_2009.json` is derived from that source, and for this lesson I also saved a cleaned teaching version, `part-3/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
+
+## Process Overview
 
 1. Start with a georeferenced historical image.
 2. Fetch the published georeference annotation for that image.
@@ -49,6 +57,15 @@ curl -L 'https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/ii
   > annotation.json
 ```
 
+You will see some output like this:
+
+```bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    80  100    80    0     0     50      0  0:00:01  0:00:01 --:--:--    50
+100  5771  100  5771    0     0   3284      0  0:00:01  0:00:01 --:--:--  3284
+```
+
 This works because the Allmaps annotations service can look up the published georeference annotation for a manifest URL that already exists in Allmaps.
 
 ### Step 2: Confirm that the map has georeference metadata
@@ -66,6 +83,25 @@ You can inspect it with:
 npx allmaps annotation parse annotation.json
 ```
 
+You should see output like this:
+
+```json
+[
+  {
+    "@context": "https://schemas.allmaps.org/map/2/context.json",
+    "type": "GeoreferencedMap",
+    "id": "https://annotations.allmaps.org/maps/2543dadd9c2fa8b1",
+    "created": "2026-04-03T16:46:18.241Z",
+    "modified": "2026-04-03T16:46:18.241Z",
+    "resource": {
+      "id": "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550",
+      "width": 10784,
+      "height": 6941,
+      "type": "ImageService2",
+      "partOf": [
+...
+```
+
 That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
 Conceptually, this is the moment where the CLI learns how the Paris image relates to real-world coordinates.
 
@@ -79,7 +115,7 @@ jq -r '[.features[].geometry.type] | unique[]' 'voiries1300_2009_clean.json'
 
 For this dataset, the result is:
 
-```text
+```bash
 LineString
 ```
 
@@ -103,7 +139,9 @@ npx allmaps transform geojson \
   > voiries1300_2009.svg
 ```
 
-This is the command worth unpacking:
+If this runs without error, expect not to see anything output to your shell.
+
+This command is worth unpacking:
 
 * `transform geojson` take geographic geometry and convert it into resource coordinates
 * `-a annotation.json` supplies the georeference annotation
@@ -142,7 +180,9 @@ Those dimensions become the shared extent for both the map image and the overlay
 
 #### 5b. Use a pixel-space projection in OpenLayers
 
-For this kind of overlay, we are not building a Web Mercator map. We are building an image viewer. So the OpenLayers projection can simply use image pixels as its units.
+For this kind of overlay, we are not building a Web Mercator map.
+We are building an image viewer.
+So the OpenLayers projection can simply use image pixels as its units.
 
 That means the extent is:
 
@@ -152,11 +192,14 @@ const extent = [0, 0, 10784, 6941]
 
 #### 5c. Load the SVG as a second image layer
 
-The file `voiries1300_2009.svg` contains the transformed street segments. Because its coordinates already match the map image, OpenLayers can draw it on top of the base image as long as both layers use the same extent.
+The file `voiries1300_2009.svg` contains the transformed street segments. 
+Because its coordinates already match the map image,
+OpenLayers can draw it on top of the base image as long as both layers use the same extent.
 
-One practical detail is that the generated SVG does not include a `viewBox`, `width`, or `height`, so the example page adds those before passing the SVG to OpenLayers.
+One practical detail is that the generated SVG does not include a `viewBox`, `width`, or `height`,
+so the example page adds those before passing the SVG to OpenLayers.
 
-Here are the most important blocks from `openlayers-overlay.html`.
+Here are the most important blocks from `openlayers-overlay.html`:
 
 First, the page defines a pixel-based projection using the image dimensions:
 
@@ -222,25 +265,21 @@ new ol.Map({
 
 #### 5d. Run the example
 
-This directory now includes a minimal example page:
+This directory now includes a minimal example page. Serve the current directory with either Python or Node.js:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open:
+or
 
-```text
-http://localhost:8000/openlayers-overlay.html
+```bash
+npx http-server . -p 8000
 ```
 
-The page is:
+Then open `http://localhost:8000/openlayers-overlay.html` in your browser.
 
-* `part-3/openlayers-overlay.html`
-* for the full network version, the transformed overlay is `part-3/voiries1300_2009.svg`
-* you can rebuild that full overlay with `part-3/make-roads-overlay.sh`
-
-#### 5e. What the OpenLayers example is doing
+#### What the OpenLayers example is doing
 
 The example page does four important things:
 
@@ -249,21 +288,8 @@ The example page does four important things:
 3. loads the transformed SVG as another `ImageStatic` layer
 4. assigns both layers the same extent, so they line up
 
-### Rebuild script
 
-The full workflow is scripted in:
-
-* `part-3/make-roads-overlay.sh`
-
-and produces:
-
-* `part-3/voiries1300_2009.geometries.ndjson`
-* `part-3/voiries1300_2009.svg`
-
-That is the main lesson for readers: once Allmaps has converted the historical street data into image-space coordinates, the overlay becomes an ordinary front-end layering problem.
-
-
-### takeaway
+### Takeaway
 
 1. Allmaps gives us a transformation between map image pixels and geographic coordinates.
 2. We use that transformation backwards to move GeoJSON into the image's own coordinate space.
