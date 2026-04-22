@@ -1,7 +1,7 @@
 
 ## Allmaps Editor
 
-If you haven't already, launch the Allmaps Editor by going to [editor.allmaps.org](https://editor.allmaps.org).
+Launch the Allmaps Editor by going to [editor.allmaps.org](https://editor.allmaps.org).
 
 You can choose a map by either:
 
@@ -36,6 +36,8 @@ Use the **Georeference** tab to begin placing GCPs. To create one, find a locati
 {% include figure.html filename="georef_nz2_GCP.png" alt="Allmaps Editor showing matched ground control points on a scanned map and a modern basemap." caption="Adding ground control points in Allmaps Editor." %}
 
 ### GCP Best Practices for Urban Atlases
+
+TODO: Find other references.
 
 - **Avoid water bodies** – they change too much over time to be reliable.
 - **Use roads and buildings** – as long as they haven’t been torn down or significantly altered.
@@ -72,7 +74,7 @@ The **Results** tab gives you a preview of the map with georeferencing applied. 
 
 {% include figure.html filename="georef_nz5_result.png" alt="Allmaps Editor showing the georeferenced result preview." caption="Previewing georeferencing results in Allmaps." %}
 
-The interface shown here reflects Allmaps as it appeared in fall 2025, so some controls may look slightly different now.
+TODO: The interface shown here reflects Allmaps as it appeared in fall 2025, so some controls may look slightly different now.
 
 In the upper right, under **export**, you’ll see a drawer with more tools:
 
