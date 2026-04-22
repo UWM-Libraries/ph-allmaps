@@ -1,11 +1,13 @@
-# Exporting a GeoTiff with Allmaps CLI
+# Exporting a GeoTIFF with Allmaps CLI
 
 This guide outlines the steps for generating a Cloud Optimized GeoTIFF (COG) of a map of Green Bay from the AGSL collection using the Allmaps CLI and GDAL.
 
-Below under Source Information, you will find URL's for the map of Green Bay I'm using for this example. 
+Below under Source Information, you will find URLs for the map of Green Bay I'm using for this example.
 It's a good idea to open up a document and record URLs for the resources you're working with so it's easy to copy-paste them.
 
-### Collect Source Information:
+### Collect Source Information
+
+<div class="table-wrapper" markdown="block">
 
 | **Source Information** | Description | Value / Link |
 |-------------------------|-------------|--------------|
@@ -15,6 +17,8 @@ It's a good idea to open up a document and record URLs for the resources you're 
 | Allmaps ID              | Unique identifier for this map in the Allmaps system. | `afbbbc974346dbbb` |
 | Image ID URL            | IIIF Image API base URL for requesting tiles or derivatives. | [https://collections.lib.uwm.edu/digital/iiif/agdm/5922](https://collections.lib.uwm.edu/digital/iiif/agdm/5922) |
 | Image Filename          | Original image filename on the server. | `d30944a32ca34085.jpg` |
+
+</div>
 
 
 ### 1. Create a Working Directory
@@ -41,13 +45,9 @@ allmaps fetch full-image "https://collections.lib.uwm.edu/digital/iiif/agdm/5922
 mv *.jpg 82b3f8acb9a05d5b.jpg
 ```
 
-> **Important:**
->
-> The `mv` command, Unix for "Move", is being used here to rename the image file.
-> Unless you're working with the same map I am, your filenames will be different.
-> What is important is that you keep track of your filename for later steps.
-> 
-{: .callout .important }
+<div class="alert alert-warning">
+The `mv` command is being used here to rename the image file. Unless you're working with the same map used in this example, your filenames will be different. Keep track of your filename for later steps.
+</div>
 
 By default, `allmaps fetch full-image` may not download the highest-resolution version.
 
@@ -93,20 +93,16 @@ nano green_bay_geotiff.sh
 #etc.
 ```
 
-**Make these adjustments:**
+Make these adjustments:
 
 - **Remove** any `-cutline_srs` flag if present.
 - **Add** `-multi -wm 2048` to the `gdalwarp` command. (Include '\')
 - **Ensure** the image filename matches yours: `"82b3f8acb9a05d5b.jpg"`
 - **Verify** the output filenames in `gdalwarp` and `gdalbuildvrt` are consistent, and use `\` for line continuation if the command spans multiple lines.
 
-> **Note:**
->
-> I've opened
-> [an issue](https://github.com/allmaps/allmaps/issues/261)
-> related to this on the Allmaps repo.
-> 
-{: .callout .note }
+<div class="alert alert-warning">
+I've opened [an issue](https://github.com/allmaps/allmaps/issues/261) related to this on the Allmaps repository.
+</div>
 
 ### 6. Run the Script
 
@@ -115,8 +111,9 @@ bash green_bay_geotiff.sh
 ```
 
 Troubleshooting script failures and errors:
+
 * See above "Download the IIIF Image" step if your image size in wrong.
-* Ensure you've made the appopriate adjustments in the generated shell script in the "Edit the Script" step above.
+* Ensure you've made the appropriate adjustments in the generated shell script in the "Edit the Script" step above.
 * Triple check your filenames and ensure they match what the shell script expects.
 
 ### 7. Verify the Output with GDAL
