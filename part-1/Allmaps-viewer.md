@@ -12,6 +12,7 @@ Background removal is especially useful with historical maps—it removes the bl
 
 Viewer is not primarily for creating georeferencing data, but for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
 
+<!-- TODO: Refer to this comparison the text. -->
 {% include figure.html filename="georef_nz8_Background.png" alt="A comparison in Allmaps Viewer showing a map with and without background removal." caption="Background removal in Allmaps Viewer." %}
 
 <div class="alert alert-warning">
@@ -27,24 +28,27 @@ Allmaps Viewer has some useful keyboard shortcuts:
 
 ## Viewing Stitched Atlas Sheets
 
-TODO: why stitched viewing matters methodologically
+<!-- TODO: Explain why stitched viewing matters methodologically. -->
 
 Take this example from the [Milwaukee County land use and zoning atlas](https://collections.lib.uwm.edu/digital/collection/agdm/id/36112).
 
-TODO: Live sample may be unstable/unreliable. Consider a different example.
+<!-- TODO: Live sample may be unstable or unreliable. Consider a different example. -->
 
 IIIF Manifest: `https://collections.lib.uwm.edu/iiif/info/agdm/36112/manifest.json`
 
 Green symbols indicate sheets that are already georeferenced:
 
+<!-- TODO: Add a figure reference in the sentence introducing georeferenced page indicators. -->
 {% include figure.html filename="MultiPageGreen.png" alt="A green indicator in Allmaps Viewer marking atlas sheets that have already been georeferenced." caption="Green indicators mark georeferenced pages." %}
 
 Yellow warning symbols indicate maps with masks but no georeferencing yet:
 
+<!-- TODO: Add a figure reference in the sentence introducing masked indicators. -->
 {% include figure.html filename="MultiPageYellow.png" alt="A yellow warning symbol in Allmaps Viewer marking maps that have masks but are not yet georeferenced." caption="Yellow indicators mark masked pages that still need georeferencing." %}
 
 [View this atlas in Allmaps Viewer](https://viewer.allmaps.org/?url=https%3A%2F%2Fcollections.lib.uwm.edu%2Fiiif%2Finfo%2Fagdm%2F36112%2Fmanifest.json) to see how stitched maps are displayed. As more sheets are georeferenced, they’ll appear in the viewer.
 
+<!-- TODO: Consider naming this stitched-atlas screenshot as a figure in the sentence above. -->
 {% include figure.html filename="MultiPageStitch.png" alt="Multiple georeferenced atlas sheets displayed together in Allmaps Viewer." caption="Stitched atlas sheets in Allmaps Viewer." %}
 
 When working with multi-sheet objects:
@@ -54,7 +58,7 @@ When working with multi-sheet objects:
 
 ## Changing the Transformation Algorithm
 
-TODO: how changing algorithms affects historical interpretation, not just visual appearance.
+<!-- TODO: Explain how changing algorithms affects historical interpretation, not just visual appearance. -->
 
 As we covered in Lesson 2, ground control points (GCPs) define locations where features match across old and new maps. A transformation algorithm uses these points to warp the image accordingly.
 
@@ -62,10 +66,11 @@ Cycle through algorithms using <kbd>T</kbd>.
 
 Different algorithms will produce different results. Some stretch or distort the image more than others—this is known as **rubber sheeting**.
 
+<!-- TODO: Refer to this animated comparison explicitly as a figure when discussing algorithm differences. -->
 {% include figure.html filename="transform.gif" alt="An animated comparison of different transformation algorithms applied to the same georeferenced map." caption="Different transformation algorithms can produce different warping results." %}
 
 
-TODO: This is an abrupt transition into XYZ tiles/GIS...
+<!-- TODO: Smooth the transition into XYZ tiles and GIS. -->
 
 ## Using XYZ Tiles in GIS
 

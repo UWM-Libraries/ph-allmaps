@@ -17,14 +17,17 @@ In other words, you're identifying the part of the scanned image that you want t
 
 Use the **Draw Mask** tab to add a mask. Click to add points, and double-click to close the polygon. If you mess up, click **Cancel** to start over.
 
+<!-- TODO: Refer to this screenshot explicitly in the text -->
 {% include figure.html filename="georef_nz3_Mask.png" alt="Allmaps Editor showing a polygon mask drawn around the map area." caption="Drawing a clipping mask in Allmaps Editor." %}
 
 It's possible your image includes multiple maps! Each map gets its own mask.
 
+<!-- TODO: Consider referencing this example as a figure in the sentence that introduces multiple maps. -->
 {% include figure.html filename="greenpoint.jpg" alt="A scanned page containing multiple mapped areas that would need separate masks." caption="A scanned page with multiple maps." %}
 
 Much of the time, your mask will simply be a rectangle drawn just inside the map's neatline.
 
+<!-- TODO: Add a figure reference in the surrounding text so readers can connect the explanation to the image. -->
 {% include figure.html filename="georef_nz4_MaskCorner.png" alt="A rectangular mask drawn near the corners of a map inside its neatline." caption="A rectangular mask drawn near the map corners." %}
 
 ## Ground Control Points
@@ -33,11 +36,12 @@ Much of the time, your mask will simply be a rectangle drawn just inside the map
 
 Use the **Georeference** tab to begin placing GCPs. To create one, find a location that clearly matches on both sides—such as a street intersection or the corner of a recognizable building. Click the same spot on both images.
 
+<!-- TODO: Name this screenshot as a figure when explaining how to place GCPs. -->
 {% include figure.html filename="georef_nz2_GCP.png" alt="Allmaps Editor showing matched ground control points on a scanned map and a modern basemap." caption="Adding ground control points in Allmaps Editor." %}
 
 ### GCP Best Practices for Urban Atlases
 
-TODO: Find other references.
+<!-- TODO: Find other references for best practices. -->
 
 - **Avoid water bodies** – they change too much over time to be reliable.
 - **Use roads and buildings** – as long as they haven’t been torn down or significantly altered.
@@ -47,12 +51,14 @@ These guidelines are adapted from the Leventhal Map & Education Center’s guide
 
 Remember, landscapes change: roads shift, water levels fluctuate, buildings appear and disappear. For example, using Brown Deer Road may not always be ideal:
 
+<!-- TODO: This example would benefit from an explicit figure reference in the sentence above. -->
 {% include figure.html filename="MultiPage_BrownDeer.png" alt="An example showing misalignment caused by using Brown Deer Road as a control reference." caption="An example of problematic alignment using Brown Deer Road." %}
 
 ### What is this doing?
 
 Behind the scenes, placing GCPs in Allmaps creates a [*Georeference Annotation*](https://iiif.io/api/extension/georef/).
 
+<!-- TODO: Refer to this diagram in text when introducing resource and geometry coordinates. -->
 {% include figure.html filename="georef_nz2_2.png" alt="A diagram comparing pixel coordinates in the image resource to geographic coordinates in real-world geometry." caption="Resource coordinates and geometry coordinates in a georeference annotation." %}
 
 Each point creates a pair of values:
@@ -72,9 +78,10 @@ For a humorous take on over-precise coordinates, see XKCD’s [“Coordinate Pre
 
 The **Results** tab gives you a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track.
 
+<!-- TODO: Add a figure callout in the text that introduces the results preview. -->
 {% include figure.html filename="georef_nz5_result.png" alt="Allmaps Editor showing the georeferenced result preview." caption="Previewing georeferencing results in Allmaps." %}
 
-TODO: The interface shown here reflects Allmaps as it appeared in fall 2025, so some controls may look slightly different now.
+<!-- TODO: The interface shown here reflects Allmaps as it appeared in fall 2025, so some controls may look slightly different now. -->
 
 In the upper right, under **export**, you’ll see a drawer with more tools:
 
