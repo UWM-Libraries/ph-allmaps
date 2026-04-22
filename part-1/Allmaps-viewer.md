@@ -13,7 +13,7 @@ Background removal is especially useful with historical maps—it removes the bl
 Viewer is not primarily for creating georeferencing data, but for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
 
 <!-- TODO: Refer to this comparison the text. -->
-{% include figure.html filename="georef_nz8_Background.png" alt="A comparison in Allmaps Viewer showing a map with and without background removal." caption="Background removal in Allmaps Viewer." %}
+{% include figure.html filename="georef_nz8_Background.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Background removal in Allmaps Viewer." %}
 
 <div class="alert alert-warning">
 Allmaps Viewer has some useful keyboard shortcuts:
@@ -39,17 +39,17 @@ IIIF Manifest: `https://collections.lib.uwm.edu/iiif/info/agdm/36112/manifest.js
 Green symbols indicate sheets that are already georeferenced:
 
 <!-- TODO: Add a figure reference in the sentence introducing georeferenced page indicators. -->
-{% include figure.html filename="MultiPageGreen.png" alt="A green indicator in Allmaps Viewer marking atlas sheets that have already been georeferenced." caption="Green indicators mark georeferenced pages." %}
+{% include figure.html filename="MultiPageGreen.png" alt="Green status indicator in Allmaps Viewer marking atlas sheets that are already georeferenced." caption="Green indicators mark georeferenced pages." %}
 
 Yellow warning symbols indicate maps with masks but no georeferencing yet:
 
 <!-- TODO: Add a figure reference in the sentence introducing masked indicators. -->
-{% include figure.html filename="MultiPageYellow.png" alt="A yellow warning symbol in Allmaps Viewer marking maps that have masks but are not yet georeferenced." caption="Yellow indicators mark masked pages that still need georeferencing." %}
+{% include figure.html filename="MultiPageYellow.png" alt="Yellow warning indicator in Allmaps Viewer marking maps that have masks but are not yet georeferenced." caption="Yellow indicators mark masked pages that still need georeferencing." %}
 
 [View this atlas in Allmaps Viewer](https://viewer.allmaps.org/?url=https%3A%2F%2Fcollections.lib.uwm.edu%2Fiiif%2Finfo%2Fagdm%2F36112%2Fmanifest.json) to see how stitched maps are displayed. As more sheets are georeferenced, they’ll appear in the viewer.
 
 <!-- TODO: Consider naming this stitched-atlas screenshot as a figure in the sentence above. -->
-{% include figure.html filename="MultiPageStitch.png" alt="Multiple georeferenced atlas sheets displayed together in Allmaps Viewer." caption="Stitched atlas sheets in Allmaps Viewer." %}
+{% include figure.html filename="MultiPageStitch.png" alt="Allmaps Viewer displaying multiple stitched georeferenced atlas sheets together on the map." caption="Stitched atlas sheets in Allmaps Viewer." %}
 
 When working with multi-sheet objects:
 
@@ -67,7 +67,7 @@ Cycle through algorithms using <kbd>T</kbd>.
 Different algorithms will produce different results. Some stretch or distort the image more than others—this is known as **rubber sheeting**.
 
 <!-- TODO: Refer to this animated comparison explicitly as a figure when discussing algorithm differences. -->
-{% include figure.html filename="transform.gif" alt="An animated comparison of different transformation algorithms applied to the same georeferenced map." caption="Different transformation algorithms can produce different warping results." %}
+{% include figure.html filename="transform.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Different transformation algorithms can produce different warping results." %}
 
 
 <!-- TODO: Smooth the transition into XYZ tiles and GIS. -->
@@ -79,19 +79,19 @@ Note: this is not intended for permanent hosting.
 
 In **QGIS**, use the **Add XYZ Layer** tool:
 
-{% include figure.html filename="QGIS1.png" alt="The dialog in QGIS for adding an XYZ tile layer." caption="Opening the XYZ tile layer dialog in QGIS." %}
+{% include figure.html filename="QGIS1.png" alt="QGIS dialog for adding a new XYZ tile layer." caption="Opening the XYZ tile layer dialog in QGIS." %}
 
 Copy the **XYZ Tile URL** from the Allmaps Editor Share tools:
 
-{% include figure.html filename="ShareXYZ.png" alt="The Allmaps share menu showing where to copy the XYZ tile URL." caption="Finding the XYZ tile URL in Allmaps." %}
+{% include figure.html filename="ShareXYZ.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Finding the XYZ tile URL in Allmaps." %}
 
 Then create a new XYZ Connection in QGIS and paste in the URL. No other changes are usually needed.
 
-{% include figure.html filename="QGIS2.png" alt="The form in QGIS for creating a new XYZ connection by pasting a tile URL." caption="Creating a new XYZ connection in QGIS." %}
+{% include figure.html filename="QGIS2.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Creating a new XYZ connection in QGIS." %}
 
 Now you can use your georeferenced map directly in desktop GIS!
 
-{% include figure.html filename="QGIS3.png" alt="A georeferenced historical map loaded into QGIS from an Allmaps XYZ tile service." caption="A georeferenced map displayed in QGIS." %}
+{% include figure.html filename="QGIS3.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="A georeferenced map displayed in QGIS." %}
 
 You can even use the **Export** tool to save the result as a **GeoTIFF**, a standard format for georeferenced images.
 
