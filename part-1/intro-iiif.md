@@ -4,19 +4,23 @@
 
 [Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) is the process of overlaying a digital image on a map by matching pixels on the image to real geographic locations. This is commonly done with aerial and satellite photography to transform photographs into usable spatial data.
 
-<!-- TODO: Replace the OBE example with something else, maybe Atlascope or Old Insurance Maps. -->
+A few other Programming Hisotrian lessons have already worked with georeferencing workflows:
 
+- [Displaying a Georeferenced Map in KnightLab's StoryMap JS](https://programminghistorian.org/en/lessons/displaying-georeferenced-map-knightlab-storymap-js)
+- [Introduction to Map Warper](https://programminghistorian.org/en/lessons/introduction-map-warper)
+- [Georeferencing in QGIS 2.0](https://programminghistorian.org/en/lessons/georeferencing-qgis)
+
+<!-- TODO: Replace the OBE example with something else, maybe Atlascope or Old Insurance Maps. -->
 The AGSL uses georeferencing of aerial photography in our
 [Operation Birds Eye](https://uwm.maps.arcgis.com/apps/webappviewer/index.html?id=4e066bb8e5664d189ac3e77c26d21712)
 discovery application.
 While anyone is welcome to flip through the nearly 300 photographs that make up this collection,
 seeing them overlaid on modern satellite imagery adds valuable context and enables comparisons over time.
 
-<!-- TODO: Make these examples more historian-relevant. -->
-Georeferencing scanned maps enables powerful spatial analysis:
-- Extract information from a map, such as locations of topographic features like villages, mountains, rivers, or roads.
-- Compare or verify features by overlaying two maps.
-- Create a *mosaic* for viewing multiple sheets at once in large map series.
+Georeferencing turns scanned maps into spatial data. Once a map is aligned with geographic coordinates, it becomes possible to:
+- Compare landscapes past and present, including streets, buildings, waterways, shorelines, neighborhoods, and boundaries.
+- Study change over time by overlaying maps from different times.
+- Join sheets from an atlas or map set into a larger view of an area.
 
 {% include figure.html filename="georef_bok.png" alt="Historic map image aligned over a modern GIS basemap." caption="The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
 
@@ -32,9 +36,12 @@ to georeference urban atlas sheets for their fantastic [Atlascope application](h
 <!-- TODO: Add a more scholarly comparison of georeferencing in GIS vs. georeferencing in Allmaps. -->
 
 Traditionally, georeferencing has been done in **GIS** (Geographic Information Systems).
-Thanks to modern, accessible web-mapping tools, platforms like **Allmaps** now make this process possible for non-experts—right in the browser.
+
+Some workflows will still benefit from the power of desktop GIS applications, but the learning curve is considerable.
 
 For more detailed background, see [*Georeferencing and Georectification*](https://gistbok-topics.ucgis.org/DC-01-030) in the GIS&T Body of Knowledge.
+
+Thanks to modern, accessible web-mapping tools, platforms like **Allmaps** now make this process possible for non-experts—right in the browser.
 
 ## What is IIIF?
 
@@ -50,15 +57,22 @@ This means that:
 - A scholar can annotate or compare high-resolution images without downloading large files.
 - Tools like [Allmaps](https://allmaps.org/), [Mirador](https://projectmirador.org/), and [Universal Viewer](https://universalviewer.io/) can all read the same IIIF content.
 
-At its core, IIIF enables **interoperability**—making it easier for cultural heritage institutions, educators, and developers to **build rich user experiences around media** from all over the world.
-
-Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/). ([source](https://iiif.io/get-started/how-iiif-works/))
+At its core, IIIF enables nteroperability—making it easier for cultural heritage institutions, educators, and developers to build user experiences around maps, photographs, documents, and other media from all over the world.
+Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/).
 
 <!-- TODO: Compare "old" and "new" multispectral images of the Leardo Mappamundi in a Mirador viewer. -->
 
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
 Clicking on the expand arrows allows us to view the map in stunning detail directly in the browser—no need to download huge image files.
 But beyond making images zoomable, IIIF enables much more...
+
+<iframe
+  src="{{ '/part-1/leardo-mirador.html' | relative_url }}"
+  title="Side-by-side Mirador comparison of the original and multispectral Leardo Mappamundi"
+  width="100%"
+  height="650"
+  allowfullscreen>
+</iframe>
 
 ## Finding IIIF maps to use in Allmaps
 
