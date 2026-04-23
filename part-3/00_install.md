@@ -19,20 +19,32 @@ OS version, and shell environment.
 
 ### Windows Only: Set up WSL
 
-<!-- TODO: Briefly explain why Windows users are being directed to WSL instead of  Windows workflow. -->
+macOS and Linux users can skip this section and jump to [Linux and Unix](#linux-and-unix).
 
-[Windows Subsystem for Linux Documentation](https://learn.microsoft.com/en-us/windows/wsl/)
+This lesson uses WSL for Windows because the command-line tools in this section are easiest to install and teach in a Unix-like environment.
+WSL gives Windows users a Linux shell that behaves much like the macOS and Linux workflows used in the rest of the lesson, which keeps commands, paths, and troubleshooting more consistent.
+Native Windows workflows are possible, but they require different setup steps.
 
-If you don't have a Linux distribution set up for WSL, install Ubuntu:
+For more detailed setup instructions, see Microsoft’s [Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install) documentation.
 
-```bash
+If you don't have a Linux distribution set up for WSL, install Ubuntu via PowerShell.
+Ubuntu can also be installed from the Microsoft Store after WSL is enabled, but PowerShell handles both steps in one workflow.
+Open PowerShell as an administrator and install WSL:
+
+```powershell
+wsl --install
+```
+
+This installs Ubuntu by default. If WSL is already installed but Ubuntu is not, you can install Ubuntu explicitly:
+
+```powershell
 wsl --install -d Ubuntu
 ```
 
-Now you can launch a Ubuntu environment from your Windows desktop environment. Follow Linux/Unix instructions below.
+Open Ubuntu from the Windows Start menu. When the Ubuntu prompt appears, continue with the Linux and Unix instructions below.
 
 <!-- TODO: Clarify that these commands are Ubuntu/Debian-specific, or broaden the section with alternatives for other Unix-like systems. -->
-### Linux/Unix
+### Linux and Unix
 ```bash
 # Update and upgrade package manager
 sudo apt update && sudo apt upgrade -y
