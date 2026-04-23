@@ -4,7 +4,7 @@
 
 [Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) is the process of overlaying a digital image on a map by matching pixels on the image to real geographic locations. This is commonly done with aerial and satellite photography to transform photographs into usable spatial data.
 
-TODO: Replace the OBE example with somethign else, maybe Atlascope or Old Insurance Maps?
+<!-- TODO: Replace the OBE example with something else, maybe Atlascope or Old Insurance Maps. -->
 
 The AGSL uses georeferencing of aerial photography in our
 [Operation Birds Eye](https://uwm.maps.arcgis.com/apps/webappviewer/index.html?id=4e066bb8e5664d189ac3e77c26d21712)
@@ -12,24 +12,24 @@ discovery application.
 While anyone is welcome to flip through the nearly 300 photographs that make up this collection,
 seeing them overlaid on modern satellite imagery adds valuable context and enables comparisons over time.
 
-TODO: Make these examples more Historian-relevant?
+<!-- TODO: Make these examples more historian-relevant. -->
 Georeferencing scanned maps enables powerful spatial analysis:
 - Extract information from a map, such as locations of topographic features like villages, mountains, rivers, or roads.
 - Compare or verify features by overlaying two maps.
 - Create a *mosaic* for viewing multiple sheets at once in large map series.
 
-![Overlaying a historic map in GIS]({{ '/assets/images/georef_bok.png' | relative_url }})
-*The georeferencing process to place a digital image into a GIS* ([source](https://gistbok-ltb.ucgis.org/page/27/concept/8131))
+{% include figure.html filename="georef_bok.png" alt="Historic map image aligned over a modern GIS basemap." caption="The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
 
 For objects with multiple sheets or pages—such as urban atlases—georeferencing can make the experience easier and more engaging.
 We used georeferenced Sanborn Fire Insurance Maps to create our
 [Sanborn Web Map](https://webgis.uwm.edu/agsl/sanborn/).
+
 A similar project by the Leventhal Map & Education Center at the Boston Public Library (co-recipients of a NEH Digital Advancement Grant) used Allmaps
 to georeference urban atlas sheets for their fantastic [Atlascope application](https://www.atlascope.org/).
 
-![Screenshot of the Atlascope viewer with georeferenced map sheets]({{ '/assets/images/Atlascope.png' | relative_url }})
+{% include figure.html filename="Atlascope.png" alt="Atlascope viewer showing georeferenced urban atlas sheets over a modern map." caption="Georeferenced atlas sheets in Atlascope." %}
 
-TODO: More scholarly comparison of georef in GIS vs georef in Allmaps.
+<!-- TODO: Add a more scholarly comparison of georeferencing in GIS vs. georeferencing in Allmaps. -->
 
 Traditionally, georeferencing has been done in **GIS** (Geographic Information Systems).
 Thanks to modern, accessible web-mapping tools, platforms like **Allmaps** now make this process possible for non-experts—right in the browser.
@@ -54,7 +54,7 @@ At its core, IIIF enables **interoperability**—making it easier for cultural h
 
 Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/). ([source](https://iiif.io/get-started/how-iiif-works/))
 
-TODO: Compare "old" and "new" (Multispectral) images of Leardo Mappamundi in a mirador viewer?
+<!-- TODO: Compare "old" and "new" multispectral images of the Leardo Mappamundi in a Mirador viewer. -->
 
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
 Clicking on the expand arrows allows us to view the map in stunning detail directly in the browser—no need to download huge image files.
@@ -70,7 +70,7 @@ Allmaps excels at georeferencing:
 - County and state maps
 - Topographic or thematic map series
 
-TODO: Connect these source types to scholarly examples.
+<!-- TODO: Connect these source types to scholarly examples. -->
 
 The IIIF Consortium lists some collections at [this link](https://iiif.io/guides/finding_resources/), including:
 - [Library of Congress](https://www.loc.gov/maps)
@@ -81,12 +81,12 @@ If you launch the [Allmaps Editor](https://editor.allmaps.org), you'll see maps 
 To georeference a specific map from the [AGSL Digital Map Collection](https://uwm.edu/lib-collections/agsl-digital-map-collection/),
 you'll need to find its **IIIF Manifest URL**—located at the bottom of each item page.
 
-![Screenshot showing the location of the IIIF Manifest URL in the UWM digital collection]({{ '/assets/images/manifestURL.png' | relative_url }})
+{% include figure.html filename="manifestURL.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Finding the IIIF Manifest URL in the UWM digital collection." %}
 
-TODO: Consider if we want to include the browser extension at all.
+<!-- TODO: Consider if we want to include the browser extension at all. -->
 
 Other websites may require more sleuthing to find the manifest.
 On the David Rumsey Collection, it's listed under the **share** menu.
 If it’s not visible, tools like the [DetectIIIF browser extension](https://seige.digital/en/detektiiif/) can help.
 
-![Screenshot of the menu option to find IIIF manifests in the David Rumsey Map Collection]({{ '/assets/images/rumsey.png' | relative_url }})
+{% include figure.html filename="rumsey.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options." caption="Finding a IIIF manifest in the David Rumsey Map Collection." %}
