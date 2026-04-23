@@ -63,8 +63,7 @@ Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/).
 <!-- TODO: Compare "old" and "new" multispectral images of the Leardo Mappamundi in a Mirador viewer. -->
 
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
-Clicking on the expand arrows allows us to view the map in stunning detail directly in the browser—no need to download huge image files.
-But beyond making images zoomable, IIIF enables much more...
+Clicking on the expand arrows allows us to view the map in stunning detail directly in the browser. No need to download image files.
 
 <iframe
   src="{{ '/part-1/leardo-mirador.html' | relative_url }}"
@@ -76,11 +75,11 @@ But beyond making images zoomable, IIIF enables much more...
 
 ## Finding IIIF maps to use in Allmaps
 
-**Allmaps** works best with large-scale maps—such as city, county, state, or country maps.
-While it’s possible to georeference small-scale maps (like world maps), distortion introduced by the georeferencing process—especially in **Web Mercator**—can make them harder to work with.
+Allmaps works best with large-scale maps—such as city, county, state, or country maps.
+While it’s possible to georeference small-scale maps (like world maps), distortion introduced by the georeferencing process—especially in Web Mercator—can make them harder to work with.
 
 Allmaps excels at georeferencing:
-- City atlases
+- City atlases like fire insurance atlases and quartersectional atlases
 - County and state maps
 - Topographic or thematic map series
 
