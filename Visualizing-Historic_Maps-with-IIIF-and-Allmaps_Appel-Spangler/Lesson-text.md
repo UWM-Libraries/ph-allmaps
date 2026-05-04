@@ -29,14 +29,14 @@ Georeferencing turns scanned maps into spatial data. Once a map is aligned with 
 
 {% include figure.html filename="Figures/allmaps-historic-maps-01.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 1: The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
 
-For objects with multiple sheets or pages—such as urban atlases, georeferencing can make the experience easier and more engaging.
+For objects with multiple sheets or pages, such as urban atlases, georeferencing can make the experience easier and more engaging.
 
 A project by the Leventhal Map & Education Center at the Boston Public Library used Allmaps
 to georeference urban atlas sheets for their [Atlascope application](https://www.atlascope.org/).
 
 {% include figure.html filename="Figures/allmaps-historic-maps-02.png" alt="Atlascope viewer showing georeferenced urban atlas sheets over a modern map." caption="Figure 2: Georeferenced atlas sheets in Atlascope." %}
 
-Traditionally, georeferencing has been done in **GIS** (Geographic Information Systems).
+Traditionally, georeferencing has been done in GIS (Geographic Information Systems).
 Some workflows will still benefit from the power of desktop GIS applications, but the learning curve is considerable.
 For more detailed background, see [*Georeferencing and Georectification*](https://gistbok-topics.ucgis.org/DC-01-030) in the GIS&T Body of Knowledge.
 
@@ -66,7 +66,7 @@ maps, photographs, documents, and other media from all over the world.
 Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/).
 
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
-Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser.
+The expand controls allow us to view the map in full-resolution detail directly in the browser.
 You do not need to download image files.
 
 <iframe
@@ -76,6 +76,8 @@ You do not need to download image files.
   height="650"
   allowfullscreen>
 </iframe>
+
+[Open the Leardo Mappamundi comparison in a new page](Assets/leardo-mirador.html)
 
 ### Finding IIIF maps to use in Allmaps
 
@@ -89,14 +91,12 @@ Allmaps excels at georeferencing:
 
 #### IIIF Collections
 
-The IIIF Consortium lists compliant collections at [this link](https://iiif.io/guides/finding_resources/).
+The IIIF Consortium maintains a [list of compliant IIIF collections](https://iiif.io/guides/finding_resources/).
 When launching the
-<!-- TODO: Confirm with Bert that this feature will be around a while. -->
 [Allmaps Editor](https://editor.allmaps.org),
 you'll see maps hosted by various Allmaps partners that are waiting to be georeferenced.
 
 To georeference a specific map from a IIIF-compliant collection, copy its IIIF Manifest URL located at the bottom of each item page.
-
 The IIIF Manifest URL links to a JSON file that packages metadata information to display, annotate, and navigate the digital object.
 Allmaps uses this information to fetch the image information from the hosting institution's servers.
 
@@ -107,7 +107,7 @@ On the David Rumsey Collection, it's listed under the share menu.
 
 {% include figure.html filename="Figures/allmaps-historic-maps-04.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options." caption="Figure 4: Finding a IIIF manifest in the David Rumsey Map Collection." %}
 
-If it’s not visible, tools like the [DetectIIIF browser extension](https://seige.digital/en/detektiiif/) can help.
+If it’s not possible to find the manifest URL, tools like the [DetectIIIF browser extension](https://seige.digital/en/detektiiif/) can help.
 
 <!-- Begin Part 1.01 -->
 ## Allmaps Editor
@@ -121,13 +121,15 @@ You can choose a map by either:
 
 <iframe src="https://editor.allmaps.org/" title="Allmaps Editor"></iframe>
 
+[Open Allmaps Editor in a new page](https://editor.allmaps.org/)
+
 ### Masking
 
 The first step is adding a clipping mask. This involves drawing a line around the map areas of the document to exclude the collar or marginalia.
 In other words, you're identifying the part of the scanned image that you want to georeference.
 In the Allmaps lexicon, this defines a "map" on a region of the "image".
 
-Use the Draw Mask tab to add a mask. Click to add points, and double-click to close the polygon. If you mess up, click Cancel to start over.
+Use the `Draw mask` tab to add a mask. Click to add points, and double-click to close the polygon. If you mess up, click Cancel to start over.
 In the figure below, note that the pink line defines the mask and excludes the map collar from the defined map.
 
 {% include figure.html filename="Figures/allmaps-historic-maps-05.png" alt="Screenshot of Allmaps Editor with a polygon clipping mask drawn around the map area." caption="Figure 5: Drawing a clipping mask in Allmaps Editor." %}
@@ -136,17 +138,17 @@ It's possible your image includes multiple maps! Each map gets its own mask.
 In the figure below, three maps are defined from a single image:
 The main map image (labeled 1) and two inset map areas (labeled 2 and 3).
 
-{% include figure.html filename="Figures/allmaps-historic-maps-06.jpg" alt="Scanned page showing multiple maps on one sheet, each of which would need its own mask." caption="Figure 6: A scanned page with multiple maps." %}
+{% include figure.html filename="Figures/allmaps-historic-maps-06.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3." caption="Figure 6: A scanned page with multiple maps, each of which would need its own mask." %}
 
 Much of the time, your mask will simply be a rectangle drawn just inside the map's neatline.
 
-{% include figure.html filename="Figures/allmaps-historic-maps-07.png" alt="Screenshot of a simple rectangular mask drawn just inside a map's neatline." caption="Figure 7: A rectangular mask drawn near the map corners." %}
+{% include figure.html filename="Figures/allmaps-historic-maps-07.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 7: A rectangular mask drawn near the map corners." %}
 
 ### Ground Control Points
 
 Ground Control Points (GCPs) guide Allmaps in aligning the scanned image (left side) with real-world geography (right side).
 
-Use the Georeference tab to begin placing GCPs.
+Switch to the Georeference tab to begin placing GCPs.
 To create one, find a location that clearly matches on both sides, such as a street intersection or the corner of a recognizable building.
 Click the same spot on both images.
 In the figure below, note the pink dot labeled 2 on both sides of the image, in this case an easily identifiable location near Cape Reinga on the Aupōuri Peninsula of New Zealand.
@@ -188,13 +190,13 @@ Each point creates a pair of values:
 }
 ```
 
-Allmaps uses this data to calculate the warping or stretching needed to align the image over the map.
+Allmaps uses this data to calculate the warping or stretching (i.e. *transformation*) needed to align the image over the map.
 
 ### Results
 
-The *Results* tab displays a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track.
+The *Results* tab displays a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track. 
 
-Notice in the figure below how the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
+Notice in the figure below that the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
 
 {% include figure.html filename="Figures/allmaps-historic-maps-10.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 10: Previewing georeferencing results in Allmaps." %}
 
@@ -204,13 +206,13 @@ In the upper right, under *Export*, you’ll see a drawer with more tools:
 
 - Link to view in Allmaps Viewer
 - Link to the annotation
-- **Code** – shows the actual Georeference Annotation (JSON format).
+- *Code* – shows the actual Georeference Annotation (JSON format).
 - XYZ tile link (usable in web maps or GIS software)
 
 On the bottom right, under *Maps* you can find:
 
-- **Transformation** and **Projection** to modify the spatial information
-- **GCP List** – lists all your points; delete ones that don't work
+- *Transformation* and *Projection* to modify the spatial information
+- *GCP List* – lists all your points; delete ones that don't work
 
 <!-- TODO: Need updated screenshot. -->
 {% include figure.html filename="Figures/allmaps-historic-maps-11.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 11: The share menu in Allmaps." %}
@@ -225,7 +227,6 @@ Next we will work with the map in Allmaps Viewer.
 Similar to the *Results* tab in Editor, you can see the warped map overlaid on a web map.
 
 Viewer also includes additional tools that let you customize the appearance and functionality of your map.
-
 Common tools (found at the bottom of the screen) include sliders that control layer transparency/opacity and background removal.
 Background removal is especially useful with historical maps—it removes the blank paper and helps isolate printed geographic content from the scanned page, making overlays easier to interpret.
 
@@ -247,7 +248,7 @@ Allmaps Viewer has some useful keyboard shortcuts:
 
 ### Viewing Stitched Atlas Sheets
 
-Lynn, MA: https://annotations.allmaps.org/manifests/23379602e8187445
+Allmaps annotation for the Lynn, Massachusetts atlas sheets: [https://annotations.allmaps.org/manifests/23379602e8187445](https://annotations.allmaps.org/manifests/23379602e8187445)
 
 <iframe
   src="https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445"
@@ -265,21 +266,20 @@ Using <kbd>M</kbd> to display the mask lines shows how all the component maps fi
 When working with multi-sheet objects:
 
 - <kbd>[</kbd> and <kbd>]</kbd> – Cycle through maps
-- <kbd>Right Click</kbd> – Change map layer order
+- Open the map context menu, for example by right-clicking – Change map layer order
 
 ### Changing the Transformation Algorithm
 
 As we covered above, ground control points define locations where features match across old and new maps.
 A transformation algorithm uses these points to warp the image accordingly.
-
-Cycle through algorithms using <kbd>T</kbd>.
-
 Different algorithms will produce different results. Some stretch or distort the image more than others.
 This is known as *rubber sheeting*.
-
 Changing the transformation algorithm can change how you interpret the map, not just how it looks.
 Compare algorithms as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
 The animation below shows just how much changing the transformation algorithm can impact the overlay.
+
+Cycle through algorithms using <kbd>T</kbd>.
+
 
 {% include figure.html filename="Figures/allmaps-historic-maps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 13: Different transformation algorithms can produce different warping results." %}
 
@@ -792,7 +792,7 @@ npx http-server . -p 8000
 ```
 
 Then open `http://localhost:8000/paris-road-overlay.html` in your browser.
-You should see the 1821 Paris map with the medieval road network drawn over it in bright cyan.
+You should see the 1821 Paris map with the medieval road network drawn over it as high-contrast cyan lines.
 
 Allmaps gives us a transformation between geographic coordinates and map image pixels.
 In this example, we use that transformation to move GeoJSON into the image's own coordinate space, then draw the resulting SVG on top of the original IIIF image.
@@ -915,7 +915,6 @@ If a line is missing `\`, the command will terminate early and cause errors such
 Your updated `gdalwarp` command block should read like this:
 
 ```bash
-...
 gdalwarp \
   -of COG -co COMPRESS=JPEG -co QUALITY=75 \
   -dstalpha -overwrite \
@@ -928,7 +927,6 @@ gdalwarp \
   -order 1 \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif
-...
 ```
 
 Save the script file:
@@ -974,3 +972,5 @@ gdalinfo *-warped.tif
 You do not need to understand the full output; just confirm these values appear.
 
 You have now generated a georeferenced GeoTIFF from an Allmaps annotation. This file can be used in GIS software or served as a web-accessible raster.
+
+<!-- TODO: Concluding paragraph that brings it all together and suggests further steps -->
