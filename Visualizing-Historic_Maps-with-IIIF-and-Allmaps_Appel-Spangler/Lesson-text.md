@@ -155,7 +155,7 @@ In the figure below, note the pink dot labeled 2 on both sides of the image, in 
 - **Use roads and buildings** – as long as they haven’t been torn down or significantly altered.
 - **Check your progress** – sometimes only a few GCPs are needed. Too many can actually introduce unwanted distortion. A good check-in is after placing 5–10 points.
 
-These guidelines are adapted from the Leventhal Map & Education Center’s guide to georeferencing with Allmaps.[^1]
+These guidelines are adapted from the Leventhal Map & Education Center’s guide to [georeferencing with Allmaps](https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps).
 
 Remember, landscapes change: roads shift, water levels fluctuate, buildings are razed and replaced.
 
@@ -214,10 +214,6 @@ On the bottom right, under *Maps* you can find:
 
 Click the *View in Allmaps Viewer* link in the Export menu to continue.
 Next we will work with the map in Allmaps Viewer.
-
-## Endnotes
-<!-- [^1]: Firstname Lastname, *Book Title* (Place: Publisher, Year), page number. -->
-[^1]: Leventhal Map & Education Center, “Georeference Urban Atlases with Allmaps,” *Cartinal*, accessed April 22, 2026, https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps.
 
 <!-- Begin Part 1.02 -->
 # Allmaps Viewer
@@ -317,6 +313,9 @@ More info on the Allmaps Tile Server is available in this [Observable notebook](
 
 <!-- Begin Part 3.00 -->
 # Install the Allmaps CLI and dependencies
+
+So far, the lesson has focused on browser-based tools: finding IIIF resources, georeferencing a map in Allmaps Editor, and inspecting the result in Allmaps Viewer.
+The next sections move to the command line so you can reuse Allmaps georeferencing data in your own files and workflows.
 
 <div class="alert alert-warning">
 This portion assumes some familiarity with the command line in a Unix environment
@@ -574,7 +573,7 @@ For this example, we need three things:
 ### Create a Working Directory
 
 From the directory containing this lesson package, create a new working directory and copy the prepared GeoJSON files into it.
-This keeps the downloaded and generated files isolated while you practice generating outputs from Allmaps.
+This keeps the downloaded and generated files isolated while you practice using Allmaps from the command line.
 
 ```bash
 mkdir -p ~/allmaps-paris
@@ -797,18 +796,22 @@ In this example, we use that transformation to move GeoJSON into the image's own
 <!-- Begin Part 3.02 -->
 # Exporting a GeoTIFF with Allmaps CLI
 
-In this section, you will generate a georeferenced Cloud Optimized GeoTIFF (COG) from an Allmaps annotation.
+In the previous section, you used the Paris annotation to transform GeoJSON into image-space SVG.
+Now you will use the same annotation to generate a georeferenced Cloud Optimized GeoTIFF (COG).
 This format is commonly used for web maps and allows efficient access to large raster datasets.
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
 
-## Download the Georeference Annotation
+## Confirm the Georeference Annotation
 
-First, ensure we're in our working directory.
+First, ensure we're in our working directory:
 
 ```bash
 cd ~/allmaps-paris
 ```
+
+If `annotation.json` is already there from the previous section, you can keep using it.
+If not, download it now:
 
 ```bash
 curl -L "https://annotations.allmaps.org/images/adeae8a56aaf59fb" -o annotation.json
