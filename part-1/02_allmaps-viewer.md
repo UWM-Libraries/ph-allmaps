@@ -1,4 +1,4 @@
-## Allmaps Viewer
+# Allmaps Viewer
 
 [Allmaps Viewer](https://viewer.allmaps.org) is used to view georeferenced maps in Allmaps.
 Similar to the *Results* tab in Editor, you can see the warped map overlaid on a web map.

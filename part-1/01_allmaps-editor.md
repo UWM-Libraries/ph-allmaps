@@ -1,5 +1,4 @@
-
-## Allmaps Editor
+# Allmaps Editor
 
 Launch the Allmaps Editor by going to [editor.allmaps.org](https://editor.allmaps.org).
 

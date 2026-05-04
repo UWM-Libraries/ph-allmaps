@@ -1,3 +1,5 @@
+# Install the Allmaps CLI and dependencies
+
 <div class="alert alert-warning">
 This portion assumes some familiarity with the command line in a Unix environment
 (Linux, macOS, or a Unix-like environment on a Windows PC), installing packages,
