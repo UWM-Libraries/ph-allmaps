@@ -61,7 +61,7 @@ Clicking on the expand arrows allows us to view the map in full-resolution detai
 No need to download image files.
 
 <iframe
-  src="{{ '/part-1/leardo-mirador.html' | relative_url }}"
+  src="Assets/leardo-mirador.html"
   title="Side-by-side Mirador comparison of the original and multispectral Leardo Mappamundi"
   width="100%"
   height="650"
@@ -536,8 +536,8 @@ particularly if you're using an example other than the one provided.
 | Allmaps Image ID        | `adeae8a56aaf59fb` |
 | Image ID URL            | [https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550) |
 | Image Dimensions        | `10784 x 6941` |
-| Original source file | voiries1300_2009.json |
-| Lesson-ready file | voiries1300_2009_clean.json |
+| Original source file | Assets/voiries1300_2009.json |
+| Lesson-ready file | Assets/voiries1300_2009_clean.json |
 | Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
 | Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
 
@@ -553,7 +553,7 @@ as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe.
 
 [Download original data](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) (optional)
 
-The local file `voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
+The local file `Assets/voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `Assets/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
 
 ## Process Overview
 
@@ -567,23 +567,24 @@ Allmaps is not changing the GeoJSON into a new map projection for display in a w
 
 ## The ingredients
 
-<!-- TODO: Adjust relative file paths to match PH formatting -->
-
 For this example, we need three things:
 
 1. A historical image that has been georeferenced in Allmaps.
    Here that is the [1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/).
 2. The georeference annotation for that image.
-   Here that is `part-3/annotation.json`.
+   Here that is `annotation.json`, which you will create below.
 3. Some geographic data to overlay.
-   Here that is `part-3/voiries1300_2009_clean.json`.
+   Here that is `Assets/voiries1300_2009_clean.json`.
 
 ### Create a Working Directory
 
-Create a new directory for your image to keep it isolated from other images as you practice generating GeoTIFFs from Allmaps.
+From the directory containing this lesson package, create a new working directory and copy the prepared GeoJSON files into it.
+This keeps the downloaded and generated files isolated while you practice generating outputs from Allmaps.
 
 ```bash
 mkdir -p ~/allmaps-paris
+cp Assets/voiries1300_2009_clean.json ~/allmaps-paris/
+cp Assets/voiries1300_2009_clean.geometries.ndjson ~/allmaps-paris/
 cd ~/allmaps-paris
 ```
 
@@ -647,7 +648,7 @@ This is the moment where the CLI learns how the Paris image relates to real-worl
 ### Inspect the prepared GeoJSON
 
 Before transforming the GeoJSON, inspect the prepared file in two ways.
-First, open [https://geojson.io](https://geojson.io) in your browser and use the open/import function to load `voiries1300_2009_clean.json`.
+First, open [https://geojson.io](https://geojson.io) in your browser and use the open/import function to load `Assets/voiries1300_2009_clean.json`.
 
 You should see the medieval road network drawn over the modern basemap.
 This confirms that the file is valid GeoJSON with geographic longitude/latitude coordinates.
@@ -666,10 +667,10 @@ LineString
 
 This matters because the next steps assume each feature can be transformed and drawn as a line, rather than as mixed geometry types that would need extra cleanup or styling.
 
-To keep this lesson focused, the GeoJSON cleanup has already been done. This directory includes both the cleaned `FeatureCollection` and a prepared geometry stream for the CLI:
+To keep this lesson focused, the GeoJSON cleanup has already been done. The lesson package includes both the cleaned `FeatureCollection` and a prepared geometry stream for the CLI:
 
-* `part-3/voiries1300_2009_clean.json`
-* `part-3/voiries1300_2009_clean.geometries.ndjson`
+* `Assets/voiries1300_2009_clean.json`
+* `Assets/voiries1300_2009_clean.geometries.ndjson`
 
 The second file contains one geometry per line, ready to be piped into the local Allmaps CLI.
 `.ndjson` is a Newline Delimited JSON file.
