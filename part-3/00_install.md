@@ -55,23 +55,22 @@ sudo apt update
 sudo apt upgrade
 ```
 
-Download the NodeSource setup script for the current long-term support (LTS) version of Node.js:
+Install the current long-term support (LTS) version of Node.js using the standard installer or package manager for your operating system.
+
+On Ubuntu, Debian, or Ubuntu on WSL, you can use the instructions from Node.js:
+
+https://nodejs.org/en/download
+
+Use Node.js 22 or newer, preferably the current LTS version.
+
+After installation, confirm that Node.js and npm are available:
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh
+node --version
+npm --version
 ```
 
-Run the setup script:
-
-```bash
-sudo -E bash nodesource_setup.sh
-```
-
-Install Node.js:
-
-```bash
-sudo apt install nodejs
-```
+If both commands print version numbers, continue with the next step.
 
 Install GDAL:
 
@@ -89,13 +88,22 @@ Refresh Homebrew’s package list:
 brew update
 ```
 
-Install Node.js:
+Install Node.js. You can use the installer from Node.js or Homebrew.
 
 ```zsh
 brew install node
 ```
 
-Install GDAL (geospatial data abstraction library):
+After installation, confirm that Node.js and npm are available:
+
+```bash
+node --version
+npm --version
+```
+
+If both commands print version numbers, continue with the next step.
+
+Install GDAL:
 
 ```zsh
 brew install gdal
@@ -103,9 +111,7 @@ brew install gdal
 
 ## Install Allmaps CLI and dependencies
 
-This section is split into tools required for all examples and tools needed only for selected workflows.
-
-### Required for all examples
+Install the Allmaps CLI
 
 ```bash
 npm install -g @allmaps/cli
@@ -118,7 +124,7 @@ allmaps --help
 gdalinfo --version
 ```
 
-### Tools for GeoTIFF export
+## Tools for GeoTIFF export
 
 The GeoTIFF workflow uses jq to inspect IIIF Image API metadata and dezoomify-rs to download a full-resolution image when the source image dimensions do not match the Allmaps annotation.
 
@@ -135,9 +141,6 @@ brew install jq
 ```
 
 [`dezoomify-rs`](https://github.com/lovasoa/dezoomify-rs) is used for full image extraction.
-It requires Rust.
-
-Install dezoomify-rs.
 
 On Ubuntu/Debian or Ubuntu on WSL, install Rust and then install dezoomify-rs with Cargo:
 
@@ -151,19 +154,19 @@ Load Cargo in your current terminal session:
 source "$HOME/.cargo/env"
 ```
 
-Install dezoomify-rs:
-
-```bash
-cargo install dezoomify-rs
-```
-
 Confirm Cargo is available:
 
 ```bash
 cargo --version
 ```
 
-On macOS, install dezoomify-rs with Homebrew:
+Install dezoomify-rs:
+
+```bash
+cargo install dezoomify-rs
+```
+
+On macOS, install dezoomify-rs with Homebrew instead:
 
 ```zsh
 brew install dezoomify-rs
