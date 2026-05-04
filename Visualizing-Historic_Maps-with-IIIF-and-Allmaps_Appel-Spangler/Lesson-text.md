@@ -5,7 +5,7 @@
 
 [Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) is the process of overlaying a digital image on a map by matching pixels on the image to real geographic locations. This is commonly done with aerial and satellite photography to transform photographs into usable spatial data.
 
-A few other Programming Hisotrian lessons have already worked with georeferencing workflows:
+A few other Programming Historian lessons have already worked with georeferencing workflows:
 
 - [Displaying a Georeferenced Map in KnightLab's StoryMap JS](https://programminghistorian.org/en/lessons/displaying-georeferenced-map-knightlab-storymap-js)
 - [Introduction to Map Warper](https://programminghistorian.org/en/lessons/introduction-map-warper)
@@ -58,7 +58,7 @@ Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/).
 
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
 Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser.
-No need to download image files.
+You do not need to download image files.
 
 <iframe
   src="Assets/leardo-mirador.html"
@@ -88,11 +88,11 @@ When launching the
 [Allmaps Editor](https://editor.allmaps.org),
 you'll see maps hosted by various Allmaps partners that are waiting to be georeferenced.
 
-To georeference a specific map from a IIIF compliant collection, copy its IIIF Manifest URL located at the bottom of each item page.
+To georeference a specific map from a IIIF-compliant collection, copy its IIIF Manifest URL located at the bottom of each item page.
 
 The IIIF Manifest URL links to a JSON file that packages metadata information to display, annotate, and navigate the digital object.
 Allmaps uses this information to fetch the image information from the hosting institution's servers.
-<!-- TODO: Confirm above technical description. -->\
+<!-- TODO: Confirm above technical description. -->
 
 {% include figure.html filename="Figures/manifestURL.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Finding the IIIF Manifest URL in the UWM digital collection." %}
 
@@ -115,11 +115,11 @@ You can choose a map by either:
 1. Entering a IIIF Manifest URL in the text box at the top of the page
 2. Scrolling down to find a map in one of the highlighted collections
 
- <iframe src="https://editor.allmaps.org/" title="Allmaps Editor"></iframe> 
+<iframe src="https://editor.allmaps.org/" title="Allmaps Editor"></iframe>
 
 ## Masking
 
-The first step is adding a clipping mask. This involves drawing a line around the map areas of the document to exclude the collar or marginalia. 
+The first step is adding a clipping mask. This involves drawing a line around the map areas of the document to exclude the collar or marginalia.
 In other words, you're identifying the part of the scanned image that you want to georeference.
 In the Allmaps lexicon, this defines a "map" on a region of the "image".
 
@@ -157,15 +157,13 @@ In the figure below, note the pink dot labeled 2 on both sides of the image, in 
 
 These guidelines are adapted from the Leventhal Map & Education Center’s guide to georeferencing with Allmaps.[^1]
 
-Remember, landscapes change: roads shift, water levels fluctuate, buildings are raized and replaced.
+Remember, landscapes change: roads shift, water levels fluctuate, buildings are razed and replaced.
 
 ### What is this doing?
 
 Behind the scenes, placing GCPs in Allmaps creates a [*Georeference Annotation*](https://iiif.io/api/extension/georef/).
 It's possible to view the georeference annotation JSON code right in Allmaps, as shown in the figure below.
-The *features* object contains 
-
-
+The *features* object contains the coordinate pairs created by the GCPs.
 
 <!-- TODO: Refer to this diagram in text when introducing resource and geometry coordinates. -->
 {% include figure.html filename="Figures/georef_nz2_2.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Resource coordinates and geometry coordinates in a georeference annotation." %}
@@ -193,7 +191,7 @@ Allmaps uses this data to calculate the warping or stretching needed to align th
 
 The *Results* tab displays a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track.
 
-Notice in the figure below how the maps is displayed with it's collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
+Notice in the figure below how the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
 
 {% include figure.html filename="Figures/georef_nz5_result.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Previewing georeferencing results in Allmaps." %}
 
@@ -208,7 +206,7 @@ In the upper right, under *Export*, you’ll see a drawer with more tools:
 
 On the bottom right, under *Maps* you can find:
 
-- **Transformation** and **Projection** to modify the spatial information 
+- **Transformation** and **Projection** to modify the spatial information
 - **GCP List** – lists all your points; delete ones that don't work
 
 <!-- TODO: Need updated screenshot. -->
@@ -217,7 +215,7 @@ On the bottom right, under *Maps* you can find:
 Click the *View in Allmaps Viewer* link in the Export menu to continue.
 Next we will work with the map in Allmaps Viewer.
 
-##### Endnotes
+## Endnotes
 <!-- [^1]: Firstname Lastname, *Book Title* (Place: Publisher, Year), page number. -->
 [^1]: Leventhal Map & Education Center, “Georeference Urban Atlases with Allmaps,” *Cartinal*, accessed April 22, 2026, https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps.
 
@@ -265,7 +263,7 @@ Lynn, MA: https://annotations.allmaps.org/manifests/23379602e8187445
 
 [View in Allmaps Viewer](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445)
 
-Since these atlas pages were carfully masked, they mosaic almost seamlessly allowing one to explore the whole atlas at once.
+Since these atlas pages were carefully masked, they mosaic almost seamlessly, allowing one to explore the whole atlas at once.
 Using <kbd>M</kbd> to display the mask lines shows how all the component maps fit together.
 
 When working with multi-sheet objects:
@@ -285,7 +283,7 @@ This is known as *rubber sheeting*.
 
 Changing the transformation algorithm can change how you interpret the map, not just how it looks.
 Compare algorithms as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
-The animation below shows just how much changing the transofrmation algorithm can impact the overlay.
+The animation below shows just how much changing the transformation algorithm can impact the overlay.
 
 {% include figure.html filename="Figures/transform.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Different transformation algorithms can produce different warping results." %}
 
@@ -433,7 +431,7 @@ brew install gdal
 
 ## Install Allmaps CLI and dependencies
 
-Install the Allmaps CLI
+Install the Allmaps CLI:
 
 ```bash
 npm install -g @allmaps/cli
@@ -541,10 +539,7 @@ particularly if you're using an example other than the one provided.
 | Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
 | Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
 
-
-
 </div>
-
 
 ### Data note
 
@@ -642,7 +637,7 @@ You should see output like this:
 ...
 ```
 
-That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
+That command translates the annotation into Allmaps' internal `GeoreferencedMap` format.
 This is the moment where the CLI learns how the Paris image relates to real-world coordinates.
 
 ### Inspect the prepared GeoJSON
@@ -807,8 +802,8 @@ This format is commonly used for web maps and allows efficient access to large r
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
 
-<!-- TODO: this annotation should be the same as the one we downloaded in the geojson portion. Overwrite? -->
-### Download the Georeference Annotation
+<!-- TODO: this annotation should be the same as the one we downloaded in the GeoJSON portion. Overwrite? -->
+## Download the Georeference Annotation
 
 First, ensure we're in our working directory.
 
@@ -822,7 +817,7 @@ curl -L "https://annotations.allmaps.org/images/adeae8a56aaf59fb" -o annotation.
 
 Swap out `adeae8a56aaf59fb` for whatever Allmaps image you're working with.
 
-### Download the IIIF Image
+## Download the IIIF Image
 
 ```bash
 allmaps fetch full-image "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550"
@@ -854,7 +849,7 @@ dezoomify-rs "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550" full.jpg
 mv full.jpg adeae8a56aaf59fb.jpg
 ```
 
-### Generate the GeoTIFF Script
+## Generate the GeoTIFF Script
 
 ```bash
 cat annotation.json | allmaps script geotiff > paris_geotiff.sh
@@ -864,7 +859,7 @@ This will generate a shell script file `paris_geotiff.sh` that you will run soon
 
 **The generated script expects a specific filename; if yours differs, it will fail.**
 
-### Edit the Script
+## Edit the Script
 
 Open the script in VS Code or your text editor of choice:
 
@@ -875,7 +870,7 @@ code paris_geotiff.sh
 # nano
 nano paris_geotiff.sh
 
-#etc.
+# etc.
 ```
 
 Look for this block near line 66:
@@ -892,7 +887,7 @@ gdalwarp \
   -order 1 \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif
-```  
+```
 
 This command uses [`gdalwarp`](https://gdal.org/en/stable/programs/gdalwarp.html) to apply the georeferencing from the annotation and generate a georeferenced raster.
 
@@ -928,7 +923,7 @@ gdalwarp \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt \
   ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif
 ...
-```  
+```
 
 Save the script file:
 
@@ -942,13 +937,13 @@ Save the script file:
 There is [an issue](https://github.com/allmaps/allmaps/issues/261) related to the `-cutline_srs` flag on the Allmaps repository.
 </div>
 
-### Run the Script
+## Run the Script
 
 ```bash
 bash paris_geotiff.sh
 ```
 
-If the script runs succesffully, the output file is now georeferenced using the control points from the Allmaps annotation.
+If the script runs successfully, the output file is now georeferenced using the control points from the Allmaps annotation.
 
 <div class="alert alert-warning">
 Troubleshooting script failures and errors:
@@ -958,7 +953,7 @@ Troubleshooting script failures and errors:
 * Triple check your filenames and ensure they match what the shell script expects.
 </div>
 
-### Verify the Output with GDAL
+## Verify the Output with GDAL
 
 ```bash
 gdalinfo *-warped.tif
