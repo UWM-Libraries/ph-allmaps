@@ -1,11 +1,13 @@
 # Exporting a GeoTIFF with Allmaps CLI
 
-This guide outlines the steps for generating a Cloud Optimized GeoTIFF (COG) of a map of Green Bay from the AGSL collection using the Allmaps CLI and GDAL.
+This portion outlines the steps for generating a Cloud Optimized GeoTIFF (COG) of a map of Green Bay from the AGSL collection using the Allmaps CLI and GDAL.
 
-Below under Source Information, you will find URLs for the map of Green Bay I'm using for this example.
+Below under Source Information, you will find URLs for the map used for this example.
 It's a good idea to open up a document and record URLs for the resources you're working with so it's easy to copy-paste them.
 
 ### Collect Source Information
+
+<!-- TODO: consider using a less local example from our curated annotations. -->
 
 <div class="table-wrapper" markdown="block">
 
@@ -36,7 +38,7 @@ cd ~/allmaps/agsl-green-bay
 curl -L "https://annotations.allmaps.org/images/82b3f8acb9a05d5b" -o annotation.json
 ```
 
-Swap out `82b3f8acb9a05d5b` for whatever Allmaps image you're trying to work with.
+Swap out `82b3f8acb9a05d5b` for whatever Allmaps image you're working with.
 
 ### 3. Download the IIIF Image
 
@@ -72,12 +74,8 @@ cat annotation.json | allmaps script geotiff > green_bay_geotiff.sh
 
 This will generate a shell script file `green_bay_geotiff.sh` that you will run soon.
 
-If you inspect the contents of the file,
-you will see that the image name is hardcoded into the
-GDAL commands used in the script.
-This is why it's crucially important to know what you named your
-image file and that it matches the
-expected name in the annotation.
+If you inspect the contents of the file, you will see that the image name is hardcoded into the GDAL commands used in the script.
+This is why it's crucially important to know what you named your image file and that it matches the expected name in the annotation.
 
 ### 5. Edit the Script
 
@@ -97,7 +95,7 @@ Make these adjustments:
 
 - **Remove** any `-cutline_srs` flag if present.
 - **Add** `-multi -wm 2048` to the `gdalwarp` command. (Include '\')
-- **Ensure** the image filename matches yours: `"82b3f8acb9a05d5b.jpg"`
+- **Ensure** the image filename matches yours: `"82b3f8acb9a05d5b.jpg"` (Yours will be different!)
 - **Verify** the output filenames in `gdalwarp` and `gdalbuildvrt` are consistent, and use `\` for line continuation if the command spans multiple lines.
 
 <div class="alert alert-warning">

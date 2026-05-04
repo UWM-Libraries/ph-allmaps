@@ -1,5 +1,5 @@
 <div class="alert alert-warning">
-This lesson assumes some familiarity with the command line in a Unix environment
+This portion assumes some familiarity with the command line in a Unix environment
 (Linux, macOS, or a Unix-like environment on a Windows PC), installing packages,
 and generating and running scripts from the command line.
 

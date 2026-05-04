@@ -1,5 +1,3 @@
-# Lesson 3: Doing more with Allmaps
-
 ## Allmaps Viewer
 
 [Allmaps Viewer](https://viewer.allmaps.org) is used to view georeferenced maps in Allmaps.
