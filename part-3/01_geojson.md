@@ -180,7 +180,7 @@ From `annotation.json`, we know the original image dimensions:
       ...
 ```
 
-Create a file named `paris-road-overlay.html` that contains the content below:
+Create a file named `paris-road-overlay.html` (in the same directory as `voiries1300_2009.svg`) that contains the content below:
 
 ```html
 <!doctype html>
@@ -257,8 +257,6 @@ npx http-server . -p 8000
 
 Then open `http://localhost:8000/paris-road-overlay.html` in your browser.
 You should see the 1821 Paris map with the medieval road network drawn over it in bright cyan.
-
-### Takeaway
 
 Allmaps gives us a transformation between geographic coordinates and map image pixels.
 In this example, we use that transformation to move GeoJSON into the image's own coordinate space, then draw the resulting SVG on top of the original IIIF image.
