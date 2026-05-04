@@ -124,8 +124,13 @@ allmaps --help
 gdalinfo --version
 ```
 
-## Tools for GeoTIFF export
+One example in this portion uses a small local web server to preview files in the browser.
+If Python 3 is already installed, you can use its built-in server.
+Alternatively, because this lesson already uses Node.js and npm, you can use `npx http-server`.
 
+## Tools for JSON inspection and GeoTIFF export
+
+The GeoJSON workflow uses jq to inspect geometry types.
 The GeoTIFF workflow uses jq to inspect IIIF Image API metadata and dezoomify-rs to download a full-resolution image when the source image dimensions do not match the Allmaps annotation.
 
 On Ubuntu/Debian or Ubuntu on WSL, install jq:

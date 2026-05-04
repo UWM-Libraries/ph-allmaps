@@ -12,37 +12,39 @@ For the main walkthrough, this example overlays the full medieval road network f
 
 | Resource | Location / URL |
 | --- | --- |
-| AGSL Map of Paris, 1821 | `https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/` |
+| AGSL Map of Paris, 1821 | [https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/) |
 | Original source file | `part-3/voiries1300_2009.json` |
 | Lesson-ready file | `part-3/voiries1300_2009_clean.json` |
-| Original ALPAGE source page | `https://alpage.huma-num.fr/ancient-urban-fabric/` |
-| Original ALPAGE download | `https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip` |
-| Stanford redistribution record | `https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546` |
-| Viewer URL | `https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb` |
-| Georef annotation | `https://annotations.allmaps.org/images/adeae8a56aaf59fb` |
+| Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
+| Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
+| Stanford redistribution record | [https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546](https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546) |
+| Viewer URL | [https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb) |
+| Georef annotation | [https://annotations.allmaps.org/images/adeae8a56aaf59fb](https://annotations.allmaps.org/images/adeae8a56aaf59fb) |
 
 </div>
 
 ### Data note
 
-The road network was originally published by ALPAGE as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe. The Stanford/Geodiscovery record linked above is a later redistribution of that ALPAGE dataset. The local file `part-3/voiries1300_2009.json` is derived from that source, and for this lesson I also saved a cleaned teaching version, `part-3/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
+The road network was originally published by ALPAGE as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe. The Stanford/Geodiscovery record linked above is a later redistribution of that ALPAGE dataset. The local file `part-3/voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `part-3/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
 
 ## Process Overview
 
-1. Start with a georeferenced historical image.
-2. Fetch the published georeference annotation for that image.
-3. Feed that annotation to the Allmaps CLI so it can build a transformation between geographic coordinates and image pixels.
+1. Start with a historical map georeferenced with Allmaps.
+2. Fetch the published georeference annotation (JSON) for that image.
+3. Feed that annotation to the Allmaps CLI to build the transformation between geographic coordinates and image pixels.
 4. Convert your GeoJSON from longitude/latitude into SVG coordinates measured in the original image space.
-5. Draw that SVG on top of the unwarped IIIF image.
+5. Display the transformed SVG as an overlay on the original, unwarped IIIF image.
 
-Allmaps is not changing the GeoJSON into a new map projection for display in Leaflet. It is converting the GeoJSON into image-space coordinates so the shapes can be drawn directly on the scanned map image.
+Allmaps is not changing the GeoJSON into a new map projection for display in a web map. It is converting the GeoJSON into image-space coordinates so the shapes can be drawn directly on the scanned map image.
 
 ### The ingredients
+
+<!-- TODO: Adjust relative file paths to match PH formatting -->
 
 For this example, we need three things:
 
 1. A historical image that has been georeferenced in Allmaps.
-   Here that is the 1821 AGSL Paris map.
+   Here that is the [1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/).
 2. The georeference annotation for that image.
    Here that is `part-3/annotation.json`.
 3. Some geographic data to overlay.
@@ -50,7 +52,7 @@ For this example, we need three things:
 
 ### Step 1: Fetch `annotation.json` from the manifest URL
 
-Because this IIIF manifest is already georeferenced in Allmaps, we can fetch its published annotation directly with `curl`:
+Because this IIIF manifest is already georeferenced in Allmaps, we can fetch its published annotation directly with `curl` and write it as a `.json` file:
 
 ```bash
 curl -L 'https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json' \
@@ -70,7 +72,7 @@ This works because the Allmaps annotations service can look up the published geo
 
 ### Step 2: Confirm that the map has georeference metadata
 
-The local file `part-3/annotation.json` is a Georeference Annotation exported from Allmaps. It contains:
+The file `annotation.json` contains:
 
 * the IIIF image identifier
 * the image dimensions
@@ -80,7 +82,7 @@ The local file `part-3/annotation.json` is a Georeference Annotation exported fr
 You can inspect it with:
 
 ```bash
-npx allmaps annotation parse annotation.json
+allmaps annotation parse annotation.json
 ```
 
 You should see output like this:
@@ -103,11 +105,17 @@ You should see output like this:
 ```
 
 That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
-Conceptually, this is the moment where the CLI learns how the Paris image relates to real-world coordinates.
+This is the moment where the CLI learns how the Paris image relates to real-world coordinates.
 
-### Step 3: Look closely at the GeoJSON you want to draw
+### Step 3: Inspect the prepared GeoJSON
 
-Start by checking what kinds of geometry appear in the file:
+Before transforming the GeoJSON, inspect the prepared file in two ways.
+First, open [https://geojson.io](https://geojson.io) in your browser and use the open/import function to load `voiries1300_2009_clean.json`.
+
+You should see the medieval road network drawn over the modern basemap.
+This confirms that the file is valid GeoJSON with geographic longitude/latitude coordinates.
+
+Then use `jq` to check what kinds of geometry appear in the file:
 
 ```bash
 jq -r '[.features[].geometry.type] | unique[]' 'voiries1300_2009_clean.json'
@@ -119,21 +127,22 @@ For this dataset, the result is:
 LineString
 ```
 
-### Step 4: Use the prepared CLI input
+This matters because the next steps assume each feature can be transformed and drawn as a line, rather than as mixed geometry types that would need extra cleanup or styling.
 
-To keep this lesson in scope, the GeoJSON cleanup has already been done. Alongside the cleaned `FeatureCollection`, this directory includes a prepared geometry stream for the CLI:
+To keep this lesson focused, the GeoJSON cleanup has already been done. This directory includes both the cleaned `FeatureCollection` and a prepared geometry stream for the CLI:
 
 * `part-3/voiries1300_2009_clean.json`
 * `part-3/voiries1300_2009_clean.geometries.ndjson`
 
 The second file contains one geometry per line, ready to be piped into the local Allmaps CLI.
+`.ndjson` is a Newline Delimited JSON file.
 
-### Step 5: Transform GeoJSON into image-space SVG
+### Step 4: Transform GeoJSON into image-space SVG
 
 Now we can run the actual Allmaps transformation:
 
 ```bash
-npx allmaps transform geojson \
+allmaps transform geojson \
   -a annotation.json \
   < voiries1300_2009_clean.geometries.ndjson \
   > voiries1300_2009.svg
@@ -141,32 +150,27 @@ npx allmaps transform geojson \
 
 If this runs without error, expect not to see anything output to your shell.
 
-This command is worth unpacking:
+This command is worth unpacking carefully:
 
-* `transform geojson` take geographic geometry and convert it into resource coordinates
+* `transform geojson` takes geographic geometry and converts it into resource coordinates
 * `-a annotation.json` supplies the georeference annotation
 * `< voiries1300_2009_clean.geometries.ndjson` sends the prepared geometries into the command through standard input
 * `> voiries1300_2009.svg` saves the transformed output as SVG
-* `\` is a line contiuation character, this simply tells our shell to treat the next line as part of the same command.
+* `\` is a line continuation character. It tells the shell to treat the next line as part of the same command.
 
 The result is not new GeoJSON. It is an SVG graphic whose coordinates match the pixel grid of the 1821 Paris image.
 
-### Step 6: Overlay the SVG on the IIIF image
+### Step 5: Overlay the SVG on the IIIF image
 
 Once `voiries1300_2009.svg` exists, the hard part is done. You now have:
 
 * the historical image served via IIIF
 * an SVG whose coordinates line up with that image
 
-#### 5a. Use the historical image as the base layer
+For a quick visual check, make a small web page.
+The page creates an SVG with the IIIF image first, then adds the transformed road lines on top.
 
-The AGSL Paris map is available as a IIIF image service. The full image URL is:
-
-```text
-https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/full/full/0/default.jpg
-```
-
-From `annotation.json`, we already know the image dimensions:
+From `annotation.json`, we know the original image dimensions:
 
 ```json
     "resource": {
@@ -176,121 +180,85 @@ From `annotation.json`, we already know the image dimensions:
       ...
 ```
 
-Those dimensions become the shared extent for both the map image and the overlay.
+Create a file named `paris-road-overlay.html` that contains the content below:
 
-#### 5b. Use a pixel-space projection in OpenLayers
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Paris road overlay</title>
+    <style>
+      body {
+        margin: 0;
+      }
 
-For this kind of overlay, we are not building a Web Mercator map.
-We are building an image viewer.
-So the OpenLayers projection can simply use image pixels as its units.
+      svg {
+        display: block;
+        width: 100vw;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
 
-That means the extent is:
+    <script>
+      const width = 10784
+      const height = 6941
+      const imageUrl =
+        'https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/full/full/0/default.jpg'
 
-```js
-const extent = [0, 0, 10784, 6941]
+      // Use fetch() to request the file voiries1300_2009.svg
+      async function main() {
+        const transformedSvg = await fetch('voiries1300_2009.svg').then(
+          (response) => response.text()
+        )
+
+        // Take the SVG generated by Allmaps, remove its outer wrapper
+        const roadLines = transformedSvg
+          .replace('<svg xmlns="http://www.w3.org/2000/svg">', '')
+          .replace('</svg>', '')
+          // Style the road lines in cyan for high contrast
+          .replaceAll(
+            '<polyline ',
+            '<polyline style="stroke: #00ffff; fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;" '
+          )
+
+        // Find the empty map container, fill it with one SVG containing the Paris map image plus the transformed road overlay.
+        document.querySelector('#map').innerHTML = `
+          <svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">
+            <image href="${imageUrl}" width="${width}" height="${height}" />
+            ${roadLines}
+          </svg>
+        `
+      }
+
+      main()
+    </script>
+  </body>
+</html>
 ```
 
-#### 5c. Load the SVG as a second image layer
+This HTML page loads the original IIIF image, reads the SVG created by Allmaps, styles the road lines, and draws both layers together in the same pixel coordinate space.
 
-The file `voiries1300_2009.svg` contains the transformed street segments. 
-Because its coordinates already match the map image,
-OpenLayers can draw it on top of the base image as long as both layers use the same extent.
+Because the page uses `fetch()` to load `voiries1300_2009.svg`, open it through a small local web server.
 
-One practical detail is that the generated SVG does not include a `viewBox`, `width`, or `height`,
-so the example page adds those before passing the SVG to OpenLayers.
-
-Here are the most important blocks from `openlayers-overlay.html`:
-
-First, the page defines a pixel-based projection using the image dimensions:
-
-```js
-const width = 10784
-const height = 6941
-const extent = [0, 0, width, height]
-
-const projection = new ol.proj.Projection({
-  code: 'paris-image-pixels',
-  units: 'pixels',
-  extent
-})
-```
-
-Next, it fetches the transformed SVG and injects the missing `width`, `height`, and `viewBox` attributes so OpenLayers can treat it as an image layer:
-
-```js
-async function createOverlayUrl() {
-  const svgText = await fetch('./voiries1300_2009.svg').then(
-    (response) => response.text()
-  )
-
-  const styledSvg = svgText.replace(
-    '<svg xmlns="http://www.w3.org/2000/svg">',
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">`
-  )
-
-  return URL.createObjectURL(
-    new Blob([styledSvg], { type: 'image/svg+xml' })
-  )
-}
-```
-
-Finally, it creates two `ImageStatic` layers with the same extent: one for the IIIF base image and one for the SVG overlay:
-
-```js
-new ol.Map({
-  target: 'map',
-  layers: [
-    new ol.layer.Image({
-      source: new ol.source.ImageStatic({
-        url: iiifImageUrl,
-        imageExtent: extent,
-        projection
-      })
-    }),
-    new ol.layer.Image({
-      source: new ol.source.ImageStatic({
-        url: overlayUrl,
-        imageExtent: extent,
-        projection
-      })
-    })
-  ],
-  view: new ol.View({
-    projection,
-    center: ol.extent.getCenter(extent),
-    zoom: 4
-  })
-})
-```
-
-#### 5d. Run the example
-
-This directory now includes a minimal example page. Serve the current directory with either Python or Node.js:
+If Python 3 is installed, use its built-in server:
 
 ```bash
 python3 -m http.server 8000
 ```
-
-or
+Alternatively, use Node/npm:
 
 ```bash
 npx http-server . -p 8000
 ```
 
-Then open `http://localhost:8000/openlayers-overlay.html` in your browser.
-
-#### What the OpenLayers example is doing
-
-The example page does four important things:
-
-1. creates a custom OpenLayers projection whose units are image pixels
-2. loads the IIIF map image as an `ImageStatic` layer
-3. loads the transformed SVG as another `ImageStatic` layer
-4. assigns both layers the same extent, so they line up
-
+Then open `http://localhost:8000/paris-road-overlay.html` in your browser.
+You should see the 1821 Paris map with the medieval road network drawn over it in bright cyan.
 
 ### Takeaway
 
-1. Allmaps gives us a transformation between map image pixels and geographic coordinates.
-2. We use that transformation backwards to move GeoJSON into the image's own coordinate space.
-3. The output becomes SVG because SVG is a natural format for drawing vector shapes over an image.
+Allmaps gives us a transformation between geographic coordinates and map image pixels.
+In this example, we use that transformation to move GeoJSON into the image's own coordinate space, then draw the resulting SVG on top of the original IIIF image.
