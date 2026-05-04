@@ -8,24 +8,38 @@ In the command-line examples below, `jq` is a small tool for inspecting and resh
 
 For the main walkthrough, this example overlays the full medieval road network from around 1300 on the 1821 AGSL map of Paris.
 
+It is helpful to keep a record of the URLs for the resources you are working with for easy reference,
+particularly if you're using an example other than the one provided.
+
 <div class="table-wrapper" markdown="block">
 
 | Resource | Location / URL |
 | --- | --- |
 | AGSL Map of Paris, 1821 | [https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/) |
-| Original source file | `part-3/voiries1300_2009.json` |
-| Lesson-ready file | `part-3/voiries1300_2009_clean.json` |
+| IIIF Manifest URL       | [https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json](https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json) |
+| Viewer URL | [https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb) |
+| Georeference annotation | [https://annotations.allmaps.org/images/adeae8a56aaf59fb](https://annotations.allmaps.org/images/adeae8a56aaf59fb) |
+| Allmaps Image ID        | `adeae8a56aaf59fb` |
+| Image ID URL            | [https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550) |
+| Image Dimensions        | `10784 x 6941` |
+| Original source file | voiries1300_2009.json |
+| Lesson-ready file | voiries1300_2009_clean.json |
 | Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
 | Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
-| Stanford redistribution record | [https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546](https://geodiscovery.uwm.edu/catalog/stanford-vt213bp3546) |
-| Viewer URL | [https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb) |
-| Georef annotation | [https://annotations.allmaps.org/images/adeae8a56aaf59fb](https://annotations.allmaps.org/images/adeae8a56aaf59fb) |
+
+
 
 </div>
 
+
 ### Data note
 
-The road network was originally published by ALPAGE as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe. The Stanford/Geodiscovery record linked above is a later redistribution of that ALPAGE dataset. The local file `part-3/voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `part-3/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
+The road network was originally [published by ALPAGE](https://alpage.huma-num.fr/ancient-urban-fabric/)
+as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe.
+
+[Download original data](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) (optional)
+
+The local file `voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
 
 ## Process Overview
 
@@ -37,7 +51,7 @@ The road network was originally published by ALPAGE as “Road network in 1300�
 
 Allmaps is not changing the GeoJSON into a new map projection for display in a web map. It is converting the GeoJSON into image-space coordinates so the shapes can be drawn directly on the scanned map image.
 
-### The ingredients
+## The ingredients
 
 <!-- TODO: Adjust relative file paths to match PH formatting -->
 
@@ -50,7 +64,16 @@ For this example, we need three things:
 3. Some geographic data to overlay.
    Here that is `part-3/voiries1300_2009_clean.json`.
 
-### Step 1: Fetch `annotation.json` from the manifest URL
+### Create a Working Directory
+
+Create a new directory for your image to keep it isolated from other images as you practice generating GeoTIFFs from Allmaps.
+
+```bash
+mkdir -p ~/allmaps-paris
+cd ~/allmaps-paris
+```
+
+### Fetch `annotation.json` from the manifest URL
 
 Because this IIIF manifest is already georeferenced in Allmaps, we can fetch its published annotation directly with `curl` and write it as a `.json` file:
 
@@ -70,7 +93,7 @@ You will see some output like this:
 
 This works because the Allmaps annotations service can look up the published georeference annotation for a manifest URL that already exists in Allmaps.
 
-### Step 2: Confirm that the map has georeference metadata
+### Confirm that the map has georeference metadata
 
 The file `annotation.json` contains:
 
@@ -107,7 +130,7 @@ You should see output like this:
 That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
 This is the moment where the CLI learns how the Paris image relates to real-world coordinates.
 
-### Step 3: Inspect the prepared GeoJSON
+### Inspect the prepared GeoJSON
 
 Before transforming the GeoJSON, inspect the prepared file in two ways.
 First, open [https://geojson.io](https://geojson.io) in your browser and use the open/import function to load `voiries1300_2009_clean.json`.
@@ -137,7 +160,7 @@ To keep this lesson focused, the GeoJSON cleanup has already been done. This dir
 The second file contains one geometry per line, ready to be piped into the local Allmaps CLI.
 `.ndjson` is a Newline Delimited JSON file.
 
-### Step 4: Transform GeoJSON into image-space SVG
+### Transform GeoJSON into image-space SVG
 
 Now we can run the actual Allmaps transformation:
 
@@ -160,7 +183,7 @@ This command is worth unpacking carefully:
 
 The result is not new GeoJSON. It is an SVG graphic whose coordinates match the pixel grid of the 1821 Paris image.
 
-### Step 5: Overlay the SVG on the IIIF image
+### Overlay the SVG on the IIIF image
 
 Once `voiries1300_2009.svg` exists, the hard part is done. You now have:
 
