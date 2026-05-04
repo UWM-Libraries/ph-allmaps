@@ -802,7 +802,6 @@ This format is commonly used for web maps and allows efficient access to large r
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
 
-<!-- TODO: this annotation should be the same as the one we downloaded in the GeoJSON portion. Overwrite? -->
 ## Download the Georeference Annotation
 
 First, ensure we're in our working directory.
