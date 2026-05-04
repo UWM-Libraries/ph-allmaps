@@ -65,8 +65,6 @@ maps, photographs, documents, and other media from all over the world.
 
 Learn more at [iiif.io](https://iiif.io/get-started/how-iiif-works/).
 
-<!-- TODO: Compare "old" and "new" multispectral images of the Leardo Mappamundi in a Mirador viewer. -->
-
 Take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/).
 Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser.
 You do not need to download image files.
@@ -89,8 +87,6 @@ Allmaps excels at georeferencing:
 - County and state maps, highway maps, and recreation maps
 - Topographic or thematic map series
 
-<!-- TODO: Connect these source types to scholarly examples. -->
-
 #### IIIF Collections
 
 The IIIF Consortium lists compliant collections at [this link](https://iiif.io/guides/finding_resources/).
@@ -103,11 +99,8 @@ To georeference a specific map from a IIIF-compliant collection, copy its IIIF M
 
 The IIIF Manifest URL links to a JSON file that packages metadata information to display, annotate, and navigate the digital object.
 Allmaps uses this information to fetch the image information from the hosting institution's servers.
-<!-- TODO: Confirm above technical description. -->
 
 {% include figure.html filename="Figures/allmaps-historic-maps-03.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Figure 3: Finding the IIIF Manifest URL in the UWM digital collection." %}
-
-<!-- TODO: Consider if we want to include the browser extension at all. -->
 
 Other websites may require more sleuthing to find the manifest.
 On the David Rumsey Collection, it's listed under the share menu.
@@ -176,7 +169,6 @@ Behind the scenes, placing GCPs in Allmaps creates a [*Georeference Annotation*]
 It's possible to view the georeference annotation JSON code right in Allmaps, as shown in the figure below.
 The *features* object contains the coordinate pairs created by the GCPs.
 
-<!-- TODO: Refer to this diagram in text when introducing resource and geometry coordinates. -->
 {% include figure.html filename="Figures/allmaps-historic-maps-09.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 9: Resource coordinates and geometry coordinates in a georeference annotation." %}
 
 Each point creates a pair of values:
@@ -240,7 +232,6 @@ Background removal is especially useful with historical maps—it removes the bl
 Viewer is not primarily for creating georeferencing data, but for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
-<!-- TODO: Refer to this comparison the text. -->
 {% include figure.html filename="Figures/allmaps-historic-maps-12.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 12: Background removal in Allmaps Viewer." %}
 
 <div class="alert alert-warning">
@@ -255,8 +246,6 @@ Allmaps Viewer has some useful keyboard shortcuts:
 </div>
 
 ### Viewing Stitched Atlas Sheets
-
-<!-- TODO: Explain why stitched viewing matters methodologically. -->
 
 Lynn, MA: https://annotations.allmaps.org/manifests/23379602e8187445
 
@@ -318,7 +307,11 @@ Now you can use your georeferenced map directly in desktop GIS!
 
 {% include figure.html filename="Figures/allmaps-historic-maps-17.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 17: A georeferenced map displayed in QGIS." %}
 
-<!-- TODO: Explain limitations of the Allmaps tile server, frame it as relatively short term. -->
+The Allmaps Tile Server is useful for desktop GIS and other software that needs an XYZ tile URL,
+but it is more costly to run because each requested tile has to be fetched, warped, and returned by a server.
+The Allmaps Tile Server is intended for testing, so tiles may load slowly, break, or stop working.
+
+When you control the web map, Allmaps Viewer or the Allmaps plugins for OpenLayers and Leaflet are usually more efficient because they can warp IIIF images directly in the browser.
 
 More info on the Allmaps Tile Server is available in this [Observable notebook](https://observablehq.com/@allmaps/allmaps-tile-server).
 
