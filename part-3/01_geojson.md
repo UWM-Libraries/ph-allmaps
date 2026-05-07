@@ -130,6 +130,21 @@ You should see output like this:
 That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
 This is the moment where the CLI learns how the Paris image relates to real-world coordinates.
 
+### For this lesson: Use different annotation locally
+
+You've successfully fetched and prepared a georeference annotation. Nice! This is really important to understand as a part of working with the Allmaps software ecosystem.
+
+In this lesson, however, we're actually going to use a "frozen" version of this georeference annotation. Instead of pointing to the "live" one in the Allmaps database---which can be edited by anyone, as is the nature of crowdsourced georferencing---we'll simply point to a file in the *Programming Historian* GitHub repository: <https://laksjdnflakslfanlsdk.github/ajkhsdf>
+
+From here on out, you can use the georeference annotation at <https://laksjdnflakslfanlsdk.github/ajkhsdf>.
+
+To use this, simply `curl` it from GitHub the same way that you used `curl` for the previous annotation. You can even name it the same thing, and overwrite the previous `annotation.json` file:
+
+```sh
+curl -L 'https://laksjdnflakslfanlsdk.github/ajkhsdf.json' \
+  > annotation.json
+```
+
 ### Inspect the prepared GeoJSON
 
 Before transforming the GeoJSON, inspect the prepared file in two ways.

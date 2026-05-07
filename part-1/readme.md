@@ -1,4 +1,11 @@
 ---
-title: Part 1
-subtitle: Working with IIIF, Allmaps, and digital map collections
+title: 'Working with Allmaps (Part I)'
+subtitle: Core principles of IIIF-powered georeferencing
+authors:
+  - Stephen Appel
+  - Ian Spangler
 ---
+
+Lesson goals
+------------
+

@@ -1,5 +1,7 @@
 # Allmaps Editor
 
+
+
 Launch the Allmaps Editor by going to [editor.allmaps.org](https://editor.allmaps.org).
 
 You can choose a map by either:
@@ -12,10 +14,13 @@ You can choose a map by either:
 ## Masking
 
 The first step is adding a clipping mask. This involves drawing a line around the map areas of the document to exclude the collar or marginalia. 
+
 In other words, you're identifying the part of the scanned image that you want to georeference.
+
 In the Allmaps lexicon, this defines a "map" on a region of the "image".
 
 Use the Draw Mask tab to add a mask. Click to add points, and double-click to close the polygon. If you mess up, click Cancel to start over.
+
 In the figure below, note that the pink line defines the mask and excludes the map collar from the defined map.
 
 {% include figure.html filename="georef_nz3_Mask.png" alt="Screenshot of Allmaps Editor with a polygon clipping mask drawn around the map area." caption="Drawing a clipping mask in Allmaps Editor." %}

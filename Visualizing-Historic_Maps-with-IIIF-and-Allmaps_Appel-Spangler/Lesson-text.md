@@ -315,6 +315,19 @@ When you control the web map, Allmaps Viewer or the Allmaps plugins for OpenLaye
 
 More info on the Allmaps Tile Server is available in this [Observable notebook](https://observablehq.com/@allmaps/allmaps-tile-server).
 
+<!-- Begin Part 2.00 -->
+## Understanding georeference annotation data in Allmaps
+
+Here we say something more specific about georeference annotations and the hierarchy of Allmaps annotation data. Starting with "manifests", then "images," then "maps", do a little explaining about the API.
+
+This is a unique convention in Allmaps that sort of mirrors the data structure of IIIF---e.g., in a manifest, we have "Canvas", "Image", but no concept of different maps internal to an image. In Allmaps, we have "manifests" which contain "images" which contain "maps."
+
+Via the Allmaps API, the georeference annotation allows you to traverse all of these things. (not easily! but you can do it.)
+
+## Sample dataset
+
+Urban atlas mesh. Readers can do a little bit of fetching, parsing, and viewing with different parts of the urban atlas annotation.
+
 <!-- Begin Part 3.00 -->
 ## Install the Allmaps CLI and dependencies
 

@@ -1,0 +1,5 @@
+# Lesson goals
+
+In this lesson, you'll learn the core concepts behind georeferencing with [Allmaps](https://allmaps.org), an open-source software ecosystem for georeferencing maps entirely in a web browser. Drawing on maps from collections including the American Geographical Society Library (AGSL) and the Leventhal Map & Education Center (LMEC), you will use Allmaps' web applications and command-line interface to overlay different IIIF maps in geographic space.
+
+Developed by Bert Spaan and Jules Schoonman, Allmaps uses the International Image Interoperability Framework (IIIF) to warp maps directly in a web browser. It consists of two main applications---Allmaps Editor (https://editor.allmaps.org) and Allmaps Viewer (https://viewer.allmaps.org)---but Allmaps also provides a capacious set of command-line tools for exporting and transforming georeference data.
