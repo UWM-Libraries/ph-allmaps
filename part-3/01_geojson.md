@@ -8,8 +8,7 @@ In the command-line examples below, `jq` is a small tool for inspecting and resh
 
 For the main walkthrough, this example overlays the full medieval road network from around 1300 on the 1821 AGSL map of Paris.
 
-It is helpful to keep a record of the URLs for the resources you are working with for easy reference,
-particularly if you're using an example other than the one provided.
+It is helpful to keep a record of the URLs for the resources you are working with for easy reference, particularly if you're using an example other than the one provided.
 
 <div class="table-wrapper" markdown="block">
 
@@ -27,15 +26,11 @@ particularly if you're using an example other than the one provided.
 | Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
 | Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
 
-
-
 </div>
-
 
 ### Data note
 
-The road network was originally [published by ALPAGE](https://alpage.huma-num.fr/ancient-urban-fabric/)
-as “Road network in 1300” by Caroline Bourlet and Anne-Laure Bethe.
+The road network was originally [published by ALPAGE](https://alpage.huma-num.fr/ancient-urban-fabric/) as "Road network in 1300" by Caroline Bourlet and Anne-Laure Bethe.
 
 [Download original data](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) (optional)
 
@@ -134,14 +129,12 @@ This is the moment where the CLI learns how the Paris image relates to real-worl
 
 You've successfully fetched and prepared a georeference annotation. Nice! This is really important to understand as a part of working with the Allmaps software ecosystem.
 
-In this lesson, however, we're actually going to use a "frozen" version of this georeference annotation. Instead of pointing to the "live" one in the Allmaps database---which can be edited by anyone, as is the nature of crowdsourced georferencing---we'll simply point to a file in the *Programming Historian* GitHub repository: <https://laksjdnflakslfanlsdk.github/ajkhsdf>
-
-From here on out, you can use the georeference annotation at <https://laksjdnflakslfanlsdk.github/ajkhsdf>.
+In this lesson, however, we're actually going to use a "frozen" version of this georeference annotation. Instead of pointing to the "live" one in the Allmaps database---which can be edited by anyone, as is the nature of crowdsourced georferencing---we'll simply use a local copy at <https://github.com/account/annotation.json>.
 
 To use this, simply `curl` it from GitHub the same way that you used `curl` for the previous annotation. You can even name it the same thing, and overwrite the previous `annotation.json` file:
 
 ```sh
-curl -L 'https://laksjdnflakslfanlsdk.github/ajkhsdf.json' \
+curl -L 'https://github.com/account/annotation.json' \
   > annotation.json
 ```
 

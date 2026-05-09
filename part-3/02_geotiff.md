@@ -1,6 +1,7 @@
 # Exporting a GeoTIFF with Allmaps CLI
 
 In this section, you will generate a georeferenced Cloud Optimized GeoTIFF (COG) from an Allmaps annotation.
+
 This format is commonly used for web maps and allows efficient access to large raster datasets.
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).

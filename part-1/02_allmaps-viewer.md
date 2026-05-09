@@ -6,9 +6,11 @@ Similar to the *Results* tab in Editor, you can see the warped map overlaid on a
 Viewer also includes additional tools that let you customize the appearance and functionality of your map.
 
 Common tools (found at the bottom of the screen) include sliders that control layer transparency/opacity and background removal.
+
 Background removal is especially useful with historical maps—it removes the blank paper and helps isolate printed geographic content from the scanned page, making overlays easier to interpret.
 
-Viewer is not primarily for creating georeferencing data, but for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
+Viewer is not used to georeference maps. Instead, it's used for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
+
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
 <!-- TODO: Refer to this comparison the text. -->
@@ -42,6 +44,7 @@ Lynn, MA: https://annotations.allmaps.org/manifests/23379602e8187445
 [View in Allmaps Viewer](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445)
 
 Since these atlas pages were carfully masked, they mosaic almost seamlessly allowing one to explore the whole atlas at once.
+
 Using <kbd>M</kbd> to display the mask lines shows how all the component maps fit together.
 
 When working with multi-sheet objects:
@@ -52,20 +55,23 @@ When working with multi-sheet objects:
 ## Changing the Transformation Algorithm
 
 As we covered above, ground control points define locations where features match across old and new maps.
+
 A transformation algorithm uses these points to warp the image accordingly.
 
 Cycle through algorithms using <kbd>T</kbd>.
 
 Different algorithms will produce different results. Some stretch or distort the image more than others.
-This is known as *rubber sheeting*.
 
 Changing the transformation algorithm can change how you interpret the map, not just how it looks.
+
 Compare algorithms as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
+
 The animation below shows just how much changing the transofrmation algorithm can impact the overlay.
 
 {% include figure.html filename="transform.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Different transformation algorithms can produce different warping results." %}
 
 Once you have checked how the map behaves in the viewer, you can also use the same georeferenced map outside Allmaps.
+
 The viewer is useful for inspecting alignment and transformation; XYZ tiles make the warped map available as a layer in desktop GIS software.
 
 ## Using XYZ Tiles in GIS

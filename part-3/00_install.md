@@ -31,6 +31,7 @@ For more detailed setup instructions, see Microsoft’s [Install WSL](https://le
 
 If you don't have a Linux distribution set up for WSL, install Ubuntu via PowerShell.
 Ubuntu can also be installed from the Microsoft Store after WSL is enabled, but PowerShell handles both steps in one workflow.
+
 Open PowerShell as an administrator and install WSL:
 
 ```powershell
@@ -128,12 +129,14 @@ gdalinfo --version
 
 One example in this portion uses a small local web server to preview files in the browser.
 If Python 3 is already installed, you can use its built-in server.
+
 Alternatively, because this lesson already uses Node.js and npm, you can use `npx http-server`.
 
 ## Tools for JSON inspection and GeoTIFF export
 
-The GeoJSON workflow uses jq to inspect geometry types.
-The GeoTIFF workflow uses jq to inspect IIIF Image API metadata and dezoomify-rs to download a full-resolution image when the source image dimensions do not match the Allmaps annotation.
+The GeoJSON workflow uses `jq` to inspect geometry types.
+
+The GeoTIFF workflow uses `jq` to inspect IIIF Image API metadata and `dezoomify-rs` to download a full-resolution image when the source image dimensions do not match the Allmaps annotation.
 
 On Ubuntu/Debian or Ubuntu on WSL, install jq:
 
@@ -149,7 +152,7 @@ brew install jq
 
 [`dezoomify-rs`](https://github.com/lovasoa/dezoomify-rs) is used for full image extraction.
 
-On Ubuntu/Debian or Ubuntu on WSL, install Rust and then install dezoomify-rs with Cargo:
+On Ubuntu/Debian or Ubuntu on WSL, install Rust and then install `dezoomify-rs` with Cargo:
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
