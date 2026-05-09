@@ -10,13 +10,13 @@ Let's get into it...
 
 ## Copy the template
 
-The `leaflet-demo` folder in this repository contains three files that provide a pretty minimal working demo of the Allmaps Leaflet plugin in a simple Leaflet web map. Those files are:
+The `allmaps-leaflet-demo` folder in this repository contains three files that provide a pretty minimal working demo of the Allmaps Leaflet plugin in a simple Leaflet web map. Those files are:
 
 - `index.html`: the web page structure for our simple web map
 - `script.js`: the necessary JavaScript for creating a Leaflet map with two layers, a base map and an Allmaps overlay
 - `style.css`: a CSS file that makes the map visible
 
-Open the `leaflet-demo` folder in a text editor like VS Code. If need be, install the "Live Server" extension by Ritwick Dey, which allows you to view the web map as local files in a web browser. You can install the extension by searching "Live Server" in the "Extensions" tab (the little building blocks) of VS Code.
+Open the `allmaps-leaflet-demo` folder in a text editor like VS Code. If need be, install the "Live Server" extension by Ritwick Dey, which allows you to view the web map as local files in a web browser. You can install the extension by searching "Live Server" in the "Extensions" tab (the little building blocks) of VS Code.
 
 If you click "Go Live" in the bottom right-hand corner of VS Code, the Leaflet web map should open in your default web browser.
 
