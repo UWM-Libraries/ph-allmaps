@@ -10,16 +10,14 @@ const map = L.map("map", {
 
 // make and load base map
 
-let tileLayerDetails = [
-  {
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 14,
-    maxZoom: 24,
-    crossOrigin: true,
-  },
-];
-let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+let tileLayerDetails = {
+  tileSize: 512,
+  zoomOffset: -1,
+  minZoom: 14,
+  maxZoom: 24,
+  crossOrigin: true,
+};
+let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", tileLayerDetails).addTo(map);
 
 // define and load default warped maps
 

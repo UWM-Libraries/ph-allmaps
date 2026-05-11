@@ -20,7 +20,7 @@ Open the `allmaps-leaflet-demo` folder in a text editor like VS Code. If need be
 
 If you click "Go Live" in the bottom right-hand corner of VS Code, the Leaflet web map should open in your default web browser.
 
-The rest of this part of the lesson will explain what's going on in the code. We'll explain some of the basic concepts behind HTML, JavaScript, and CSS, but space constrains us from going into greater detail.
+The rest of this section will explain what's going on in the code. We'll explain some of the basic concepts behind HTML, JavaScript, and CSS, but space constrains us from going into greater detail.
 
 If you want to learn more about Leaflet, check out these *Programming Historian* lessons by [Kim Pham on geocoding](https://programminghistorian.org/en/lessons/mapping-with-python-leaflet) and [Stephanie J. Richmond and Tommy Tavenner on maps of correspondences](https://programminghistorian.org/en/lessons/using-javascript-to-create-maps). 
 
@@ -43,7 +43,7 @@ Lines 11 and 12 load Leaflet and the Allmaps Leaflet plugins:
 <script type="module" src="https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js"></script>
 ```
 
-Line 15 loads Lefalet's external CSS library:
+Line 15 loads Leaflet's external CSS library:
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -127,21 +127,19 @@ We want to add a base map to our Leaflet map. We'll use OpenStreetMap's free XYZ
 First, we define options for the XYZ tiles:
 
 ```js
-let tileLayerDetails = [
-  {
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 14,
-    maxZoom: 24,
-    crossOrigin: true,
-  },
-];
+let tileLayerDetails = {
+  tileSize: 512,
+  zoomOffset: -1,
+  minZoom: 14,
+  maxZoom: 24,
+  crossOrigin: true,
+};
 ```
 
 Then, we can add it to the map with a single line of code:
 
 ```js
-let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", tileLayerDetails).addTo(map);
 ```
 
 Next, now that our map has been instantiated and contains an OpenStreetMap base, we define two new variables:

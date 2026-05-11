@@ -8,22 +8,11 @@ For an introduction to COGs and how they enable efficient, web-based access to r
 
 ### Confirm the Georeference Annotation
 
-First, ensure we're in our working directory:
-
-```bash
-cd ~/allmaps-paris
-```
-
-If `annotation.json` is already there from the previous section, you can keep using it.
-If you are working through this section by itself with the lesson's Paris example, copy the frozen annotation from the repository:
-
-```bash
-cp part-3/annotation.json ~/allmaps-paris/
-```
-
-If you are using a different map, use the annotation for that map instead.
+If you are working through this section with the lesson's Paris example, use the frozen annotation at `annotation.json`. If you are using a different map, use the annotation for that map instead.
 
 ### Download the IIIF Image
+
+<!-- TODO: Add a short paragraph explaining why GeoTIFF export is fussier than the GeoJSON workflow: the generated script expects local image filenames and matching source-image dimensions. -->
 
 ```bash
 allmaps fetch full-image "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550"

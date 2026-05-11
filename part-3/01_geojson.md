@@ -48,32 +48,28 @@ Allmaps is not changing the GeoJSON into a new map projection for display in a w
 
 ## The ingredients
 
-<!-- TODO: Adjust relative file paths to match PH formatting -->
-
 For this example, we need three things:
 
 1. A historical image that has been georeferenced in Allmaps.
    Here that is the [1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/).
 2. The georeference annotation for that image.
-   Here that is `part-3/annotation.json`, a frozen copy included with this repository.
+   Here that is `annotation.json`, a frozen copy included with this directory.
 3. Some geographic data to overlay.
-   Here that is `part-3/voiries1300_2009_clean.json`.
+   Here that is `voiries1300_2009_clean.json`.
 
-### Create a Working Directory
+### Start from the lesson directory
 
-Create a new directory for your image to keep it isolated from other images as you practice generating GeoTIFFs from Allmaps, then copy the prepared files into it.
+Run these commands from the directory containing this lesson file. The prepared annotation and GeoJSON files are already included here.
 
 ```bash
-mkdir -p ~/allmaps-paris
-cp part-3/annotation.json ~/allmaps-paris/
-cp part-3/voiries1300_2009_clean.json ~/allmaps-paris/
-cp part-3/voiries1300_2009_clean.geometries.ndjson ~/allmaps-paris/
-cd ~/allmaps-paris
+ls annotation.json
+ls voiries1300_2009_clean.json
+ls voiries1300_2009_clean.geometries.ndjson
 ```
 
 ### Use the frozen `annotation.json`
 
-Because Allmaps georeferencing data can be edited, this lesson uses a frozen copy of the Paris georeference annotation included at `part-3/annotation.json`.
+Because Allmaps georeferencing data can be edited, this lesson uses a frozen copy of the Paris georeference annotation included at `annotation.json`.
 
 That local copy was downloaded from the Allmaps annotations service using the Paris map's IIIF manifest URL:
 
@@ -140,8 +136,8 @@ This matters because the next steps assume each feature can be transformed and d
 
 To keep this lesson focused, the GeoJSON cleanup has already been done. This directory includes both the cleaned `FeatureCollection` and a prepared geometry stream for the CLI:
 
-* `part-3/voiries1300_2009_clean.json`
-* `part-3/voiries1300_2009_clean.geometries.ndjson`
+* `voiries1300_2009_clean.json`
+* `voiries1300_2009_clean.geometries.ndjson`
 
 The second file contains one geometry per line, ready to be piped into the local Allmaps CLI.
 `.ndjson` is a Newline Delimited JSON file.
