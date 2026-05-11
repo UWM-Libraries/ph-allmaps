@@ -172,4 +172,6 @@ In Leaflet-speak, these are called "layer controls," and you can [read more abou
 
 <iframe src="allmaps-leaflet-demo/index.html" width=100% height="500px"></iframe>
 
+[View sample map in a new window](allmaps-leaflet-demo/index.html){:target="_blank"}
+
 Try adding different annotations (just note you'll have to update the `center` array, which is hard-coded to a lat/long pair for Boston).
