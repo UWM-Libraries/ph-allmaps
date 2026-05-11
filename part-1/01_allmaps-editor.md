@@ -11,8 +11,6 @@ Allmaps uses metadata in the IIIF manifest to fetch image data from the host ins
 
 {% include figure.html filename="manifestURL.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Finding the IIIF Manifest URL in the UWM digital collection." %}
 
-<iframe src="https://editor.allmaps.org/" title="Allmaps Editor"></iframe> 
-
 This lesson will use a lot of screenshots from georeferencing this [chart of New Zealand](https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/), but you should pick a different map to geoference.
 
 ## Draw Mask
