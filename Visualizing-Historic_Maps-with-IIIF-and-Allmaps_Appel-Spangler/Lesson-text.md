@@ -316,11 +316,23 @@ In the upper right, under *Export*, you’ll see a drawer with more tools:
 
 On the bottom right, under *Maps* you can find:
 
-- **Transformation** and **Projection** to modify the spatial information
-- *GCP List* – lists all your points; delete ones that don't work
+- **Transformation** and **Projection** to modify how the map is warped and how its coordinates are stored
+- **GCP List** – lists all your points; delete ones that don't work
+
+The *Transformation* option controls the algorithm Allmaps uses to warp the image from your control points. Different algorithms will produce different results. 
+Some stretch or distort the image more than others, so changing the transformation can change how you interpret the map, not just how it looks.
+
+The *Projection* option lets you choose the projection used for the map's geospatial coordinates.
+These settings are written into the georeference annotation, so they become part of the map data that Viewer, the tile server, and other Allmaps tools read later.
+
+Compare transformation and projection options as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
+
+The animation below shows just how much changing the transformation algorithm can impact the overlay.
+
+{% include figure.html filename="figures/allmaps-historic-maps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 13: Different transformation algorithms can produce different warping results." %}
 
 <!-- TODO: Need updated screenshot. -->
-{% include figure.html filename="figures/allmaps-historic-maps-13.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 13: The share menu in Allmaps." %}
+{% include figure.html filename="figures/allmaps-historic-maps-14.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 14: The share menu in Allmaps." %}
 
 Click the *View in Allmaps Viewer* link in the Export menu to continue.
 Next we will work with the map in Allmaps Viewer.
@@ -336,11 +348,11 @@ Common tools (found at the bottom of the screen) include sliders that control la
 
 Background removal is especially useful with historical maps—it removes the blank paper and helps isolate printed geographic content from the scanned page, making overlays easier to interpret.
 
-Viewer is not used to georeference maps. Instead, it's used for inspecting results, comparing transformations, and assessing how a warped historical map behaves in relation to modern geography.
+Viewer is not used to georeference maps. Instead, it's used for inspecting results and assessing how a warped historical map behaves in relation to modern geography.
 
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
-{% include figure.html filename="figures/allmaps-historic-maps-14.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 14: Background removal in Allmaps Viewer." %}
+{% include figure.html filename="figures/allmaps-historic-maps-15.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 15: Background removal in Allmaps Viewer." %}
 
 <div class="alert alert-warning">
 Allmaps Viewer has some useful keyboard shortcuts:
@@ -376,27 +388,9 @@ When working with multi-sheet objects:
 - <kbd>[</kbd> and <kbd>]</kbd> – Cycle through maps
 - Open the map context menu, for example by right-clicking – Change map layer order
 
-### Changing the Transformation Algorithm
-
-As we covered above, ground control points define locations where features match across old and new maps.
-
-A transformation algorithm uses these points to warp the image accordingly.
-
-Different algorithms will produce different results. Some stretch or distort the image more than others.
-
-Changing the transformation algorithm can change how you interpret the map, not just how it looks.
-
-Compare algorithms as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
-
-Cycle through algorithms using <kbd>T</kbd>.
-
-The animation below shows just how much changing the transformation algorithm can impact the overlay.
-
-{% include figure.html filename="figures/allmaps-historic-maps-15.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 15: Different transformation algorithms can produce different warping results." %}
-
 Once you have checked how the map behaves in the viewer, you can also use the same georeferenced map outside Allmaps.
 
-The viewer is useful for inspecting alignment and transformation; XYZ tiles make the warped map available as a layer in desktop GIS software.
+The viewer is useful for inspecting alignment; XYZ tiles make the warped map available as a layer in desktop GIS software.
 
 ### Using XYZ Tiles in GIS
 

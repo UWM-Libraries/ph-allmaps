@@ -121,8 +121,14 @@ In the upper right, under *Export*, you’ll see a drawer with more tools:
 
 On the bottom right, under *Maps* you can find:
 
-- **Transformation** and **Projection** to modify the spatial information 
+- **Transformation** and **Projection** to modify how the map is warped and how its coordinates are stored
 - **GCP List** – lists all your points; delete ones that don't work
+
+The *Transformation* option controls the algorithm Allmaps uses to warp the image from your control points. Different algorithms will produce different results. Some stretch or distort the image more than others, so changing the transformation can change how you interpret the map, not just how it looks.
+
+The *Projection* option lets you choose the projection used for the map's geospatial coordinates. These settings are written into the georeference annotation, so they become part of the map data that Viewer, the tile server, and other Allmaps tools read later.
+
+Compare transformation and projection options as different interpretations of the same control points, and pay attention to places where the map stretches, bends, or preserves local detail.
 
 <!-- TODO: Need updated screenshot. -->
 {% include figure.html filename="georef_nz6_Share.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="The share menu in Allmaps." %}
