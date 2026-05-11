@@ -18,7 +18,7 @@ Traditionally, georeferencing requires uploading an image file, like a `JPG` or 
 
 In this lesson, we introduce **[the Allmaps platform](https://allmaps.org)**: an open-source set of tools for curating and georeferencing digital maps.
 
-{% include figure.html filename="figures/allmaps-historic-maps-18.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform" caption="A georeferenced historic map, overlaid in the Allmaps platform" %}
+{% include figure.html filename="figures/allmaps-historic-maps-01.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform" caption="Figure 1: A georeferenced historic map, overlaid in the Allmaps platform." %}
 
 Allmaps is a free, publicly accessible, and web-based solution to georeferencing. Instead of requiring users to upload image files to a GIS or web client, Allmaps fetches image files directly from digital collections and dynamically warps them in a web browser. It's powered by a simple JSON file---a *georeference annotation*---which contains all the metadata necessary to warp a map. In addition to providing a simple interface for georeferencing, Allmaps provides a robust set of command-line tools and web-mapping libraries that advanced users can use to extend their research and visualization workflows.
 
@@ -29,8 +29,6 @@ You'll learn:
 3. How to use Allmaps to view and georeference IIIF maps
 4. Some of Allmaps' advanced features, including command-line tools
 5. How to use Allmaps with open-source web mapping tools like Leaflet
-
-<!-- TODO: Revisit this outline so it matches the final single-lesson structure and does not imply a separate three-part publication structure. -->
 
 ### Why georeference?
 
@@ -47,7 +45,7 @@ Once a digitized map is aligned with geographic coordinates, it becomes possible
 - Join sheets from an atlas or map set into a larger composite
 - Derive geospatial data for further analysis
 
-{% include figure.html filename="figures/allmaps-historic-maps-01.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 1: The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
+{% include figure.html filename="figures/allmaps-historic-maps-02.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 2: The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
 
 Traditional georeferencing solutions are built into geographic information systems (GIS) like QGIS or ArcGIS. Although GIS-based georeferencing tools can still be useful for some workflows, they do have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where the International Image Interoperability Framework (IIIF) comes in: Allmaps' IIIF-powered georeferencing capabilities make it easier to do more with georeferenced maps, provided you have a basic handle on IIIF.
 
@@ -71,7 +69,7 @@ The main problem that IIIF responds to is that digital images can be huge. Even 
 
 Consider the map below, *Kaart van het Brugse Vrije* by Pieter II Claeissens. It's physically massive. As Jan Trachet writes, [digitizing it](https://www.leventhalmap.org/articles/mapathon-1571/) required taking dozens of separate photographs and stitching them together in software like Photoshop.
 
-{% include figure.html filename="figures/allmaps-historic-maps-19.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens." caption="Photographing the Claeissens wall map." %}
+{% include figure.html filename="figures/allmaps-historic-maps-03.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens." caption="Figure 3: Photographing the Claeissens wall map." %}
 
 It also takes up many gigabytes of storage. Delivering multiple gigabytes of image data over the web is a pretty big payload---and that large payload is exactly what most libraries and museums are often dealing with.
 
@@ -108,9 +106,7 @@ A "manifest" is the prime unit in IIIF. Like the manifest for a plane or a ship,
 
 Once you have the manifest, you can do a lot with it. Take, for instance, the Leardo Mappamundi we mentioned above. Its digital collection record is:
 
-> !TIP
->
-> Click each of the URLs to open them in a new tab as you go.
+**Tip:** Open each of the URLs in a new tab as you go.
 
 <a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/538/">
 
@@ -120,7 +116,7 @@ https://collections.lib.uwm.edu/digital/collection/agdm/id/538/
 
 </a>
 
-The Leardo map's IIIF manifest is listed at the bottom of the page, near the <img src="../../images/iiif.png" style="border:none;vertical-align:middle;" width=25px> logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data:
+The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data:
 
 <a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json">
 
@@ -206,7 +202,7 @@ First, launch the Allmaps Editor by going to [editor.allmaps.org](https://editor
 
 Allmaps uses metadata in the IIIF manifest to fetch image data from the host institution's servers.
 
-{% include figure.html filename="figures/allmaps-historic-maps-03.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Figure 3: Finding the IIIF Manifest URL in the UWM digital collection." %}
+{% include figure.html filename="figures/allmaps-historic-maps-05.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Figure 5: Finding the IIIF Manifest URL in the UWM digital collection." %}
 
 <iframe src="https://editor.allmaps.org/" title="Allmaps Editor"></iframe>
 
@@ -220,17 +216,17 @@ Use the "Draw Mask" tab to add a mask. Click to add points, and double-click to 
 
 In the figure below, note that the pink line defines the mask and excludes the map collar from the defined map.
 
-{% include figure.html filename="figures/allmaps-historic-maps-05.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area." caption="Figure 5: Drawing a clipping mask in Allmaps Editor." %}
+{% include figure.html filename="figures/allmaps-historic-maps-06.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area." caption="Figure 6: Drawing a clipping mask in Allmaps Editor." %}
 
 It's possible your image includes multiple maps! If so, each map gets its own mask.
 
 In the figure below, three maps are defined from a single image: the main map image (labeled 1) and two inset map areas (labeled 2 and 3).
 
-{% include figure.html filename="figures/allmaps-historic-maps-06.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3." caption="Figure 6: A scanned page with multiple maps, each of which would need its own mask." %}
+{% include figure.html filename="figures/allmaps-historic-maps-07.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3." caption="Figure 7: A scanned page with multiple maps, each of which would need its own mask." %}
 
 Much of the time, your mask will simply be a rectangle drawn just inside the map's neatline.
 
-{% include figure.html filename="figures/allmaps-historic-maps-07.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 7: A rectangular mask drawn near the map corners." %}
+{% include figure.html filename="figures/allmaps-historic-maps-08.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 8: A rectangular mask drawn near the map corners." %}
 
 ### Georeference
 
@@ -244,7 +240,7 @@ Click the same spot on both images.
 
 In the figure below, note the pink dot labeled `2` on both sides of the image, in this case an easily identifiable location near Cape Reinga on the Aupōuri Peninsula of New Zealand.
 
-{% include figure.html filename="figures/allmaps-historic-maps-08.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap." caption="Figure 8: Adding ground control points in Allmaps Editor." %}
+{% include figure.html filename="figures/allmaps-historic-maps-09.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap." caption="Figure 9: Adding ground control points in Allmaps Editor." %}
 
 When placing ground control points---especially for cartographic corpora like urban atlases---consider the following:
 
@@ -280,7 +276,7 @@ Each point creates a pair of values:
 
 Allmaps uses this data to calculate the warping or stretching needed to align the map image in geographic space. Six-digit coordinate precision is probably overkill, but hey, it gives us an excuse to use [one of our favorite xkcd comics](https://xkcd.com/2170):
 
-{% include figure.html filename="figures/allmaps-historic-maps-20.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points" caption="Coordinate precision, by xkcd" %}
+{% include figure.html filename="figures/allmaps-historic-maps-10.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points" caption="Figure 10: Coordinate precision, by xkcd." %}
 
 Georeference annotations are automatically created when you draw a mask or place a control point. From Allmaps Editor, here's how you can locate a map's georeference annotation:
 
@@ -301,7 +297,7 @@ That ID, `ed34bf1e16463906`, is called an "Allmaps ID." It is unique to the Allm
 
 Open the annotation in a new tab and inspect it. Can you make sense of what each `key` and each `value` are communicating? Can you locate the resource coordinates and geometry coordinates?
 
-{% include figure.html filename="figures/allmaps-historic-maps-09.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 9: Resource coordinates and geometry coordinates in a georeference annotation." %}
+{% include figure.html filename="figures/allmaps-historic-maps-11.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 11: Resource coordinates and geometry coordinates in a georeference annotation." %}
 
 ### Results
 
@@ -309,7 +305,7 @@ The "Results" tab displays a preview of the map with georeferencing applied. It'
 
 Notice in the figure below that the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
 
-{% include figure.html filename="figures/allmaps-historic-maps-10.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 10: Previewing georeferencing results in Allmaps." %}
+{% include figure.html filename="figures/allmaps-historic-maps-12.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 12: Previewing georeferencing results in Allmaps." %}
 
 In the upper right, under *Export*, you’ll see a drawer with more tools:
 
@@ -324,7 +320,7 @@ On the bottom right, under *Maps* you can find:
 - *GCP List* – lists all your points; delete ones that don't work
 
 <!-- TODO: Need updated screenshot. -->
-{% include figure.html filename="figures/allmaps-historic-maps-11.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 11: The share menu in Allmaps." %}
+{% include figure.html filename="figures/allmaps-historic-maps-13.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 13: The share menu in Allmaps." %}
 
 Click the *View in Allmaps Viewer* link in the Export menu to continue.
 Next we will work with the map in Allmaps Viewer.
@@ -344,7 +340,7 @@ Viewer is not used to georeference maps. Instead, it's used for inspecting resul
 
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
-{% include figure.html filename="figures/allmaps-historic-maps-12.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 12: Background removal in Allmaps Viewer." %}
+{% include figure.html filename="figures/allmaps-historic-maps-14.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 14: Background removal in Allmaps Viewer." %}
 
 <div class="alert alert-warning">
 Allmaps Viewer has some useful keyboard shortcuts:
@@ -396,7 +392,7 @@ Cycle through algorithms using <kbd>T</kbd>.
 
 The animation below shows just how much changing the transformation algorithm can impact the overlay.
 
-{% include figure.html filename="figures/allmaps-historic-maps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 13: Different transformation algorithms can produce different warping results." %}
+{% include figure.html filename="figures/allmaps-historic-maps-15.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 15: Different transformation algorithms can produce different warping results." %}
 
 Once you have checked how the map behaves in the viewer, you can also use the same georeferenced map outside Allmaps.
 
@@ -409,19 +405,19 @@ Note: this is not intended for permanent hosting.
 
 In QGIS, use the Add XYZ Layer tool:
 
-{% include figure.html filename="figures/allmaps-historic-maps-14.png" alt="QGIS dialog for adding a new XYZ tile layer." caption="Figure 14: Opening the XYZ tile layer dialog in QGIS." %}
+{% include figure.html filename="figures/allmaps-historic-maps-16.png" alt="QGIS dialog for adding a new XYZ tile layer." caption="Figure 16: Opening the XYZ tile layer dialog in QGIS." %}
 
 Copy the XYZ Tile URL from the Allmaps Editor Share tools:
 
-{% include figure.html filename="figures/allmaps-historic-maps-15.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Figure 15: Finding the XYZ tile URL in Allmaps." %}
+{% include figure.html filename="figures/allmaps-historic-maps-17.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Figure 17: Finding the XYZ tile URL in Allmaps." %}
 
 Then create a new XYZ Connection in QGIS and paste in the URL. No other changes are usually needed.
 
-{% include figure.html filename="figures/allmaps-historic-maps-16.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Figure 16: Creating a new XYZ connection in QGIS." %}
+{% include figure.html filename="figures/allmaps-historic-maps-18.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Figure 18: Creating a new XYZ connection in QGIS." %}
 
 Now you can use your georeferenced map directly in desktop GIS!
 
-{% include figure.html filename="figures/allmaps-historic-maps-17.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 17: A georeferenced map displayed in QGIS." %}
+{% include figure.html filename="figures/allmaps-historic-maps-19.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 19: A georeferenced map displayed in QGIS." %}
 
 The Allmaps Tile Server is useful for desktop GIS and other software that needs an XYZ tile URL,
 but it is more costly to run because each requested tile has to be fetched, warped, and returned by a server.
@@ -692,16 +688,6 @@ For this example, we need three things:
 3. Some geographic data to overlay.
    Here that is `assets/voiries1300_2009_clean.json`.
 
-#### Start from the lesson package directory
-
-Run these commands from the directory containing this lesson package. The prepared annotation and GeoJSON files are already included in the `assets` directory.
-
-```bash
-ls assets/annotation.json
-ls assets/voiries1300_2009_clean.json
-ls assets/voiries1300_2009_clean.geometries.ndjson
-```
-
 #### Use the frozen `annotation.json`
 
 Because Allmaps georeferencing data can be edited, this lesson uses a frozen copy of the Paris georeference annotation included at `assets/annotation.json`.
@@ -916,7 +902,6 @@ If you are working through this section with the lesson's Paris example, use the
 
 ### Download the IIIF Image
 
-<!-- TODO: Add a short paragraph explaining why GeoTIFF export is fussier than the GeoJSON workflow: the generated script expects local image filenames and matching source-image dimensions. -->
 
 ```bash
 allmaps fetch full-image "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550"
@@ -1072,27 +1057,25 @@ You have now generated a georeferenced GeoTIFF from an Allmaps annotation. This 
 
 Allmaps provides three different libraries for loading georeferenced maps as web map layers. You can use Leaflet, OpenLayers, or MapLibre.
 
-This lesson gives an overview for the Allmaps Leaflet Plugin, but once you've got this figured out, the others should be easy to adapt.
+This section introduces the Allmaps Leaflet plugin. Once you understand this workflow, the OpenLayers and MapLibre options follow a similar pattern.
 
 The Allmaps Leaflet plugin, described in greater detail in [this Observable Notebook](https://observablehq.com/@allmaps/leaflet-plugin) as well as the [official Allmaps documentation](https://allmaps.org/docs/packages/leaflet/#_top), is distributed via [npm](https://www.npmjs.com/package/@allmaps/leaflet).
 
-Let's get into it...
-
 ### Copy the template
 
-The `allmaps-leaflet-demo` folder in this repository contains three files that provide a pretty minimal working demo of the Allmaps Leaflet plugin in a simple Leaflet web map. Those files are:
+The `assets/allmaps-leaflet-demo` folder in this lesson package contains three files that provide a minimal working demo of the Allmaps Leaflet plugin in a simple Leaflet web map. Those files are:
 
 - `index.html`: the web page structure for our simple web map
 - `script.js`: the necessary JavaScript for creating a Leaflet map with two layers, a base map and an Allmaps overlay
 - `style.css`: a CSS file that makes the map visible
 
-Open the `allmaps-leaflet-demo` folder in a text editor like VS Code. If need be, install the "Live Server" extension by Ritwick Dey, which allows you to view the web map as local files in a web browser. You can install the extension by searching "Live Server" in the "Extensions" tab (the little building blocks) of VS Code.
+Open the `assets/allmaps-leaflet-demo` folder in a text editor like VS Code. If need be, install the "Live Server" extension by Ritwick Dey, which allows you to view the web map as local files in a web browser. You can install the extension by searching "Live Server" in the "Extensions" tab (the little building blocks) of VS Code.
 
 If you click "Go Live" in the bottom right-hand corner of VS Code, the Leaflet web map should open in your default web browser.
 
-The rest of this section will explain what's going on in the code. We'll explain some of the basic concepts behind HTML, JavaScript, and CSS, but space constrains us from going into greater detail.
+The rest of this section explains how the code works. We will focus on the HTML, JavaScript, and CSS needed to understand this Allmaps example.
 
-If you want to learn more about Leaflet, check out these *Programming Historian* lessons by [Kim Pham on geocoding](https://programminghistorian.org/en/lessons/mapping-with-python-leaflet) and [Stephanie J. Richmond and Tommy Tavenner on maps of correspondences](https://programminghistorian.org/en/lessons/using-javascript-to-create-maps). 
+If you want to learn more about Leaflet, check out these *Programming Historian* lessons by [Kim Pham on geocoding](https://programminghistorian.org/en/lessons/mapping-with-python-leaflet) and [Stephanie J. Richmond and Tommy Tavenner on maps of correspondences](https://programminghistorian.org/en/lessons/using-javascript-to-create-maps).
 
 ### index.html
 
@@ -1172,7 +1155,7 @@ https://annotations.allmaps.org/manifests/cfb327e4b43395e3
 
 ... which corresponds to [this map of Boston](https://collections.leventhalmap.org/search/commonwealth:3f463198b):
 
-{% include figure.html filename="figures/allmaps-historic-maps-21.jpg" alt="A map of Boston from 1838, by T.G. Bradford" caption="A map of Boston from 1838, by T.G. Bradford (Source: https://collections.leventhalmap.org/search/commonwealth:3f463198b)" %}
+{% include figure.html filename="figures/allmaps-historic-maps-20.jpg" alt="A map of Boston from 1838, by T.G. Bradford" caption="Figure 20: A map of Boston from 1838, by T.G. Bradford. Source: https://collections.leventhalmap.org/search/commonwealth:3f463198b" %}
 
 #### Map setup
 
@@ -1214,7 +1197,7 @@ let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 
 Next, now that our map has been instantiated and contains an OpenStreetMap base, we define two new variables:
 
-- `annotationUrl` contains the URL of the georeference annotation 
+- `annotationUrl` contains the URL of the georeference annotation
 - `WarpedMapLayer` creates a new `WarpedMapLayer` and adds it to the map
 
 ```js
@@ -1224,7 +1207,7 @@ let warpedMapLayer = new Allmaps.WarpedMapLayer(annotationUrl).addTo(map);
 
 In a [vanilla JS setup](https://stackoverflow.com/questions/20435653/what-is-vanillajs) like ours, note that you must call the `WarpedMapLayer` method by prefixing it with `Allmaps.`. This syntax would be slightly different---and it would more closely resemble the code snippets found on the [`@allmaps/leaflet` npm documentation](https://www.npmjs.com/package/@allmaps/leaflet)---if you installed it with `npm` and used it in a front-end framework like Svelte, Vue, or React.
 
-At this point, the map is basically done, and our georeference annotation should appear. 
+At this point, the map should display the georeferenced overlay.
 
 #### Add the layer list
 
@@ -1240,6 +1223,6 @@ In Leaflet-speak, these are called "layer controls," and you can [read more abou
 
 ### Final map
 
-<iframe src="allmaps-leaflet-demo/index.html" width=100% height="500px"></iframe>
+<iframe src="assets/allmaps-leaflet-demo/index.html" width=100% height="500px"></iframe>
 
 Try adding different annotations (just note you'll have to update the `center` array, which is hard-coded to a lat/long pair for Boston).

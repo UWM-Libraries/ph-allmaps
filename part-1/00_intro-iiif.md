@@ -104,7 +104,7 @@ https://collections.lib.uwm.edu/digital/collection/agdm/id/538/
 
 </a>
 
-The Leardo map's IIIF manifest is listed at the bottom of the page, near the <img src="../../images/iiif.png" style="border:none;vertical-align:middle;" width=25px> logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data: 
+The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data: 
 
 <a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json">
 

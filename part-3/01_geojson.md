@@ -57,16 +57,6 @@ For this example, we need three things:
 3. Some geographic data to overlay.
    Here that is `voiries1300_2009_clean.json`.
 
-### Start from the lesson directory
-
-Run these commands from the directory containing this lesson file. The prepared annotation and GeoJSON files are already included here.
-
-```bash
-ls annotation.json
-ls voiries1300_2009_clean.json
-ls voiries1300_2009_clean.geometries.ndjson
-```
-
 ### Use the frozen `annotation.json`
 
 Because Allmaps georeferencing data can be edited, this lesson uses a frozen copy of the Paris georeference annotation included at `annotation.json`.
