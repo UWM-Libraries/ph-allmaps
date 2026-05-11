@@ -39,7 +39,7 @@ The local file `voiries1300_2009.json` is derived from that source. A cleaned te
 ## Process Overview
 
 1. Start with a historical map georeferenced with Allmaps.
-2. Fetch the published georeference annotation (JSON) for that image.
+2. Copy the frozen georeference annotation (JSON) for that image.
 3. Feed that annotation to the Allmaps CLI to build the transformation between geographic coordinates and image pixels.
 4. Convert your GeoJSON from longitude/latitude into SVG coordinates measured in the original image space.
 5. Display the transformed SVG as an overlay on the original, unwarped IIIF image.
@@ -55,38 +55,29 @@ For this example, we need three things:
 1. A historical image that has been georeferenced in Allmaps.
    Here that is the [1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/).
 2. The georeference annotation for that image.
-   Here that is `part-3/annotation.json`.
+   Here that is `part-3/annotation.json`, a frozen copy included with this repository.
 3. Some geographic data to overlay.
    Here that is `part-3/voiries1300_2009_clean.json`.
 
 ### Create a Working Directory
 
-Create a new directory for your image to keep it isolated from other images as you practice generating GeoTIFFs from Allmaps.
+Create a new directory for your image to keep it isolated from other images as you practice generating GeoTIFFs from Allmaps, then copy the prepared files into it.
 
 ```bash
 mkdir -p ~/allmaps-paris
+cp part-3/annotation.json ~/allmaps-paris/
+cp part-3/voiries1300_2009_clean.json ~/allmaps-paris/
+cp part-3/voiries1300_2009_clean.geometries.ndjson ~/allmaps-paris/
 cd ~/allmaps-paris
 ```
 
-### Fetch `annotation.json` from the manifest URL
+### Use the frozen `annotation.json`
 
-Because this IIIF manifest is already georeferenced in Allmaps, we can fetch its published annotation directly with `curl` and write it as a `.json` file:
+Because Allmaps georeferencing data can be edited, this lesson uses a frozen copy of the Paris georeference annotation included at `part-3/annotation.json`.
 
-```bash
-curl -L 'https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json' \
-  > annotation.json
-```
+That local copy was downloaded from the Allmaps annotations service using the Paris map's IIIF manifest URL:
 
-You will see some output like this:
-
-```bash
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    80  100    80    0     0     50      0  0:00:01  0:00:01 --:--:--    50
-100  5771  100  5771    0     0   3284      0  0:00:01  0:00:01 --:--:--  3284
-```
-
-This works because the Allmaps annotations service can look up the published georeference annotation for a manifest URL that already exists in Allmaps.
+[https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json](https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json)
 
 ### Confirm that the map has georeference metadata
 
@@ -122,21 +113,8 @@ You should see output like this:
 ...
 ```
 
-That command translates the annotation into Allmaps' internal `GeoreferencedMap` format. 
+That command translates the annotation into Allmaps' internal `GeoreferencedMap` format.
 This is the moment where the CLI learns how the Paris image relates to real-world coordinates.
-
-### For this lesson: Use different annotation locally
-
-You've successfully fetched and prepared a georeference annotation. Nice! This is really important to understand as a part of working with the Allmaps software ecosystem.
-
-In this lesson, however, we're actually going to use a "frozen" version of this georeference annotation. Instead of pointing to the "live" one in the Allmaps database---which can be edited by anyone, as is the nature of crowdsourced georferencing---we'll simply use a local copy at <https://github.com/account/annotation.json>.
-
-To use this, simply `curl` it from GitHub the same way that you used `curl` for the previous annotation. You can even name it the same thing, and overwrite the previous `annotation.json` file:
-
-```sh
-curl -L 'https://github.com/account/annotation.json' \
-  > annotation.json
-```
 
 ### Inspect the prepared GeoJSON
 

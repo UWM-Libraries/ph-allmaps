@@ -6,20 +6,22 @@ This format is commonly used for web maps and allows efficient access to large r
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
 
-<!-- TODO: this annotation should be the same as the one we downloaded in the geojson portion. Overwrite? -->
-### Download the Georeference Annotation
+### Confirm the Georeference Annotation
 
-First, ensure we're in our working directory.
+First, ensure we're in our working directory:
 
 ```bash
 cd ~/allmaps-paris
 ```
 
+If `annotation.json` is already there from the previous section, you can keep using it.
+If you are working through this section by itself with the lesson's Paris example, copy the frozen annotation from the repository:
+
 ```bash
-curl -L "https://annotations.allmaps.org/images/adeae8a56aaf59fb" -o annotation.json
+cp part-3/annotation.json ~/allmaps-paris/
 ```
 
-Swap out `adeae8a56aaf59fb` for whatever Allmaps image you're working with.
+If you are using a different map, use the annotation for that map instead.
 
 ### Download the IIIF Image
 
