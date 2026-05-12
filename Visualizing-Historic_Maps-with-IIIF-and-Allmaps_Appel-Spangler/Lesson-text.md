@@ -16,29 +16,30 @@ authors:
 
 Traditionally, georeferencing requires uploading an image file, like a `JPG` or `TIFF`, to a geographic information system (GIS) or web client. The output typically includes a map in `GeoTIFF` format which can be overlaid on real-world geographies. You can check out existing *Programming Historian* lessons for explanations of these georeferencing workflows in [Map Warper](https://programminghistorian.org/en/lessons/introduction-map-warper), [QGIS 2.0](https://programminghistorian.org/en/lessons/georeferencing-qgis), and [KnightLab's StoryMap JS](https://programminghistorian.org/en/lessons/displaying-georeferenced-map-knightlab-storymap-js).
 
-In this lesson, we introduce **[the Allmaps platform](https://allmaps.org)**: an open-source set of tools for curating and georeferencing digital maps.
+In this lesson, we introduce [Allmaps](https://allmaps.org), an open-source set of tools for
+curating and georeferencing digital maps.
 
 {% include figure.html filename="figures/allmaps-historic-maps-01.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform" caption="Figure 1: A georeferenced historic map, overlaid in the Allmaps platform." %}
 
 Allmaps is a free, publicly accessible, and web-based solution to georeferencing. Instead of requiring users to upload image files to a GIS or web client, Allmaps fetches image files directly from digital collections and dynamically warps them in a web browser. It's powered by a simple JSON file---a *georeference annotation*---which contains all the metadata necessary to warp a map. In addition to providing a simple interface for georeferencing, Allmaps provides a robust set of command-line tools and web-mapping libraries that advanced users can use to extend their research and visualization workflows.
 
-You'll learn:
+### What you will learn
 
-1. Why georeferencing can be useful for research and scholarship
+1. Why georeferencing is useful for research and scholarship
 2. The principles of IIIF, including how to identify IIIF maps
 3. How to use Allmaps to view and georeference IIIF maps
-4. Some of Allmaps' advanced features, including command-line tools
+4. How to use Allmaps' advanced features, including command-line tools
 5. How to use Allmaps with open-source web mapping tools like Leaflet
 
 ### Why georeference?
 
-There are many reasons why researchers and scholars georeference maps. Georeferenced maps make it easier to view change over time.
+Researchers and scholars georeference maps to compare places over time and connect historical maps to other spatial data.
 
-Discovery applications like the American Geographical Society Library's [Operation Birds Eye](https://uwm.maps.arcgis.com/apps/webappviewer/index.html?id=4e066bb8e5664d189ac3e77c26d21712) overlay 300 aerial photographs on modern satellite imagery, adding valuable context and enabling comparisons over time. Similarly, at the Leventhal Map & Education Center, the [Atlascope](https://atlascope.org) tool allows users to explore georeferenced urban atlases in a web map:
+At the Leventhal Map & Education Center, [Atlascope](https://atlascope.org) allows users to explore georeferenced urban atlases in a web map:
 
 <iframe src="https://atlascope.org" width=100% height=500px></iframe>
 
-Once a digitized map is aligned with geographic coordinates, it becomes possible to:
+Georeferencing makes it possible to:
 
 - Compare landscapes past and present, including streets, buildings, waterways, shorelines, neighborhoods, and boundaries
 - Study change over time by overlaying maps from different times
@@ -86,7 +87,7 @@ Zoom into the image to try it out:
 <iframe width="100%" height="470px" frameborder="0"
   src="https://observablehq.com/embed/@allmaps/tile-pyramid?cells=viz"></iframe>
 
-In practice, IIIF images are usually delivered through viewers like [Mirador](https://projectmirador.org) or [OpenSeadragon](https://openseadragon.github.io). Below, take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/538/), embedded in a Mirador Viewer. Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser---no need to download image files.
+In practice, IIIF images are usually delivered through viewers like [Mirador](https://projectmirador.org) or [OpenSeadragon](https://openseadragon.github.io). Below, take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/), embedded in a Mirador Viewer. Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser---no need to download image files.
 
 <iframe
   src="assets/leardo-mirador.html"
@@ -100,7 +101,7 @@ In practice, IIIF images are usually delivered through viewers like [Mirador](ht
 
 ### The IIIF manifest
 
-Allmaps builds on the IIIF protocol to warp IIIF maps directly in a web browser. In order to georeference a map in Allmaps, you need something called a **IIIF manifest**.
+Allmaps builds on the IIIF protocol to warp IIIF maps directly in a web browser. In order to georeference a map in Allmaps, you need a IIIF manifest.
 
 A "manifest" is the prime unit in IIIF. Like the manifest for a plane or a ship, IIIF manifests contain information about their cargo. In our case, the "cargo" includes the pixels of the digital resource, its metadata, and any optional parameters for how the image should be displayed.
 
@@ -108,20 +109,20 @@ Once you have the manifest, you can do a lot with it. Take, for instance, the Le
 
 **Tip:** Open each of the URLs in a new tab as you go.
 
-<a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/538/">
+<a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/">
 
 ```html
-https://collections.lib.uwm.edu/digital/collection/agdm/id/538/
+https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/
 ```
 
 </a>
 
 The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data:
 
-<a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json">
+<a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json">
 
 ```html
-https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json
+https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json
 ```
 
 </a>
@@ -130,32 +131,32 @@ That big JSON jumble is our IIIF Manifest for the Leardo Mappamundi. It contains
 
 Open the manifest in a new tab and scroll through its contents. Can you find these values? What other metadata do you see?
 
-Now that you have the manifest, you could point to the [full size image](https://collections.lib.uwm.edu/digital/iiif/agdm/538/full/full/0/default.jpg) at the URL `https://collections.lib.uwm.edu/digital/iiif/agdm/538/full/full/0/default.jpg`---but we can also tweak this URL, ever so slightly, to deliver a smaller version of the image:
+Now that you have the manifest, you could point to the full-size image at the URL `https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/full/0/default.jpg`---but we can also tweak this URL, ever so slightly, to deliver a smaller version of the image:
 
-<a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/full/1200,/0/default.jpg">
+<a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg">
 
 ```html
-https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/full/1200,/0/default.jpg
+https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg
 ```
 
 </a>
 
 Here, we've replaced `/full/full/0/` with `/full/1200,/0/`, which tells any browser or application requesting this URL to fetch the image at a maximum resolution of 1,200 pixels wide.
 
-We could also deliver a smaller, zoomed-in crop of the source image by specifying a two-pixel bounding box, turning `/full/1200,/0/` into `/3416,3568,526,492/1200,/0`:
+We could also deliver a smaller, zoomed-in crop of the source image by specifying a bounding box, turning `/full/1200,/0/` into `/7000,7600,3500,4200/1200,/0/`:
 
-<a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/3416,3568,526,492/1200,/0/default.jpg">
+<a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg">
 
 ```html
-https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/3416,3568,526,492/1200,/0/default.jpg
+https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg
 ```
 
 </a>
 
-Finally, we can even pass a variety of parameters like rotation. In the image below, we've added the value 280 `/4662,3731,562,772/1200/280/`:
+Finally, we can even pass a variety of parameters like rotation. In the URL below, we've added the value `280` at the rotation position:
 
 ```html
-https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/4662,3731,562,772/1200/280/default.jpg
+https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/280/default.jpg
 ```
 
 All of these things are possible because of IIIF's built-in application programming interfaces (or APIs), which allow you to query images according to different parameters in the URL. It's obviously difficult to manipulate the values in the URL by hand, but thankfully, the presence of an API makes it possible to build applications on top of the IIIF protocol. One example is the Leventhal Center's [IIIF Tools](https://iiif-tools.leventhal.center), which provides a user-friendly interface for manipulating the IIIF Image API and constructing different image endpoints.
@@ -175,12 +176,6 @@ To test your knowledge of IIIF, try the following challenge:
 ### IIIF map collections
 
 Allmaps uses these APIs (and others) to fetch IIIF images from digital repository servers and warp them in a web browser. The Allmaps platform consists of two main apps: [Allmaps Editor](https://editor.allmaps.org), which allows you to georeference a IIIF map, and [Allmaps Viewer](https://viewer.allmaps.org), which allows you to view them.
-
-These tools are ideal for large-scale maps such as city, county, state, or country maps, including:
-
-- Urban atlases like fire insurance atlases, plats, and quartersectional atlases
-- County and state maps, highway maps, and recreation maps
-- Topographic or thematic map series
 
 All of the maps in [AGSL](https://uwm.edu/lib-collections/agsl-digital-map-collection/) and [LMEC](https://collections.leventhalmap.org) digital collections are IIIF compliant. Additionally, the Allmaps project maintains a [list of IIIF map collections](https://github.com/allmaps/iiif-map-collections/blob/main/iiif-map-collections.yml) across the world. Any of the collections that you see in this list should be easy to work with in Allmaps.
 
@@ -202,15 +197,31 @@ First, launch the Allmaps Editor by going to [editor.allmaps.org](https://editor
 
 Allmaps uses metadata in the IIIF manifest to fetch image data from the host institution's servers.
 
+Allmaps is especially useful for large-scale maps whose content can be matched to modern geography,
+such as:
+
+- Urban atlases like fire insurance atlases, plats, and quartersectional atlases
+- County and state maps, highway maps, and recreation maps
+- Topographic or thematic map series
+
 {% include figure.html filename="figures/allmaps-historic-maps-05.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Figure 5: Finding the IIIF Manifest URL in the UWM digital collection." %}
 
-This lesson will use a lot of screenshots from georeferencing this [chart of New Zealand](https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/), but you should pick a different map to georeference.
+This lesson will use screenshots from georeferencing this
+[chart of New Zealand](https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/),
+but you should pick a different map to georeference.
 
-### Draw Mask
+### Draw a mask
 
-The first step is adding a mask. This involves drawing a line around the map areas of the document to exclude the collar or marginalia. The mask identifies parts of the scanned image that you want to georeference. Only parts of the image inside the mask will be warped. In the Allmaps lexicon, one mask defines a "map" on a region of the "image".
+The first step is adding a clipping mask.
+This involves drawing a line around the map areas of the document to exclude the collar or
+marginalia.
+The mask identifies parts of the scanned image that you want to georeference.
+Only parts of the image inside the mask will be warped.
+In the Allmaps lexicon, one mask defines a "map" on a region of the "image".
 
-Use the "Draw Mask" tab to add a mask. Click to add points, and double-click to close the polygon. If you mess up, click "Cancel" to start over.
+Use the "Draw Mask" tab to add a mask before moving on to georeferencing.
+Click to add points, and double-click to close the polygon.
+If you mess up, click "Cancel" to start over.
 
 In the figure below, note that the pink line defines the mask and excludes the map collar from the defined map.
 
@@ -226,7 +237,7 @@ Much of the time, your mask will simply be a rectangle drawn just inside the map
 
 {% include figure.html filename="figures/allmaps-historic-maps-08.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 8: A rectangular mask drawn near the map corners." %}
 
-### Georeference
+### Georeference the map
 
 Ground control points (GCPs) guide Allmaps in aligning the scanned image (left side) with real-world geography (right side).
 
@@ -234,7 +245,7 @@ Use the "Georeference" tab to begin placing GCPs.
 
 To create one, find a location that clearly matches on both sides, such as a street intersection, the corner of a recognizable building, or a stable political boundary.
 
-Click the same spot on both images.
+Click the same spot on both sides of the editor.
 
 In the figure below, note the pink dot labeled `2` on both sides of the image, in this case an easily identifiable location near Cape Reinga on the Aupōuri Peninsula of New Zealand.
 
@@ -250,7 +261,10 @@ These guidelines are adapted from the Leventhal Map & Education Center's guide t
 
 Remember, landscapes change: roads shift, water levels fluctuate, buildings are razed and replaced.
 
-#### The Georeference Annotation
+Before reading further, create a few GCPs of your own and check the "Results" tab to see how the
+map begins to align.
+
+#### The georeference annotation
 
 Behind the scenes, placing GCPs in Allmaps creates a **[Georeference Annotation](https://iiif.io/api/extension/georef/)**, a standard format for storing geospatial information associated with a IIIF image. The Annotation specification is maintained by the [IIIF Consortium](https://iiif.io).
 
@@ -279,7 +293,7 @@ Allmaps uses this data to calculate the warping or stretching needed to align th
 Georeference annotations are automatically created when you draw a mask or place a control point. From Allmaps Editor, here's how you can locate a map's georeference annotation:
 
 1. Click the green "Export" button
-2. Click the up-right arrow by the "Georeference annotation" to open it in a new tab
+2. Click the up-right arrow by the "Georeference annotation" to open it in a new tab, or click the purple `</> Code` button to inspect the annotation in Allmaps Editor
 
 Here's the georeference annotation for that chart of New Zealand:
 
@@ -297,7 +311,7 @@ Open the annotation in a new tab and inspect it. Can you make sense of what each
 
 {% include figure.html filename="figures/allmaps-historic-maps-11.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 11: Resource coordinates and geometry coordinates in a georeference annotation." %}
 
-### Results
+### Review results
 
 The "Results" tab displays a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track.
 
@@ -352,7 +366,6 @@ The figure below shows a georeferenced map of New Zealand with the background re
 
 {% include figure.html filename="figures/allmaps-historic-maps-15.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 15: Background removal in Allmaps Viewer." %}
 
-<div class="alert alert-warning">
 Allmaps Viewer has some useful keyboard shortcuts:
 
 - <kbd>Space</kbd> – Toggle transparency on/off
@@ -361,11 +374,15 @@ Allmaps Viewer has some useful keyboard shortcuts:
 - <kbd>T</kbd> – Cycle transformation algorithm
 - <kbd>G</kbd> – Display a grid over the image
 - <kbd>D</kbd> – Cycle display of distortions: surface deformation, angle distortion, or none
-</div>
 
-### Viewing Stitched Atlas Sheets
+### View stitched atlas sheets
 
-Allmaps annotation for the Lynn, Massachusetts atlas sheets: [https://annotations.allmaps.org/manifests/23379602e8187445](https://annotations.allmaps.org/manifests/23379602e8187445)
+The example below uses georeferenced atlas sheets for Lynn, Massachusetts.
+The Allmaps annotation is:
+
+```html
+https://annotations.allmaps.org/manifests/23379602e8187445
+```
 
 <iframe
   src="https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445"
@@ -377,7 +394,10 @@ Allmaps annotation for the Lynn, Massachusetts atlas sheets: [https://annotation
 
 [View in Allmaps Viewer](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445)
 
-Since these atlas pages were carefully masked, they mosaic almost seamlessly, allowing one to explore the whole atlas at once.
+Since these atlas pages were carefully masked, they mosaic almost seamlessly, allowing one to
+explore the whole atlas at once.
+This kind of stitching takes careful work: small differences in mask placement, GCPs,
+or transformation settings can create visible gaps or overlaps between sheets.
 
 Using <kbd>M</kbd> to display the mask lines shows how all the component maps fit together.
 
@@ -390,7 +410,7 @@ Once you have checked how the map behaves in the viewer, you can also use the sa
 
 The viewer is useful for inspecting alignment; XYZ tiles make the warped map available as a layer in desktop GIS software.
 
-### Using XYZ Tiles in GIS
+### Use XYZ tiles in GIS
 
 Allmaps provides a free *XYZ tile server*, allowing you to bring georeferenced maps directly into GIS software like QGIS.
 Note: this is not intended for permanent hosting.
@@ -401,30 +421,37 @@ In QGIS, use the Add XYZ Layer tool:
 
 Copy the XYZ Tile URL from the Allmaps Editor Share tools:
 
+<!-- TODO: Update this screenshot before submission. -->
 {% include figure.html filename="figures/allmaps-historic-maps-17.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Figure 17: Finding the XYZ tile URL in Allmaps." %}
 
 Then create a new XYZ Connection in QGIS and paste in the URL. No other changes are usually needed.
 
 {% include figure.html filename="figures/allmaps-historic-maps-18.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Figure 18: Creating a new XYZ connection in QGIS." %}
 
-Now you can use your georeferenced map directly in desktop GIS!
+Now you can use your georeferenced map directly in desktop GIS as a reference layer alongside other raster and vector data.
 
 {% include figure.html filename="figures/allmaps-historic-maps-19.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 19: A georeferenced map displayed in QGIS." %}
 
-The Allmaps Tile Server is useful for desktop GIS and other software that needs an XYZ tile URL,
-but it is more costly to run because each requested tile has to be fetched, warped, and returned by a server.
-The Allmaps Tile Server is intended for testing, so tiles may load slowly, break, or stop working.
+Use the Allmaps Tile Server for testing desktop GIS workflows or other software that needs an XYZ
+tile URL.
+Because each requested tile has to be fetched, warped, and returned by a server, tiles may load
+slowly, break, or stop working.
 
-When you control the web map, Allmaps Viewer or the Allmaps plugins for OpenLayers and Leaflet are usually more efficient because they can warp IIIF images directly in the browser.
+For web maps you control, Allmaps Viewer or the Allmaps plugins for OpenLayers and Leaflet are
+usually better choices because they can warp IIIF images directly in the browser.
+This means the browser does the transformation work instead of depending on a tile server for every map tile.
 
-More info on the Allmaps Tile Server is available in this [Observable notebook](https://observablehq.com/@allmaps/allmaps-tile-server).
+More detail on the Allmaps Tile Server is available in this
+[Observable notebook](https://observablehq.com/@allmaps/allmaps-tile-server).
 
 
 <!-- Begin Part 3.00 -->
 ## Install the Allmaps CLI and dependencies
 
-So far, the lesson has focused on browser-based tools: finding IIIF resources, georeferencing a map in Allmaps Editor, and inspecting the result in Allmaps Viewer.
-The next sections move to the command line so you can reuse Allmaps georeferencing data in your own files and workflows.
+So far, the lesson has focused on introductory, browser-based tools: finding IIIF resources,
+georeferencing a map in Allmaps Editor, and inspecting the result in Allmaps Viewer.
+The next sections introduce more advanced workflows at the command line so you can reuse Allmaps
+georeferencing data in your own files, GIS projects, and web maps.
 
 <div class="alert alert-warning">
 This portion assumes some familiarity with the command line in a Unix environment
@@ -443,46 +470,24 @@ Installation and compatibility will vary depending on your operating system,
 OS version, and shell environment.
 </div>
 
-### Environment Setup
+### Environment setup
 
-#### Windows Only: Set up WSL
+#### Windows only: Set up WSL
 
 macOS and Linux users can skip this section and jump to [Linux and Unix](#linux-and-unix).
 
 This lesson uses WSL for Windows because the command-line tools in this section are easiest to install and teach in a Unix-like environment.
-WSL gives Windows users a Linux shell that behaves much like the macOS and Linux workflows used in the rest of the lesson, which keeps commands, paths, and troubleshooting more consistent.
+WSL gives Windows users a Linux shell that behaves much like the macOS and Linux workflows used in the rest of the lesson,
+which keeps commands, paths, and troubleshooting more consistent.
+
 Native Windows workflows are possible, but they require different setup steps.
-
-For more detailed setup instructions, see Microsoft’s [Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install) documentation.
-
-If you don't have a Linux distribution set up for WSL, install Ubuntu via PowerShell.
-Ubuntu can also be installed from the Microsoft Store after WSL is enabled, but PowerShell handles both steps in one workflow.
-
-Open PowerShell as an administrator and install WSL:
-
-```powershell
-wsl --install
-```
-
-This installs Ubuntu by default. If WSL is already installed but Ubuntu is not, you can install Ubuntu explicitly:
-
-```powershell
-wsl --install -d Ubuntu
-```
-
-Open Ubuntu from the Windows Start menu. When the Ubuntu prompt appears, continue with the Linux and Unix instructions below.
+Follow Microsoft's [Install WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+documentation to set up WSL with Ubuntu, then continue with the Linux and Unix instructions below.
 
 #### Linux and Unix
 
 The commands below are written for Ubuntu and Debian-based environments, including Ubuntu on WSL, that use the `apt` package manager.
 Other Linux or Unix-like systems may use different package managers, package names, and compilation methods.
-
-Refresh the package list and apply available system updates before installing new tools:
-
-```bash
-sudo apt update
-sudo apt upgrade
-```
 
 Install the current long-term support (LTS) version of Node.js using the standard installer or package manager for your operating system.
 
@@ -538,7 +543,7 @@ Install GDAL:
 brew install gdal
 ```
 
-### Install Allmaps CLI and dependencies
+### Install the Allmaps CLI and dependencies
 
 Install the Allmaps CLI:
 
@@ -629,9 +634,15 @@ In the command-line examples below, `jq` is a small tool for inspecting and resh
 
 ### Paris example
 
-For the main walkthrough, this example overlays the full medieval road network from around 1300 on the 1821 AGSL map of Paris.
+For the main walkthrough, this example overlays a medieval road network from around 1300 on the 1821 AGSL map of Paris.
+The goal is to draw historical vector data directly on the scanned map image, rather than placing both layers on a modern web map.
+This lets us ask how the medieval street network relates to the geography shown on the
+nineteenth-century map.
 
-It is helpful to keep a record of the URLs for the resources you are working with for easy reference, particularly if you're using an example other than the one provided.
+Keep a logbook or text file for the URLs, manifests, IDs, filenames, and other reference information you use in a project,
+particularly if you're using an example other than the one provided.
+
+For this walkthrough, the key values are:
 
 <div class="table-wrapper" markdown="block">
 
@@ -646,8 +657,6 @@ It is helpful to keep a record of the URLs for the resources you are working wit
 | Image Dimensions        | `10784 x 6941` |
 | Original source file | assets/voiries1300_2009.json |
 | Lesson-ready file | assets/voiries1300_2009_clean.json |
-| Original ALPAGE source page | [https://alpage.huma-num.fr/ancient-urban-fabric/](https://alpage.huma-num.fr/ancient-urban-fabric/) |
-| Original ALPAGE download | [https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) |
 
 </div>
 
@@ -659,26 +668,21 @@ The road network was originally [published by ALPAGE](https://alpage.huma-num.fr
 
 The local file `assets/voiries1300_2009.json` is derived from that source. A cleaned teaching version is included, `assets/voiries1300_2009_clean.json`, where each `MultiLineString` has already been split into separate `LineString` features.
 
-### Process Overview
+### Process overview
 
-1. Start with a historical map georeferenced with Allmaps.
-2. Copy the frozen georeference annotation (JSON) for that image.
-3. Feed that annotation to the Allmaps CLI to build the transformation between geographic coordinates and image pixels.
-4. Convert your GeoJSON from longitude/latitude into SVG coordinates measured in the original image space.
-5. Display the transformed SVG as an overlay on the original, unwarped IIIF image.
+The workflow starts with a historical map that has already been georeferenced in Allmaps.
+We use a frozen copy of the georeference annotation for that image, feed it to the Allmaps CLI,
+and use it to build the transformation between geographic coordinates and image pixels.
+Then we convert the GeoJSON from longitude/latitude into SVG coordinates measured in the original
+image space and display that transformed SVG as an overlay on the original, unwarped IIIF image.
 
 Allmaps is not changing the GeoJSON into a new map projection for display in a web map. It is converting the GeoJSON into image-space coordinates so the shapes can be drawn directly on the scanned map image.
 
-### The ingredients
-
-For this example, we need three things:
-
-1. A historical image that has been georeferenced in Allmaps.
-   Here that is the [1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/).
-2. The georeference annotation for that image.
-   Here that is `assets/annotation.json`, a frozen copy included with the lesson package.
-3. Some geographic data to overlay.
-   Here that is `assets/voiries1300_2009_clean.json`.
+For this example, we need three things: a historical image georeferenced in Allmaps, the
+georeference annotation for that image, and some geographic data to overlay.
+Here, those are the
+[1821 AGSL Paris map](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/),
+`assets/annotation.json`, and `assets/voiries1300_2009_clean.json`.
 
 #### Use the frozen `annotation.json`
 
@@ -687,6 +691,13 @@ Because Allmaps georeferencing data can be edited, this lesson uses a frozen cop
 That local copy was downloaded from the Allmaps annotations service using the Paris map's IIIF manifest URL:
 
 [https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json](https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json)
+
+For your own map, you can download the current annotation JSON from the annotations service with
+`curl`:
+
+```bash
+curl -L "https://annotations.allmaps.org/?url=YOUR_IIIF_MANIFEST_URL" -o annotation.json
+```
 
 #### Confirm that the map has georeference metadata
 
@@ -880,7 +891,7 @@ Allmaps gives us a transformation between geographic coordinates and map image p
 In this example, we use that transformation to move GeoJSON into the image's own coordinate space, then draw the resulting SVG on top of the original IIIF image.
 
 <!-- Begin Part 3.02 -->
-## Exporting a GeoTIFF with Allmaps CLI
+## Export a GeoTIFF with Allmaps CLI
 
 In the previous section, you used the Paris annotation to transform GeoJSON into image-space SVG.
 Now you will use the same annotation to generate a georeferenced Cloud Optimized GeoTIFF (COG).
@@ -888,11 +899,11 @@ This format is commonly used for web maps and allows efficient access to large r
 
 For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
 
-### Confirm the Georeference Annotation
+### Confirm the georeference annotation
 
 If you are working through this section with the lesson's Paris example, use the frozen annotation at `assets/annotation.json`. If you are using a different map, use the annotation for that map instead.
 
-### Download the IIIF Image
+### Download the IIIF image
 
 
 ```bash
@@ -901,11 +912,16 @@ ls -lh *.jpg
 ```
 
 <div class="alert alert-warning">
-For this example, the downloaded file should be named `adeae8a56aaf59fb.jpg`. If your file has a different name, rename it before continuing:
+For this Paris example, the generated script expects the downloaded image to be named with its
+Allmaps Image ID: `adeae8a56aaf59fb.jpg`.
+If your file has a different name, rename it before continuing:
 
 ```bash
 mv current-filename.jpg adeae8a56aaf59fb.jpg
 ```
+
+If you use a different map, your Allmaps ID and filename will be different.
+Check the generated script for the exact filename it expects.
 
 </div>
 
@@ -925,7 +941,7 @@ dezoomify-rs "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550" full.jpg
 mv full.jpg adeae8a56aaf59fb.jpg
 ```
 
-### Generate the GeoTIFF Script
+### Generate the GeoTIFF script
 
 ```bash
 cat assets/annotation.json | allmaps script geotiff > paris_geotiff.sh
@@ -935,7 +951,7 @@ This will generate a shell script file `paris_geotiff.sh` that you will run soon
 
 **The generated script expects a specific filename; if yours differs, it will fail.**
 
-### Edit the Script
+### Edit the script
 
 Open the script in VS Code or your text editor of choice:
 
@@ -1011,7 +1027,7 @@ Save the script file:
 There is [an issue](https://github.com/allmaps/allmaps/issues/261) related to the `-cutline_srs` flag on the Allmaps repository.
 </div>
 
-### Run the Script
+### Run the script
 
 ```bash
 bash paris_geotiff.sh
@@ -1027,7 +1043,7 @@ Troubleshooting script failures and errors:
 * Triple check your filenames and ensure they match what the shell script expects.
 </div>
 
-### Verify the Output with GDAL
+### Verify the output with GDAL
 
 ```bash
 gdalinfo *-warped.tif
@@ -1045,7 +1061,7 @@ You have now generated a georeferenced GeoTIFF from an Allmaps annotation. This 
 
 <!-- Begin Part 3.03 -->
 
-## Using Allmaps with Leaflet
+## Use Allmaps with Leaflet
 
 Allmaps provides three different libraries for loading georeferenced maps as web map layers. You can use Leaflet, OpenLayers, or MapLibre.
 
@@ -1059,7 +1075,7 @@ The `assets/allmaps-leaflet-demo` folder in this lesson package contains three f
 
 - `index.html`: the web page structure for our simple web map
 - `script.js`: the necessary JavaScript for creating a Leaflet map with two layers, a base map and an Allmaps overlay
-- `style.css`: a CSS file that makes the map visible
+- `style.css`: the CSS that gives the page and map container their size and layout
 
 Open the `assets/allmaps-leaflet-demo` folder in a text editor like VS Code. If need be, install the "Live Server" extension by Ritwick Dey, which allows you to view the web map as local files in a web browser. You can install the extension by searching "Live Server" in the "Extensions" tab (the little building blocks) of VS Code.
 
@@ -1220,3 +1236,7 @@ In Leaflet-speak, these are called "layer controls," and you can [read more abou
 [View sample map in a new window](assets/allmaps-leaflet-demo/index.html){:target="_blank"}
 
 Try adding different annotations (just note you'll have to update the `center` array, which is hard-coded to a lat/long pair for Boston).
+
+## Conclusions
+
+<!-- TODO: Write a conclusion paragraph -->
