@@ -12,7 +12,7 @@ authors:
 <!-- Begin Part 1.00 -->
 ## IIIF-powered georeferencing
 
-[Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) turns scanned maps into spatial data by corresponding the pixels in a digital map image to real geographic locations. The process emerged from the practice of transforming aerial and satellite photography into usable spatial data (for more detailed background, see ["Georeferencing and Georectification"](https://gistbok-topics.ucgis.org/DC-01-030) in the *GIS&T Body of Knowledge*). Today, historians and other humanities researchers georeference maps for things like data creation, change detection, and comparative analysis.
+[Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) turns scanned maps into spatial data by corresponding the pixels in a digital map image to real geographic locations. The process emerged from the practice of transforming aerial and satellite photography into usable spatial data.[^1] Today, historians and other humanities researchers georeference maps for things like data creation, change detection, and comparative analysis.
 
 Traditionally, georeferencing requires uploading an image file, like a `JPG` or `TIFF`, to a geographic information system (GIS) or web client. The output typically includes a map in `GeoTIFF` format which can be overlaid on real-world geographies. You can check out existing *Programming Historian* lessons for explanations of these georeferencing workflows in [Map Warper](https://programminghistorian.org/en/lessons/introduction-map-warper), [QGIS 2.0](https://programminghistorian.org/en/lessons/georeferencing-qgis), and [KnightLab's StoryMap JS](https://programminghistorian.org/en/lessons/displaying-georeferenced-map-knightlab-storymap-js).
 
@@ -46,7 +46,7 @@ Georeferencing makes it possible to:
 - Join sheets from an atlas or map set into a larger composite
 - Derive geospatial data for further analysis
 
-{% include figure.html filename="figures/allmaps-historic-maps-02.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 2: The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131" %}
+{% include figure.html filename="figures/allmaps-historic-maps-02.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 2: The georeferencing process places a digital image into a GIS." %}
 
 Traditional georeferencing solutions are built into geographic information systems (GIS) like QGIS or ArcGIS. Although GIS-based georeferencing tools can still be useful for some workflows, they do have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where the International Image Interoperability Framework (IIIF) comes in: Allmaps' IIIF-powered georeferencing capabilities make it easier to do more with georeferenced maps, provided you have a basic handle on IIIF.
 
@@ -68,7 +68,7 @@ This lesson introduces more detail about IIIF than is ultimately necessary to ge
 
 The main problem that IIIF responds to is that digital images can be huge. Even physically small photos can have a large file size when they are stored in a digital repository system and served to a user---and that footprint grows with the dimensions of the physical resource.
 
-Consider the map below, *Kaart van het Brugse Vrije* by Pieter II Claeissens. It's physically massive. As Jan Trachet writes, [digitizing it](https://www.leventhalmap.org/articles/mapathon-1571/) required taking dozens of separate photographs and stitching them together in software like Photoshop.
+Consider the map below, *Kaart van het Brugse Vrije* by Pieter II Claeissens. It's physically massive. As Jan Trachet and coauthors write, digitizing it required taking dozens of separate photographs and stitching them together in software like Photoshop.[^3]
 
 {% include figure.html filename="figures/allmaps-historic-maps-03.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens." caption="Figure 3: Photographing the Claeissens wall map." %}
 
@@ -121,7 +121,7 @@ Open the manifest in a new tab and scroll through its contents. Can you find the
 
 ### IIIF Image API
 
-The IIIF Image API allows you to request an image in response to a standard HTTP or HTTPS request and specify the region, size, rotation, and more.
+The IIIF Image API allows you to request an image in response to a standard HTTP or HTTPS request and specify the region, size, rotation, and more.[^2]
 
 UWM’s digital collections are publicly accessed through `collections.lib.uwm.edu`,
 but some IIIF image service URLs resolve to the underlying CONTENTdm/OCLC host,
@@ -249,7 +249,7 @@ When placing ground control points---especially for cartographic corpora like ur
 - **Use roads and buildings**: as long as they haven’t been torn down or significantly altered.
 - **Check your progress**: sometimes only a few GCPs are needed. Too many can actually introduce unwanted distortion. A good check-in is after placing 5-10 points.
 
-These guidelines are adapted from the Leventhal Map & Education Center's guide to [georeferencing with Allmaps](https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps).
+These guidelines are adapted from the Leventhal Map & Education Center's guide to georeferencing with Allmaps.[^4]
 
 Remember, landscapes change: roads shift, water levels fluctuate, buildings are razed and replaced.
 
@@ -648,7 +648,7 @@ For this walkthrough, the key values are:
 
 #### Data note
 
-The road network was originally [published by ALPAGE](https://alpage.huma-num.fr/ancient-urban-fabric/) as "Road network in 1300" by Caroline Bourlet and Anne-Laure Bethe.
+The road network was originally published by ALPAGE as "Road network in 1300" by Caroline Bourlet and Anne-Laure Bethe.[^5]
 
 [Download original data](https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip) (optional)
 
@@ -883,7 +883,7 @@ In the previous section, you used the Paris annotation to transform GeoJSON into
 Now you will use the same annotation to generate a georeferenced Cloud Optimized GeoTIFF (COG).
 This format is commonly used for web maps and allows efficient access to large raster datasets.
 
-For an introduction to COGs and how they enable efficient, web-based access to raster data, see [https://cogeo.org/](https://cogeo.org/).
+For an introduction to COGs and how they enable efficient, web-based access to raster data, see the Cloud Optimized GeoTIFF project website.[^6]
 
 ### Confirm the georeference annotation
 
@@ -1234,6 +1234,20 @@ Allmaps is created by:
 [Jules Schoonman](https://www.tudelft.nl/en/staff/j.a.schoonman/), Digital Curator at Delft University of Technology Library, founder of Allmaps, and lead for educational projects.
 
 Other contributors and partners are listed on [allmaps.org](https://allmaps.org/#about-allmaps).
+
+##### Endnotes
+
+[^1]: C. D. Lippitt, "Georeferencing and Georectification," in *The Geographic Information Science & Technology Body of Knowledge*, 3rd Quarter 2020 ed., ed. John P. Wilson (UCGIS, 2020), https://gistbok-ltb.ucgis.org/page/current/concept/DC-01-030, doi:10.22224/gistbok/2020.3.3.
+
+[^2]: International Image Interoperability Framework, "Image API 2.1.1," accessed May 11, 2026, https://iiif.io/api/image/2.1/.
+
+[^3]: Jan Trachet et al., "Mapathon 1571: Building Community Cartography Through Collective Georeferencing," Leventhal Map & Education Center at the Boston Public Library, November 10, 2025, https://www.leventhalmap.org/articles/mapathon-1571/.
+
+[^4]: Leventhal Map & Education Center, "Georeference Urban Atlases with Allmaps," *Cartinal*, accessed May 11, 2026, https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps.
+
+[^5]: Caroline Bourlet and Anne-Laure Bethe, "Road Network in 1300," ALPAGE, accessed May 11, 2026, https://alpage.huma-num.fr/ancient-urban-fabric/.
+
+[^6]: Cloud Optimized GeoTIFF, "Cloud Optimized GeoTIFF," accessed May 11, 2026, https://cogeo.org/.
 
 ## About the Authors
 
