@@ -7,25 +7,22 @@
   <title>Visualizing Historic Maps with IIIF and Allmaps</title>
   <style>
     html {
-      color: #333;
-      background-color: #fff;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
     }
     body {
       margin: 0 auto;
-      max-width: 880px;
+      max-width: 36em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
       padding-bottom: 50px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 18px;
-      line-height: 1.55;
       hyphens: auto;
       overflow-wrap: break-word;
       text-rendering: optimizeLegibility;
       font-kerning: normal;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       body {
         font-size: 0.9em;
         padding: 12px;
@@ -55,83 +52,16 @@
       margin: 1em 0;
     }
     a {
-      color: #337ab7;
-      text-decoration: none;
+      color: #1a1a1a;
     }
     a:visited {
-      color: #337ab7;
-    }
-    a:hover,
-    a:focus {
-      color: #23527c;
-      text-decoration: underline;
+      color: #1a1a1a;
     }
     img {
       max-width: 100%;
     }
-    figure {
-      margin: 2em 0;
-    }
-    figure img {
-      display: block;
-      height: auto;
-      margin: 0 auto;
-      border: 1px solid #ddd;
-    }
-    figcaption {
-      margin-top: 0.65em;
-      color: #666;
-      font-size: 0.9em;
-      line-height: 1.35;
-      text-align: center;
-    }
-    nav#TOC {
-      border-bottom: 1px solid #eee;
-      border-top: 1px solid #eee;
-      margin: 2em 0 2.5em;
-      padding: 1.25em 0;
-    }
-    nav#TOC h2 {
-      border-bottom: 0;
-      font-size: 1.35em;
-      margin: 0 0 0.75em;
-      padding: 0;
-    }
-    nav#TOC ul {
-      margin: 0;
-      padding-left: 1.2em;
-    }
-    nav#TOC li {
-      margin: 0.25em 0;
-    }
-    nav#TOC li li {
-      font-size: 0.95em;
-      margin: 0.15em 0;
-    }
-    iframe {
-      display: block;
-      max-width: 100%;
-      margin: 1.5em 0;
-      border: 1px solid #d8d8d8;
-    }
     h1, h2, h3, h4, h5, h6 {
-      color: #222;
-      font-weight: 600;
-      line-height: 1.25;
-      margin-top: 1.6em;
-      margin-bottom: 0.65em;
-    }
-    h1 {
-      font-size: 2.15em;
-      text-align: left;
-    }
-    h2 {
-      border-bottom: 1px solid #eee;
-      font-size: 1.75em;
-      padding-bottom: 0.25em;
-    }
-    h3 {
-      font-size: 1.35em;
+      margin-top: 1.4em;
     }
     h5, h6 {
       font-size: 1em;
@@ -161,25 +91,7 @@
     }
     pre {
       margin: 1em 0;
-      padding: 0.85em 1em;
       overflow: auto;
-      background: #f6f6f6;
-      border: 1px solid #e6e6e6;
-      border-radius: 4px;
-    }
-    .alert-warning {
-      background: #fcf8e3;
-      border: 1px solid #faebcc;
-      border-radius: 4px;
-      color: #5f5022;
-      margin: 1.5em 0;
-      padding: 1em 1.25em;
-    }
-    .alert-warning > :first-child {
-      margin-top: 0;
-    }
-    .alert-warning > :last-child {
-      margin-bottom: 0;
     }
     pre code {
       padding: 0;
@@ -320,81 +232,7 @@
 <header id="title-block-header">
 <h1 class="title">Visualizing Historic Maps with IIIF and Allmaps</h1>
 </header>
-<nav id="TOC" role="doc-toc">
-<h2>Contents</h2>
-<ul>
-<li><a href="#iiif-powered-georeferencing">IIIF-powered georeferencing</a>
-<ul>
-<li><a href="#what-you-will-learn">What you
-will learn</a></li>
-<li><a href="#why-georeference">Why
-georeference?</a></li>
-<li><a href="#whats-iiif">What’s IIIF?</a></li>
-<li><a href="#what-problems-does-iiif-respond-to">What problems does IIIF
-respond to?</a></li>
-<li><a href="#how-does-iiif-work">How does
-IIIF work?</a></li>
-<li><a href="#the-iiif-manifest">The IIIF
-manifest</a></li>
-<li><a href="#iiif-map-collections">IIIF
-map collections</a></li>
-</ul></li>
-<li><a href="#allmaps-editor">Allmaps Editor</a>
-<ul>
-<li><a href="#draw-a-mask">Draw a mask</a></li>
-<li><a href="#georeference-the-map">Georeference the map</a></li>
-<li><a href="#review-results">Review
-results</a></li>
-</ul></li>
-<li><a href="#allmaps-viewer">Allmaps Viewer</a>
-<ul>
-<li><a href="#view-stitched-atlas-sheets">View stitched atlas sheets</a></li>
-<li><a href="#use-xyz-tiles-in-gis">Use
-XYZ tiles in GIS</a></li>
-</ul></li>
-<li><a href="#install-the-allmaps-cli-and-dependencies">Install the Allmaps
-CLI and dependencies</a>
-<ul>
-<li><a href="#environment-setup">Environment
-setup</a></li>
-<li><a href="#install-the-allmaps-cli-and-dependencies-1">Install the Allmaps
-CLI and dependencies</a></li>
-<li><a href="#tools-for-json-inspection-and-geotiff-export">Tools for JSON
-inspection and GeoTIFF export</a></li>
-</ul></li>
-<li><a href="#draw-geojson-on-a-iiif-image">Draw GeoJSON on a IIIF image</a>
-<ul>
-<li><a href="#paris-example">Paris
-example</a></li>
-<li><a href="#process-overview">Process
-overview</a></li>
-</ul></li>
-<li><a href="#export-a-geotiff-with-allmaps-cli">Export a GeoTIFF with Allmaps
-CLI</a>
-<ul>
-<li><a href="#confirm-the-georeference-annotation">Confirm the georeference
-annotation</a></li>
-<li><a href="#download-the-iiif-image">Download the IIIF image</a></li>
-<li><a href="#generate-the-geotiff-script">Generate the GeoTIFF
-script</a></li>
-<li><a href="#edit-the-script">Edit the
-script</a></li>
-<li><a href="#run-the-script">Run the
-script</a></li>
-<li><a href="#verify-the-output-with-gdal">Verify the output with
-GDAL</a></li>
-</ul></li>
-<li><a href="#use-allmaps-with-leaflet">Use Allmaps with Leaflet</a>
-<ul>
-<li><a href="#copy-the-template">Copy the
-template</a></li>
-<li><a href="#index.html">index.html</a></li>
-<li><a href="#script.js">script.js</a></li>
-<li><a href="#final-map">Final map</a></li>
-</ul></li>
-<li><a href="#conclusions">Conclusions</a></li>
-</ul>
-</nav>
+<p>{% include toc.html %}</p>
 <!-- Begin Part 1.00 -->
 <h2 id="iiif-powered-georeferencing">IIIF-powered georeferencing</h2>
 <p><a
@@ -423,13 +261,10 @@ StoryMap JS</a>.</p>
 <p>In this lesson, we introduce <a
 href="https://allmaps.org">Allmaps</a>, an open-source set of tools for
 curating and georeferencing digital maps.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-01.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform">
-<figcaption>
-Figure 1: A georeferenced historic map, overlaid in the Allmaps
-platform.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-01.jpg” alt=“A georeferenced
+historic map, overlaid in the Allmaps platform” caption=“Figure 1: A
+georeferenced historic map, overlaid in the Allmaps platform.” %}</p>
 <p>Allmaps is a free, publicly accessible, and web-based solution to
 georeferencing. Instead of requiring users to upload image files to a
 GIS or web client, Allmaps fetches image files directly from digital
@@ -455,7 +290,7 @@ time and connect historical maps to other spatial data.</p>
 <p>At the Leventhal Map &amp; Education Center, <a
 href="https://atlascope.org">Atlascope</a> allows users to explore
 georeferenced urban atlases in a web map:</p>
-<iframe src="https://atlascope.org" width="100%" height="500px">
+<iframe src="https://atlascope.org" title="Atlascope web map" width="100%" height="500px">
 </iframe>
 <p>Georeferencing makes it possible to:</p>
 <ul>
@@ -465,13 +300,11 @@ waterways, shorelines, neighborhoods, and boundaries</li>
 <li>Join sheets from an atlas or map set into a larger composite</li>
 <li>Derive geospatial data for further analysis</li>
 </ul>
-<figure>
-<img src="figures/allmaps-historic-maps-02.png" alt="Historic map image aligned over a modern GIS basemap.">
-<figcaption>
-Figure 2: The georeferencing process places a digital image into a GIS.
-Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-02.png” alt=“Historic map image
+aligned over a modern GIS basemap.” caption=“Figure 2: The
+georeferencing process places a digital image into a GIS. Source:
+https://gistbok-ltb.ucgis.org/page/27/concept/8131” %}</p>
 <p>Traditional georeferencing solutions are built into geographic
 information systems (GIS) like QGIS or ArcGIS. Although GIS-based
 georeferencing tools can still be useful for some workflows, they do
@@ -517,12 +350,10 @@ II Claeissens. It’s physically massive. As Jan Trachet writes, <a
 href="https://www.leventhalmap.org/articles/mapathon-1571/">digitizing
 it</a> required taking dozens of separate photographs and stitching them
 together in software like Photoshop.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-03.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens.">
-<figcaption>
-Figure 3: Photographing the Claeissens wall map.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-03.jpg” alt=“A photographer
+shoots a large wall map by Pieter II Claeissens.” caption=“Figure 3:
+Photographing the Claeissens wall map.” %}</p>
 <p>It also takes up many gigabytes of storage. Delivering multiple
 gigabytes of image data over the web is a pretty big payload—and that
 large payload is exactly what most libraries and museums are often
@@ -570,7 +401,7 @@ instance, the Leardo Mappamundi we mentioned above. Its digital
 collection record is:</p>
 <p><strong>Tip:</strong> Open each of the URLs in a new tab as you
 go.</p>
-<p><a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/"></p>
+<p><a target="_blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/"></p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/</span></code></pre></div>
 <p></a></p>
@@ -578,7 +409,7 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="
 near the IIIF logo. If you open the link below, you’ll see a big jumble
 of <a href="https://www.json.org/json-en.html">JSON</a> (JavaScript
 Object Notation) data:</p>
-<p><a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json"></p>
+<p><a target="_blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json"></p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json</span></code></pre></div>
 <p></a></p>
@@ -593,7 +424,7 @@ image at the URL
 <code>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/full/0/default.jpg</code>—but
 we can also tweak this URL, ever so slightly, to deliver a smaller
 version of the image:</p>
-<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg"></p>
+<p><a target="_blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg"></p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg</span></code></pre></div>
 <p></a></p>
@@ -604,7 +435,7 @@ pixels wide.</p>
 <p>We could also deliver a smaller, zoomed-in crop of the source image
 by specifying a bounding box, turning <code>/full/1200,/0/</code> into
 <code>/7000,7600,3500,4200/1200,/0/</code>:</p>
-<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg"></p>
+<p><a target="_blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg"></p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg</span></code></pre></div>
 <p></a></p>
@@ -657,12 +488,10 @@ that you see in this list should be easy to work with in Allmaps.</p>
 <p>Other websites may require more sleuthing to find the manifest. On
 the <a href="https://www.davidrumsey.com">David Rumsey Map
 Collection</a>, the IIIF manifest is listed under the share menu:</p>
-<figure>
-<img src="figures/allmaps-historic-maps-04.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options.">
-<figcaption>
-Figure 4: Finding a IIIF manifest in the David Rumsey Map Collection.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-04.png” alt=“David Rumsey Map
+Collection share menu showing IIIF manifest options.” caption=“Figure 4:
+Finding a IIIF manifest in the David Rumsey Map Collection.” %}</p>
 <p>If you’re comfortable installing a browser extension, <a
 href="https://seige.digital/en/detektiiif/">DetektIIIF</a> can help
 identify IIIF resources on pages where the manifest link is not visible.
@@ -689,12 +518,11 @@ quartersectional atlases</li>
 <li>County and state maps, highway maps, and recreation maps</li>
 <li>Topographic or thematic map series</li>
 </ul>
-<figure>
-<img src="figures/allmaps-historic-maps-05.png" alt="UWM digital collection item page showing the IIIF Manifest URL field.">
-<figcaption>
-Figure 5: Finding the IIIF Manifest URL in the UWM digital collection.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-05.png” alt=“UWM digital
+collection item page showing the IIIF Manifest URL field.”
+caption=“Figure 5: Finding the IIIF Manifest URL in the UWM digital
+collection.” %}</p>
 <p>This lesson will use screenshots from georeferencing this <a
 href="https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/">chart
 of New Zealand</a>, but you should pick a different map to
@@ -711,32 +539,26 @@ georeferencing. Click to add points, and double-click to close the
 polygon. If you mess up, click “Cancel” to start over.</p>
 <p>In the figure below, note that the pink line defines the mask and
 excludes the map collar from the defined map.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-06.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area.">
-<figcaption>
-Figure 6: Drawing a clipping mask in Allmaps Editor.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-06.png” alt=“Screenshot of
+Allmaps Editor with a polygon mask drawn around the map area.”
+caption=“Figure 6: Drawing a clipping mask in Allmaps Editor.” %}</p>
 <p>It’s possible your image includes multiple maps! If so, each map gets
 its own mask.</p>
 <p>In the figure below, three maps are defined from a single image: the
 main map image (labeled 1) and two inset map areas (labeled 2 and
 3).</p>
-<figure>
-<img src="figures/allmaps-historic-maps-07.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3.">
-<figcaption>
-Figure 7: A scanned page with multiple maps, each of which would need
-its own mask.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-07.jpg” alt=“Scanned page
+showing multiple maps on one sheet. Main map labeled 1, inset maps
+labeled 2 and 3.” caption=“Figure 7: A scanned page with multiple maps,
+each of which would need its own mask.” %}</p>
 <p>Much of the time, your mask will simply be a rectangle drawn just
 inside the map’s neatline.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-08.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline.">
-<figcaption>
-Figure 8: A rectangular mask drawn near the map corners.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-08.png” alt=“Screenshot zoomed
+to a corner showing the mask just inside the neatline.” caption=“Figure
+8: A rectangular mask drawn near the map corners.” %}</p>
 <h3 id="georeference-the-map">Georeference the map</h3>
 <p>Ground control points (GCPs) guide Allmaps in aligning the scanned
 image (left side) with real-world geography (right side).</p>
@@ -748,12 +570,11 @@ a stable political boundary.</p>
 <p>In the figure below, note the pink dot labeled <code>2</code> on both
 sides of the image, in this case an easily identifiable location near
 Cape Reinga on the Aupōuri Peninsula of New Zealand.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-09.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap.">
-<figcaption>
-Figure 9: Adding ground control points in Allmaps Editor.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-09.png” alt=“Screenshot of
+Allmaps Editor with matching ground control points placed on the scanned
+map and the modern basemap.” caption=“Figure 9: Adding ground control
+points in Allmaps Editor.” %}</p>
 <p>When placing ground control points—especially for cartographic
 corpora like urban atlases—consider the following:</p>
 <ul>
@@ -801,12 +622,11 @@ class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="
 to align the map image in geographic space. Six-digit coordinate
 precision is probably overkill, but hey, it gives us an excuse to use <a
 href="https://xkcd.com/2170">one of our favorite xkcd comics</a>:</p>
-<figure>
-<img src="figures/allmaps-historic-maps-10.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points">
-<figcaption>
-Figure 10: Coordinate precision, by xkcd.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-10.png” alt=“A humorous comic
+that highlights the diminishing returns of latitude/longitude precision
+beyond four decimal points” caption=“Figure 10: Coordinate precision, by
+xkcd.” %}</p>
 <p>Georeference annotations are automatically created when you draw a
 mask or place a control point. From Allmaps Editor, here’s how you can
 locate a map’s georeference annotation:</p>
@@ -817,7 +637,7 @@ in a new tab, or click the purple <code>&lt;/&gt; Code</code> button to
 inspect the annotation in Allmaps Editor</li>
 </ol>
 <p>Here’s the georeference annotation for that chart of New Zealand:</p>
-<p><a target="blank" href="https://annotations.allmaps.org/images/ed34bf1e16463906"></p>
+<p><a target="_blank" href="https://annotations.allmaps.org/images/ed34bf1e16463906"></p>
 <div class="sourceCode" id="cb7"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>https://annotations.allmaps.org/images/ed34bf1e16463906</span></code></pre></div>
 <p></a></p>
@@ -829,13 +649,11 @@ IIIF manifest through a hashing algorithm that produces a unique,
 of what each <code>key</code> and each <code>value</code> are
 communicating? Can you locate the resource coordinates and geometry
 coordinates?</p>
-<figure>
-<img src="figures/allmaps-historic-maps-11.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation.">
-<figcaption>
-Figure 11: Resource coordinates and geometry coordinates in a
-georeference annotation.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-11.png” alt=“Diagram showing how
+pixel coordinates in the image correspond to geographic coordinates in
+the georeference annotation.” caption=“Figure 11: Resource coordinates
+and geometry coordinates in a georeference annotation.” %}</p>
 <h3 id="review-results">Review results</h3>
 <p>The “Results” tab displays a preview of the map with georeferencing
 applied. It’s a great way to check alignment and see if you’re on the
@@ -843,12 +661,11 @@ right track.</p>
 <p>Notice in the figure below that the map is displayed with its collar
 removed beyond the neatline and the shape is no longer rectangular and
 has taken on a parallelogram shape.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-12.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap.">
-<figcaption>
-Figure 12: Previewing georeferencing results in Allmaps.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-12.png” alt=“Screenshot of the
+Results tab in Allmaps Editor showing the georeferenced preview over the
+basemap.” caption=“Figure 12: Previewing georeferencing results in
+Allmaps.” %}</p>
 <p>In the upper right, under <em>Export</em>, you’ll see a drawer with
 more tools:</p>
 <ul>
@@ -879,20 +696,16 @@ interpretations of the same control points, and pay attention to places
 where the map stretches, bends, or preserves local detail.</p>
 <p>The animation below shows just how much changing the transformation
 algorithm can impact the overlay.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways.">
-<figcaption>
-Figure 13: Different transformation algorithms can produce different
-warping results.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-13.gif” alt=“Animated comparison
+showing how different transformation algorithms warp the same
+georeferenced map in different ways.” caption=“Figure 13: Different
+transformation algorithms can produce different warping results.” %}</p>
 <!-- TODO: Need updated screenshot. -->
-<figure>
-<img src="figures/allmaps-historic-maps-14.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools.">
-<figcaption>
-Figure 14: The share menu in Allmaps.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-14.png” alt=“Screenshot of the
+Allmaps export drawer showing links to the viewer, annotation, code, and
+tile tools.” caption=“Figure 14: The share menu in Allmaps.” %}</p>
 <p>Click the <em>View in Allmaps Viewer</em> link in the Export menu to
 continue. Next we will work with the map in Allmaps Viewer.</p>
 <!-- Begin Part 1.02 -->
@@ -912,12 +725,10 @@ inspecting results and assessing how a warped historical map behaves in
 relation to modern geography.</p>
 <p>The figure below shows a georeferenced map of New Zealand with the
 background removed.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-15.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on.">
-<figcaption>
-Figure 15: Background removal in Allmaps Viewer.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-15.png” alt=“Comparison in
+Allmaps Viewer showing the same map with background removal off and on.”
+caption=“Figure 15: Background removal in Allmaps Viewer.” %}</p>
 <p>Allmaps Viewer has some useful keyboard shortcuts:</p>
 <ul>
 <li><kbd>Space</kbd> – Toggle transparency on/off</li>
@@ -960,36 +771,28 @@ warped map available as a layer in desktop GIS software.</p>
 bring georeferenced maps directly into GIS software like QGIS. Note:
 this is not intended for permanent hosting.</p>
 <p>In QGIS, use the Add XYZ Layer tool:</p>
-<figure>
-<img src="figures/allmaps-historic-maps-16.png" alt="QGIS dialog for adding a new XYZ tile layer.">
-<figcaption>
-Figure 16: Opening the XYZ tile layer dialog in QGIS.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-16.png” alt=“QGIS dialog for
+adding a new XYZ tile layer.” caption=“Figure 16: Opening the XYZ tile
+layer dialog in QGIS.” %}</p>
 <p>Copy the XYZ Tile URL from the Allmaps Editor Share tools:</p>
 <!-- TODO: Update this screenshot before submission. -->
-<figure>
-<img src="figures/allmaps-historic-maps-17.png" alt="Allmaps export menu showing where to copy the XYZ tile URL.">
-<figcaption>
-Figure 17: Finding the XYZ tile URL in Allmaps.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-17.png” alt=“Allmaps export menu
+showing where to copy the XYZ tile URL.” caption=“Figure 17: Finding the
+XYZ tile URL in Allmaps.” %}</p>
 <p>Then create a new XYZ Connection in QGIS and paste in the URL. No
 other changes are usually needed.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-18.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL.">
-<figcaption>
-Figure 18: Creating a new XYZ connection in QGIS.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-18.png” alt=“QGIS form for
+creating a new XYZ connection by pasting the tile URL.” caption=“Figure
+18: Creating a new XYZ connection in QGIS.” %}</p>
 <p>Now you can use your georeferenced map directly in desktop GIS as a
 reference layer alongside other raster and vector data.</p>
-<figure>
-<img src="figures/allmaps-historic-maps-19.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service.">
-<figcaption>
-Figure 19: A georeferenced map displayed in QGIS.
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-19.png” alt=“Georeferenced
+historical map displayed in QGIS from the Allmaps XYZ tile service.”
+caption=“Figure 19: A georeferenced map displayed in QGIS.” %}</p>
 <p>Use the Allmaps Tile Server for testing desktop GIS workflows or
 other software that needs an XYZ tile URL. Because each requested tile
 has to be fetched, warped, and returned by a server, tiles may load
@@ -1646,7 +1449,7 @@ loading our local files.</p>
 <p>Line 8 loads the <code>style.css</code> file:</p>
 <div class="sourceCode" id="cb45"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;style.css&quot;</span> <span class="dt">/&gt;</span></span></code></pre></div>
-<p>Lines 11 and 12 load Leaflet and the Allmaps Leaflet plugins:</p>
+<p>Lines 11 and 12 load Leaflet and the Allmaps Leaflet plugin:</p>
 <div class="sourceCode" id="cb46"><pre
 class="sourceCode html"><code class="sourceCode html"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
@@ -1666,8 +1469,8 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb49-1"><a href=
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;map&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code></pre></div>
-<p>Here, <code>&lt;div id="wrapper"&gt;</code> creates a nice container
-for our map by applying these CSS values to the page…</p>
+<p>Here, <code>&lt;div id="wrapper"&gt;</code> creates a container for
+our map by applying these CSS values to the page…</p>
 <div class="sourceCode" id="cb50"><pre
 class="sourceCode css"><code class="sourceCode css"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#wrapper</span> {</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
@@ -1685,9 +1488,9 @@ CSS:</p>
 class="sourceCode css"><code class="sourceCode css"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#map</span> {</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">height</span>: <span class="dv">100</span><span class="dt">vw</span><span class="op">;</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span>:<span class="dv">1</span><span class="op">;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span>: <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Try opening the <code>style.css</code> file to inspect this stuff
+<p>Try opening the <code>style.css</code> file to inspect this CSS
 directly, or even tweaking some of the values as a matter of
 experimentation.</p>
 <h3 id="script.js">script.js</h3>
@@ -1698,13 +1501,12 @@ class="sourceCode html"><code class="sourceCode html"><span id="cb52-1"><a href=
 <p>… which corresponds to <a
 href="https://collections.leventhalmap.org/search/commonwealth:3f463198b">this
 map of Boston</a>:</p>
-<figure>
-<img src="figures/allmaps-historic-maps-20.jpg" alt="A map of Boston from 1838, by T.G. Bradford">
-<figcaption>
-Figure 20: A map of Boston from 1838, by T.G. Bradford. Source:
-https://collections.leventhalmap.org/search/commonwealth:3f463198b
-</figcaption>
-</figure>
+<p>{% include figure.html
+filename=“figures/allmaps-historic-maps-20.jpg” alt=“A map of Boston
+from 1838, by T.G. Bradford” caption=“Figure 20: A map of Boston from
+1838, by T.G. Bradford. Source:
+https://collections.leventhalmap.org/search/commonwealth:3f463198b”
+%}</p>
 <h4 id="map-setup">Map setup</h4>
 <p>To instantiate a Leaflet map, define a variable as
 <code>L.map("map", { ... })</code>, where <code>...</code> includes the
@@ -1768,14 +1570,33 @@ class="sourceCode js"><code class="sourceCode javascript"><span id="cb57-1"><a h
 href="https://leafletjs.com/examples/layers-control/">read more about
 them here</a>.</p>
 <h3 id="final-map">Final map</h3>
-<iframe src="assets/allmaps-leaflet-demo/index.html" width="100%" height="500px">
+<iframe src="assets/allmaps-leaflet-demo/index.html" title="Allmaps Leaflet demo map" width="100%" height="500px">
 </iframe>
-<p><a href="assets/allmaps-leaflet-demo/index.html" target="_blank">View
-sample map in a new window</a></p>
+<p><a href="assets/allmaps-leaflet-demo/index.html">View sample map in a
+new window</a>{:target=“_blank”}</p>
 <p>Try adding different annotations (just note you’ll have to update the
-<code>center</code> array, which is hard-coded to a lat/long pair for
-Boston).</p>
+<code>center</code> array, which is hard-coded to a latitude/longitude
+pair for Boston).</p>
 <h2 id="conclusions">Conclusions</h2>
-<!-- TODO: Write a conclusion paragraph -->
+<p>We hope that you will give Allmaps a try and have fun exploring IIIF
+map collections from all around the world!</p>
+<p>Allmaps is created by:</p>
+<p><a href="https://bertspaan.nl/">Bert Spaan</a>, founder of Allmaps
+and lead developer.</p>
+<p><a href="https://www.tudelft.nl/en/staff/j.a.schoonman/">Jules
+Schoonman</a>, Digital Curator at Delft University of Technology
+Library, founder of Allmaps, and lead for educational projects.</p>
+<p>Other contributors and partners are listed on <a
+href="https://allmaps.org/#about-allmaps">allmaps.org</a>.</p>
+<h2 id="about-the-authors">About the Authors</h2>
+<p><a href="https://srappel.github.io">Stephen Appel</a> is the
+Geospatial Information Librarian at the American Geographical Society
+Library at the University of Wisconsin Milwaukee Libraries; Milwaukee,
+Wisconsin, United States.</p>
+<p><a href="https://itspangler.com/">Ian Spangler</a> is Associate
+Curator of Digital &amp; Participatory Geography at the Norman B.
+Leventhal Map &amp; Education Center at the Boston Public Library and
+teaches a Geospatial Humanities course at Tufts University; Boston,
+Massachusetts, United States.</p>
 </body>
 </html>
