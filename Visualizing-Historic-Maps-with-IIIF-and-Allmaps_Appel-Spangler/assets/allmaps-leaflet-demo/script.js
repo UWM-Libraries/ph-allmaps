@@ -3,7 +3,7 @@
 const map = L.map("map", {
   center: [42.3518, -71.05],
   zoom: 13,
-  minZoom: 1,
+  minZoom: 7,
   maxZoom: 24,
   zoomControl: false,
 });
@@ -22,8 +22,7 @@ let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
 // define and load default warped maps
 
 let annotationUrl = 'https://annotations.allmaps.org/manifests/cfb327e4b43395e3';
-let warpedMapLayer = new Allmaps.WarpedMapLayer(annotationUrl);
-map.addLayer(warpedMapLayer);
+let warpedMapLayer = new Allmaps.WarpedMapLayer(annotationUrl).addTo(map);
 
 // add the layer list
 
