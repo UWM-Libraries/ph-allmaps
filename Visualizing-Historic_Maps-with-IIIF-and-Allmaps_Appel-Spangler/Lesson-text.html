@@ -325,52 +325,74 @@
 <ul>
 <li><a href="#iiif-powered-georeferencing">IIIF-powered georeferencing</a>
 <ul>
-<li><a href="#why-georeference">Why georeference?</a></li>
+<li><a href="#what-you-will-learn">What you
+will learn</a></li>
+<li><a href="#why-georeference">Why
+georeference?</a></li>
 <li><a href="#whats-iiif">What’s IIIF?</a></li>
-<li><a href="#what-problems-does-iiif-respond-to">What problems does IIIF respond to?</a></li>
-<li><a href="#how-does-iiif-work">How does IIIF work?</a></li>
-<li><a href="#the-iiif-manifest">The IIIF manifest</a></li>
-<li><a href="#iiif-map-collections">IIIF map collections</a></li>
+<li><a href="#what-problems-does-iiif-respond-to">What problems does IIIF
+respond to?</a></li>
+<li><a href="#how-does-iiif-work">How does
+IIIF work?</a></li>
+<li><a href="#the-iiif-manifest">The IIIF
+manifest</a></li>
+<li><a href="#iiif-map-collections">IIIF
+map collections</a></li>
 </ul></li>
 <li><a href="#allmaps-editor">Allmaps Editor</a>
 <ul>
-<li><a href="#draw-mask">Draw Mask</a></li>
-<li><a href="#georeference">Georeference</a></li>
-<li><a href="#results">Results</a></li>
+<li><a href="#draw-a-mask">Draw a mask</a></li>
+<li><a href="#georeference-the-map">Georeference the map</a></li>
+<li><a href="#review-results">Review
+results</a></li>
 </ul></li>
 <li><a href="#allmaps-viewer">Allmaps Viewer</a>
 <ul>
-<li><a href="#viewing-stitched-atlas-sheets">Viewing Stitched Atlas Sheets</a></li>
-<li><a href="#using-xyz-tiles-in-gis">Using XYZ Tiles in GIS</a></li>
+<li><a href="#view-stitched-atlas-sheets">View stitched atlas sheets</a></li>
+<li><a href="#use-xyz-tiles-in-gis">Use
+XYZ tiles in GIS</a></li>
 </ul></li>
-<li><a href="#install-the-allmaps-cli-and-dependencies">Install the Allmaps CLI and dependencies</a>
+<li><a href="#install-the-allmaps-cli-and-dependencies">Install the Allmaps
+CLI and dependencies</a>
 <ul>
-<li><a href="#environment-setup">Environment Setup</a></li>
-<li><a href="#install-allmaps-cli-and-dependencies">Install Allmaps CLI and dependencies</a></li>
-<li><a href="#tools-for-json-inspection-and-geotiff-export">Tools for JSON inspection and GeoTIFF export</a></li>
+<li><a href="#environment-setup">Environment
+setup</a></li>
+<li><a href="#install-the-allmaps-cli-and-dependencies-1">Install the Allmaps
+CLI and dependencies</a></li>
+<li><a href="#tools-for-json-inspection-and-geotiff-export">Tools for JSON
+inspection and GeoTIFF export</a></li>
 </ul></li>
 <li><a href="#draw-geojson-on-a-iiif-image">Draw GeoJSON on a IIIF image</a>
 <ul>
-<li><a href="#paris-example">Paris example</a></li>
-<li><a href="#process-overview">Process Overview</a></li>
-<li><a href="#the-ingredients">The ingredients</a></li>
+<li><a href="#paris-example">Paris
+example</a></li>
+<li><a href="#process-overview">Process
+overview</a></li>
 </ul></li>
-<li><a href="#exporting-a-geotiff-with-allmaps-cli">Exporting a GeoTIFF with Allmaps CLI</a>
+<li><a href="#export-a-geotiff-with-allmaps-cli">Export a GeoTIFF with Allmaps
+CLI</a>
 <ul>
-<li><a href="#confirm-the-georeference-annotation">Confirm the Georeference Annotation</a></li>
-<li><a href="#download-the-iiif-image">Download the IIIF Image</a></li>
-<li><a href="#generate-the-geotiff-script">Generate the GeoTIFF Script</a></li>
-<li><a href="#edit-the-script">Edit the Script</a></li>
-<li><a href="#run-the-script">Run the Script</a></li>
-<li><a href="#verify-the-output-with-gdal">Verify the Output with GDAL</a></li>
+<li><a href="#confirm-the-georeference-annotation">Confirm the georeference
+annotation</a></li>
+<li><a href="#download-the-iiif-image">Download the IIIF image</a></li>
+<li><a href="#generate-the-geotiff-script">Generate the GeoTIFF
+script</a></li>
+<li><a href="#edit-the-script">Edit the
+script</a></li>
+<li><a href="#run-the-script">Run the
+script</a></li>
+<li><a href="#verify-the-output-with-gdal">Verify the output with
+GDAL</a></li>
 </ul></li>
-<li><a href="#using-allmaps-with-leaflet">Using Allmaps with Leaflet</a>
+<li><a href="#use-allmaps-with-leaflet">Use Allmaps with Leaflet</a>
 <ul>
-<li><a href="#copy-the-template">Copy the template</a></li>
+<li><a href="#copy-the-template">Copy the
+template</a></li>
 <li><a href="#index.html">index.html</a></li>
 <li><a href="#script.js">script.js</a></li>
 <li><a href="#final-map">Final map</a></li>
 </ul></li>
+<li><a href="#conclusions">Conclusions</a></li>
 </ul>
 </nav>
 <!-- Begin Part 1.00 -->
@@ -398,13 +420,15 @@ href="https://programminghistorian.org/en/lessons/georeferencing-qgis">QGIS
 2.0</a>, and <a
 href="https://programminghistorian.org/en/lessons/displaying-georeferenced-map-knightlab-storymap-js">KnightLab’s
 StoryMap JS</a>.</p>
-<p>In this lesson, we introduce <strong><a
-href="https://allmaps.org">the Allmaps platform</a></strong>: an
-open-source set of tools for curating and georeferencing digital
-maps.</p>
+<p>In this lesson, we introduce <a
+href="https://allmaps.org">Allmaps</a>, an open-source set of tools for
+curating and georeferencing digital maps.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-01.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform">
-<figcaption>Figure 1: A georeferenced historic map, overlaid in the Allmaps platform.</figcaption>
+<figcaption>
+Figure 1: A georeferenced historic map, overlaid in the Allmaps
+platform.
+</figcaption>
 </figure>
 <p>Allmaps is a free, publicly accessible, and web-based solution to
 georeferencing. Instead of requiring users to upload image files to a
@@ -415,31 +439,25 @@ the metadata necessary to warp a map. In addition to providing a simple
 interface for georeferencing, Allmaps provides a robust set of
 command-line tools and web-mapping libraries that advanced users can use
 to extend their research and visualization workflows.</p>
-<p>You’ll learn:</p>
+<h3 id="what-you-will-learn">What you will learn</h3>
 <ol type="1">
-<li>Why georeferencing can be useful for research and scholarship</li>
+<li>Why georeferencing is useful for research and scholarship</li>
 <li>The principles of IIIF, including how to identify IIIF maps</li>
 <li>How to use Allmaps to view and georeference IIIF maps</li>
-<li>Some of Allmaps’ advanced features, including command-line
+<li>How to use Allmaps’ advanced features, including command-line
 tools</li>
 <li>How to use Allmaps with open-source web mapping tools like
 Leaflet</li>
 </ol>
 <h3 id="why-georeference">Why georeference?</h3>
-<p>There are many reasons why researchers and scholars georeference
-maps. Georeferenced maps make it easier to view change over time.</p>
-<p>Discovery applications like the American Geographical Society
-Library’s <a
-href="https://uwm.maps.arcgis.com/apps/webappviewer/index.html?id=4e066bb8e5664d189ac3e77c26d21712">Operation
-Birds Eye</a> overlay 300 aerial photographs on modern satellite
-imagery, adding valuable context and enabling comparisons over time.
-Similarly, at the Leventhal Map &amp; Education Center, the <a
-href="https://atlascope.org">Atlascope</a> tool allows users to explore
+<p>Researchers and scholars georeference maps to compare places over
+time and connect historical maps to other spatial data.</p>
+<p>At the Leventhal Map &amp; Education Center, <a
+href="https://atlascope.org">Atlascope</a> allows users to explore
 georeferenced urban atlases in a web map:</p>
 <iframe src="https://atlascope.org" width="100%" height="500px">
 </iframe>
-<p>Once a digitized map is aligned with geographic coordinates, it
-becomes possible to:</p>
+<p>Georeferencing makes it possible to:</p>
 <ul>
 <li>Compare landscapes past and present, including streets, buildings,
 waterways, shorelines, neighborhoods, and boundaries</li>
@@ -449,7 +467,10 @@ waterways, shorelines, neighborhoods, and boundaries</li>
 </ul>
 <figure>
 <img src="figures/allmaps-historic-maps-02.png" alt="Historic map image aligned over a modern GIS basemap.">
-<figcaption>Figure 2: The georeferencing process places a digital image into a GIS. Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131</figcaption>
+<figcaption>
+Figure 2: The georeferencing process places a digital image into a GIS.
+Source: https://gistbok-ltb.ucgis.org/page/27/concept/8131
+</figcaption>
 </figure>
 <p>Traditional georeferencing solutions are built into geographic
 information systems (GIS) like QGIS or ArcGIS. Although GIS-based
@@ -498,7 +519,9 @@ it</a> required taking dozens of separate photographs and stitching them
 together in software like Photoshop.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-03.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens.">
-<figcaption>Figure 3: Photographing the Claeissens wall map.</figcaption>
+<figcaption>
+Figure 3: Photographing the Claeissens wall map.
+</figcaption>
 </figure>
 <p>It also takes up many gigabytes of storage. Delivering multiple
 gigabytes of image data over the web is a pretty big payload—and that
@@ -525,7 +548,7 @@ section of the tile pyramid is highlighted in gray.</p>
 <a href="https://projectmirador.org">Mirador</a> or <a
 href="https://openseadragon.github.io">OpenSeadragon</a>. Below, take a
 look at the AGSL’s treasured <a
-href="https://collections.lib.uwm.edu/digital/collection/agdm/id/538/">Leardo
+href="https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/">Leardo
 Mappamundi</a>, embedded in a Mirador Viewer. Clicking on the expand
 arrows allows us to view the map in full-resolution detail directly in
 the browser—no need to download image files.</p>
@@ -535,8 +558,8 @@ the browser—no need to download image files.</p>
 comparison in a new page</a></p>
 <h3 id="the-iiif-manifest">The IIIF manifest</h3>
 <p>Allmaps builds on the IIIF protocol to warp IIIF maps directly in a
-web browser. In order to georeference a map in Allmaps, you need
-something called a <strong>IIIF manifest</strong>.</p>
+web browser. In order to georeference a map in Allmaps, you need a IIIF
+manifest.</p>
 <p>A “manifest” is the prime unit in IIIF. Like the manifest for a plane
 or a ship, IIIF manifests contain information about their cargo. In our
 case, the “cargo” includes the pixels of the digital resource, its
@@ -547,17 +570,17 @@ instance, the Leardo Mappamundi we mentioned above. Its digital
 collection record is:</p>
 <p><strong>Tip:</strong> Open each of the URLs in a new tab as you
 go.</p>
-<p><a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/538/"></p>
+<p><a target="blank" href="https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/"></p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/digital/collection/agdm/id/538/</span></code></pre></div>
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/</span></code></pre></div>
 <p></a></p>
 <p>The Leardo map’s IIIF manifest is listed at the bottom of the page,
 near the IIIF logo. If you open the link below, you’ll see a big jumble
 of <a href="https://www.json.org/json-en.html">JSON</a> (JavaScript
 Object Notation) data:</p>
-<p><a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json"></p>
+<p><a target="blank" href="https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json"></p>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/iiif/info/agdm/538/manifest.json</span></code></pre></div>
+class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json</span></code></pre></div>
 <p></a></p>
 <p>That big JSON jumble is our IIIF Manifest for the Leardo Mappamundi.
 It contains metadata about the object itself, like the title of the work
@@ -565,33 +588,31 @@ and its publication date, but it also includes information about the
 IIIF image, like width and height in pixels.</p>
 <p>Open the manifest in a new tab and scroll through its contents. Can
 you find these values? What other metadata do you see?</p>
-<p>Now that you have the manifest, you could point to the <a
-href="https://collections.lib.uwm.edu/digital/iiif/agdm/538/full/full/0/default.jpg">full
-size image</a> at the URL
-<code>https://collections.lib.uwm.edu/digital/iiif/agdm/538/full/full/0/default.jpg</code>—but
+<p>Now that you have the manifest, you could point to the full-size
+image at the URL
+<code>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/full/0/default.jpg</code>—but
 we can also tweak this URL, ever so slightly, to deliver a smaller
 version of the image:</p>
-<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/full/1200,/0/default.jpg"></p>
+<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg"></p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/full/1200,/0/default.jpg</span></code></pre></div>
+class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg</span></code></pre></div>
 <p></a></p>
 <p>Here, we’ve replaced <code>/full/full/0/</code> with
 <code>/full/1200,/0/</code>, which tells any browser or application
 requesting this URL to fetch the image at a maximum resolution of 1,200
 pixels wide.</p>
 <p>We could also deliver a smaller, zoomed-in crop of the source image
-by specifying a two-pixel bounding box, turning
-<code>/full/1200,/0/</code> into
-<code>/3416,3568,526,492/1200,/0</code>:</p>
-<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/3416,3568,526,492/1200,/0/default.jpg"></p>
+by specifying a bounding box, turning <code>/full/1200,/0/</code> into
+<code>/7000,7600,3500,4200/1200,/0/</code>:</p>
+<p><a target="blank" href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg"></p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/3416,3568,526,492/1200,/0/default.jpg</span></code></pre></div>
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg</span></code></pre></div>
 <p></a></p>
 <p>Finally, we can even pass a variety of parameters like rotation. In
-the image below, we’ve added the value 280
-<code>/4662,3731,562,772/1200/280/</code>:</p>
+the URL below, we’ve added the value <code>280</code> at the rotation
+position:</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:538/4662,3731,562,772/1200/280/default.jpg</span></code></pre></div>
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/280/default.jpg</span></code></pre></div>
 <p>All of these things are possible because of IIIF’s built-in
 application programming interfaces (or APIs), which allow you to query
 images according to different parameters in the URL. It’s obviously
@@ -625,14 +646,6 @@ href="https://editor.allmaps.org">Allmaps Editor</a>, which allows you
 to georeference a IIIF map, and <a
 href="https://viewer.allmaps.org">Allmaps Viewer</a>, which allows you
 to view them.</p>
-<p>These tools are ideal for large-scale maps such as city, county,
-state, or country maps, including:</p>
-<ul>
-<li>Urban atlases like fire insurance atlases, plats, and
-quartersectional atlases</li>
-<li>County and state maps, highway maps, and recreation maps</li>
-<li>Topographic or thematic map series</li>
-</ul>
 <p>All of the maps in <a
 href="https://uwm.edu/lib-collections/agsl-digital-map-collection/">AGSL</a>
 and <a href="https://collections.leventhalmap.org">LMEC</a> digital
@@ -646,7 +659,9 @@ the <a href="https://www.davidrumsey.com">David Rumsey Map
 Collection</a>, the IIIF manifest is listed under the share menu:</p>
 <figure>
 <img src="figures/allmaps-historic-maps-04.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options.">
-<figcaption>Figure 4: Finding a IIIF manifest in the David Rumsey Map Collection.</figcaption>
+<figcaption>
+Figure 4: Finding a IIIF manifest in the David Rumsey Map Collection.
+</figcaption>
 </figure>
 <p>If you’re comfortable installing a browser extension, <a
 href="https://seige.digital/en/detektiiif/">DetektIIIF</a> can help
@@ -666,29 +681,41 @@ page</li>
 </ol>
 <p>Allmaps uses metadata in the IIIF manifest to fetch image data from
 the host institution’s servers.</p>
+<p>Allmaps is especially useful for large-scale maps whose content can
+be matched to modern geography, such as:</p>
+<ul>
+<li>Urban atlases like fire insurance atlases, plats, and
+quartersectional atlases</li>
+<li>County and state maps, highway maps, and recreation maps</li>
+<li>Topographic or thematic map series</li>
+</ul>
 <figure>
 <img src="figures/allmaps-historic-maps-05.png" alt="UWM digital collection item page showing the IIIF Manifest URL field.">
-<figcaption>Figure 5: Finding the IIIF Manifest URL in the UWM digital collection.</figcaption>
+<figcaption>
+Figure 5: Finding the IIIF Manifest URL in the UWM digital collection.
+</figcaption>
 </figure>
-<p>This lesson will use a lot of screenshots from georeferencing this <a
+<p>This lesson will use screenshots from georeferencing this <a
 href="https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/">chart
 of New Zealand</a>, but you should pick a different map to
 georeference.</p>
-<h3 id="draw-mask">Draw Mask</h3>
-<p>The first step is adding a mask. This involves drawing a line around
-the map areas of the document to exclude the collar or marginalia. The
-mask identifies parts of the scanned image that you want to
-georeference. Only parts of the image inside the mask will be warped. In
-the Allmaps lexicon, one mask defines a “map” on a region of the
+<h3 id="draw-a-mask">Draw a mask</h3>
+<p>The first step is adding a clipping mask. This involves drawing a
+line around the map areas of the document to exclude the collar or
+marginalia. The mask identifies parts of the scanned image that you want
+to georeference. Only parts of the image inside the mask will be warped.
+In the Allmaps lexicon, one mask defines a “map” on a region of the
 “image”.</p>
-<p>Use the “Draw Mask” tab to add a mask. Click to add points, and
-double-click to close the polygon. If you mess up, click “Cancel” to
-start over.</p>
+<p>Use the “Draw Mask” tab to add a mask before moving on to
+georeferencing. Click to add points, and double-click to close the
+polygon. If you mess up, click “Cancel” to start over.</p>
 <p>In the figure below, note that the pink line defines the mask and
 excludes the map collar from the defined map.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-06.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area.">
-<figcaption>Figure 6: Drawing a clipping mask in Allmaps Editor.</figcaption>
+<figcaption>
+Figure 6: Drawing a clipping mask in Allmaps Editor.
+</figcaption>
 </figure>
 <p>It’s possible your image includes multiple maps! If so, each map gets
 its own mask.</p>
@@ -697,28 +724,35 @@ main map image (labeled 1) and two inset map areas (labeled 2 and
 3).</p>
 <figure>
 <img src="figures/allmaps-historic-maps-07.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3.">
-<figcaption>Figure 7: A scanned page with multiple maps, each of which would need its own mask.</figcaption>
+<figcaption>
+Figure 7: A scanned page with multiple maps, each of which would need
+its own mask.
+</figcaption>
 </figure>
 <p>Much of the time, your mask will simply be a rectangle drawn just
 inside the map’s neatline.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-08.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline.">
-<figcaption>Figure 8: A rectangular mask drawn near the map corners.</figcaption>
+<figcaption>
+Figure 8: A rectangular mask drawn near the map corners.
+</figcaption>
 </figure>
-<h3 id="georeference">Georeference</h3>
+<h3 id="georeference-the-map">Georeference the map</h3>
 <p>Ground control points (GCPs) guide Allmaps in aligning the scanned
 image (left side) with real-world geography (right side).</p>
 <p>Use the “Georeference” tab to begin placing GCPs.</p>
 <p>To create one, find a location that clearly matches on both sides,
 such as a street intersection, the corner of a recognizable building, or
 a stable political boundary.</p>
-<p>Click the same spot on both images.</p>
+<p>Click the same spot on both sides of the editor.</p>
 <p>In the figure below, note the pink dot labeled <code>2</code> on both
 sides of the image, in this case an easily identifiable location near
 Cape Reinga on the Aupōuri Peninsula of New Zealand.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-09.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap.">
-<figcaption>Figure 9: Adding ground control points in Allmaps Editor.</figcaption>
+<figcaption>
+Figure 9: Adding ground control points in Allmaps Editor.
+</figcaption>
 </figure>
 <p>When placing ground control points—especially for cartographic
 corpora like urban atlases—consider the following:</p>
@@ -737,7 +771,9 @@ href="https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#
 with Allmaps</a>.</p>
 <p>Remember, landscapes change: roads shift, water levels fluctuate,
 buildings are razed and replaced.</p>
-<h4 id="the-georeference-annotation">The Georeference Annotation</h4>
+<p>Before reading further, create a few GCPs of your own and check the
+“Results” tab to see how the map begins to align.</p>
+<h4 id="the-georeference-annotation">The georeference annotation</h4>
 <p>Behind the scenes, placing GCPs in Allmaps creates a <strong><a
 href="https://iiif.io/api/extension/georef/">Georeference
 Annotation</a></strong>, a standard format for storing geospatial
@@ -767,7 +803,9 @@ precision is probably overkill, but hey, it gives us an excuse to use <a
 href="https://xkcd.com/2170">one of our favorite xkcd comics</a>:</p>
 <figure>
 <img src="figures/allmaps-historic-maps-10.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points">
-<figcaption>Figure 10: Coordinate precision, by xkcd.</figcaption>
+<figcaption>
+Figure 10: Coordinate precision, by xkcd.
+</figcaption>
 </figure>
 <p>Georeference annotations are automatically created when you draw a
 mask or place a control point. From Allmaps Editor, here’s how you can
@@ -775,7 +813,8 @@ locate a map’s georeference annotation:</p>
 <ol type="1">
 <li>Click the green “Export” button</li>
 <li>Click the up-right arrow by the “Georeference annotation” to open it
-in a new tab</li>
+in a new tab, or click the purple <code>&lt;/&gt; Code</code> button to
+inspect the annotation in Allmaps Editor</li>
 </ol>
 <p>Here’s the georeference annotation for that chart of New Zealand:</p>
 <p><a target="blank" href="https://annotations.allmaps.org/images/ed34bf1e16463906"></p>
@@ -792,9 +831,12 @@ communicating? Can you locate the resource coordinates and geometry
 coordinates?</p>
 <figure>
 <img src="figures/allmaps-historic-maps-11.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation.">
-<figcaption>Figure 11: Resource coordinates and geometry coordinates in a georeference annotation.</figcaption>
+<figcaption>
+Figure 11: Resource coordinates and geometry coordinates in a
+georeference annotation.
+</figcaption>
 </figure>
-<h3 id="results">Results</h3>
+<h3 id="review-results">Review results</h3>
 <p>The “Results” tab displays a preview of the map with georeferencing
 applied. It’s a great way to check alignment and see if you’re on the
 right track.</p>
@@ -803,7 +845,9 @@ removed beyond the neatline and the shape is no longer rectangular and
 has taken on a parallelogram shape.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-12.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap.">
-<figcaption>Figure 12: Previewing georeferencing results in Allmaps.</figcaption>
+<figcaption>
+Figure 12: Previewing georeferencing results in Allmaps.
+</figcaption>
 </figure>
 <p>In the upper right, under <em>Export</em>, you’ll see a drawer with
 more tools:</p>
@@ -837,12 +881,17 @@ where the map stretches, bends, or preserves local detail.</p>
 algorithm can impact the overlay.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways.">
-<figcaption>Figure 13: Different transformation algorithms can produce different warping results.</figcaption>
+<figcaption>
+Figure 13: Different transformation algorithms can produce different
+warping results.
+</figcaption>
 </figure>
 <!-- TODO: Need updated screenshot. -->
 <figure>
 <img src="figures/allmaps-historic-maps-14.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools.">
-<figcaption>Figure 14: The share menu in Allmaps.</figcaption>
+<figcaption>
+Figure 14: The share menu in Allmaps.
+</figcaption>
 </figure>
 <p>Click the <em>View in Allmaps Viewer</em> link in the Export menu to
 continue. Next we will work with the map in Allmaps Viewer.</p>
@@ -865,9 +914,10 @@ relation to modern geography.</p>
 background removed.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-15.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on.">
-<figcaption>Figure 15: Background removal in Allmaps Viewer.</figcaption>
+<figcaption>
+Figure 15: Background removal in Allmaps Viewer.
+</figcaption>
 </figure>
-<div class="alert alert-warning">
 <p>Allmaps Viewer has some useful keyboard shortcuts:</p>
 <ul>
 <li><kbd>Space</kbd> – Toggle transparency on/off</li>
@@ -878,18 +928,21 @@ background removed.</p>
 <li><kbd>D</kbd> – Cycle display of distortions: surface deformation,
 angle distortion, or none</li>
 </ul>
-</div>
-<h3 id="viewing-stitched-atlas-sheets">Viewing Stitched Atlas
-Sheets</h3>
-<p>Allmaps annotation for the Lynn, Massachusetts atlas sheets: <a
-href="https://annotations.allmaps.org/manifests/23379602e8187445">https://annotations.allmaps.org/manifests/23379602e8187445</a></p>
+<h3 id="view-stitched-atlas-sheets">View stitched atlas sheets</h3>
+<p>The example below uses georeferenced atlas sheets for Lynn,
+Massachusetts. The Allmaps annotation is:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>https://annotations.allmaps.org/manifests/23379602e8187445</span></code></pre></div>
 <iframe src="https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445" title="Allmaps Viewer showing georeferenced atlas sheets for Lynn, Massachusetts" width="100%" height="650" allowfullscreen>
 </iframe>
 <p><a
 href="https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445">View
 in Allmaps Viewer</a></p>
 <p>Since these atlas pages were carefully masked, they mosaic almost
-seamlessly, allowing one to explore the whole atlas at once.</p>
+seamlessly, allowing one to explore the whole atlas at once. This kind
+of stitching takes careful work: small differences in mask placement,
+GCPs, or transformation settings can create visible gaps or overlaps
+between sheets.</p>
 <p>Using <kbd>M</kbd> to display the mask lines shows how all the
 component maps fit together.</p>
 <p>When working with multi-sheet objects:</p>
@@ -902,50 +955,61 @@ map layer order</li>
 use the same georeferenced map outside Allmaps.</p>
 <p>The viewer is useful for inspecting alignment; XYZ tiles make the
 warped map available as a layer in desktop GIS software.</p>
-<h3 id="using-xyz-tiles-in-gis">Using XYZ Tiles in GIS</h3>
+<h3 id="use-xyz-tiles-in-gis">Use XYZ tiles in GIS</h3>
 <p>Allmaps provides a free <em>XYZ tile server</em>, allowing you to
 bring georeferenced maps directly into GIS software like QGIS. Note:
 this is not intended for permanent hosting.</p>
 <p>In QGIS, use the Add XYZ Layer tool:</p>
 <figure>
 <img src="figures/allmaps-historic-maps-16.png" alt="QGIS dialog for adding a new XYZ tile layer.">
-<figcaption>Figure 16: Opening the XYZ tile layer dialog in QGIS.</figcaption>
+<figcaption>
+Figure 16: Opening the XYZ tile layer dialog in QGIS.
+</figcaption>
 </figure>
 <p>Copy the XYZ Tile URL from the Allmaps Editor Share tools:</p>
+<!-- TODO: Update this screenshot before submission. -->
 <figure>
 <img src="figures/allmaps-historic-maps-17.png" alt="Allmaps export menu showing where to copy the XYZ tile URL.">
-<figcaption>Figure 17: Finding the XYZ tile URL in Allmaps.</figcaption>
+<figcaption>
+Figure 17: Finding the XYZ tile URL in Allmaps.
+</figcaption>
 </figure>
 <p>Then create a new XYZ Connection in QGIS and paste in the URL. No
 other changes are usually needed.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-18.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL.">
-<figcaption>Figure 18: Creating a new XYZ connection in QGIS.</figcaption>
+<figcaption>
+Figure 18: Creating a new XYZ connection in QGIS.
+</figcaption>
 </figure>
-<p>Now you can use your georeferenced map directly in desktop GIS!</p>
+<p>Now you can use your georeferenced map directly in desktop GIS as a
+reference layer alongside other raster and vector data.</p>
 <figure>
 <img src="figures/allmaps-historic-maps-19.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service.">
-<figcaption>Figure 19: A georeferenced map displayed in QGIS.</figcaption>
+<figcaption>
+Figure 19: A georeferenced map displayed in QGIS.
+</figcaption>
 </figure>
-<p>The Allmaps Tile Server is useful for desktop GIS and other software
-that needs an XYZ tile URL, but it is more costly to run because each
-requested tile has to be fetched, warped, and returned by a server. The
-Allmaps Tile Server is intended for testing, so tiles may load slowly,
-break, or stop working.</p>
-<p>When you control the web map, Allmaps Viewer or the Allmaps plugins
-for OpenLayers and Leaflet are usually more efficient because they can
-warp IIIF images directly in the browser.</p>
-<p>More info on the Allmaps Tile Server is available in this <a
+<p>Use the Allmaps Tile Server for testing desktop GIS workflows or
+other software that needs an XYZ tile URL. Because each requested tile
+has to be fetched, warped, and returned by a server, tiles may load
+slowly, break, or stop working.</p>
+<p>For web maps you control, Allmaps Viewer or the Allmaps plugins for
+OpenLayers and Leaflet are usually better choices because they can warp
+IIIF images directly in the browser. This means the browser does the
+transformation work instead of depending on a tile server for every map
+tile.</p>
+<p>More detail on the Allmaps Tile Server is available in this <a
 href="https://observablehq.com/@allmaps/allmaps-tile-server">Observable
 notebook</a>.</p>
 <!-- Begin Part 3.00 -->
 <h2 id="install-the-allmaps-cli-and-dependencies">Install the Allmaps
 CLI and dependencies</h2>
-<p>So far, the lesson has focused on browser-based tools: finding IIIF
-resources, georeferencing a map in Allmaps Editor, and inspecting the
-result in Allmaps Viewer. The next sections move to the command line so
-you can reuse Allmaps georeferencing data in your own files and
-workflows.</p>
+<p>So far, the lesson has focused on introductory, browser-based tools:
+finding IIIF resources, georeferencing a map in Allmaps Editor, and
+inspecting the result in Allmaps Viewer. The next sections introduce
+more advanced workflows at the command line so you can reuse Allmaps
+georeferencing data in your own files, GIS projects, and web maps.</p>
 <div class="alert alert-warning">
 <p>This portion assumes some familiarity with the command line in a Unix
 environment (Linux, macOS, or a Unix-like environment on a Windows PC),
@@ -961,43 +1025,25 @@ other dependencies.</p>
 <p>Installation and compatibility will vary depending on your operating
 system, OS version, and shell environment.</p>
 </div>
-<h3 id="environment-setup">Environment Setup</h3>
-<h4 id="windows-only-set-up-wsl">Windows Only: Set up WSL</h4>
+<h3 id="environment-setup">Environment setup</h3>
+<h4 id="windows-only-set-up-wsl">Windows only: Set up WSL</h4>
 <p>macOS and Linux users can skip this section and jump to <a
 href="#linux-and-unix">Linux and Unix</a>.</p>
 <p>This lesson uses WSL for Windows because the command-line tools in
 this section are easiest to install and teach in a Unix-like
 environment. WSL gives Windows users a Linux shell that behaves much
 like the macOS and Linux workflows used in the rest of the lesson, which
-keeps commands, paths, and troubleshooting more consistent. Native
-Windows workflows are possible, but they require different setup
-steps.</p>
-<p>For more detailed setup instructions, see Microsoft’s <a
+keeps commands, paths, and troubleshooting more consistent.</p>
+<p>Native Windows workflows are possible, but they require different
+setup steps. Follow Microsoft’s <a
 href="https://learn.microsoft.com/en-us/windows/wsl/install">Install
-WSL</a> documentation.</p>
-<p>If you don’t have a Linux distribution set up for WSL, install Ubuntu
-via PowerShell. Ubuntu can also be installed from the Microsoft Store
-after WSL is enabled, but PowerShell handles both steps in one
-workflow.</p>
-<p>Open PowerShell as an administrator and install WSL:</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>install</span></code></pre></div>
-<p>This installs Ubuntu by default. If WSL is already installed but
-Ubuntu is not, you can install Ubuntu explicitly:</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="op">--</span>install <span class="op">-</span>d Ubuntu</span></code></pre></div>
-<p>Open Ubuntu from the Windows Start menu. When the Ubuntu prompt
-appears, continue with the Linux and Unix instructions below.</p>
+WSL</a> documentation to set up WSL with Ubuntu, then continue with the
+Linux and Unix instructions below.</p>
 <h4 id="linux-and-unix">Linux and Unix</h4>
 <p>The commands below are written for Ubuntu and Debian-based
 environments, including Ubuntu on WSL, that use the <code>apt</code>
 package manager. Other Linux or Unix-like systems may use different
 package managers, package names, and compilation methods.</p>
-<p>Refresh the package list and apply available system updates before
-installing new tools:</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code></pre></div>
 <p>Install the current long-term support (LTS) version of Node.js using
 the standard installer or package manager for your operating system.</p>
 <p>On Ubuntu, Debian, or Ubuntu on WSL, you can use the instructions
@@ -1005,42 +1051,42 @@ from Node.js:</p>
 <p>https://nodejs.org/en/download</p>
 <p>Use Node.js 22 or newer, preferably the current LTS version.</p>
 <p>After installation, confirm that Node.js and npm are available:</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span></code></pre></div>
 <p>If both commands print version numbers, continue with the next
 step.</p>
 <p>Install GDAL:</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install gdal-bin libgdal-dev</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install gdal-bin libgdal-dev</span></code></pre></div>
 <h4 id="macos">macOS</h4>
 <p>Install <a href="https://brew.sh/">Homebrew</a> if not already
 installed.</p>
 <p>Refresh Homebrew’s package list:</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span></code></pre></div>
 <p>Install Node.js. You can use the installer from Node.js or
 Homebrew.</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install node</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install node</span></code></pre></div>
 <p>After installation, confirm that Node.js and npm are available:</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> <span class="at">--version</span></span></code></pre></div>
 <p>If both commands print version numbers, continue with the next
 step.</p>
 <p>Install GDAL:</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gdal</span></code></pre></div>
-<h3 id="install-allmaps-cli-and-dependencies">Install Allmaps CLI and
-dependencies</h3>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install gdal</span></code></pre></div>
+<h3 id="install-the-allmaps-cli-and-dependencies-1">Install the Allmaps
+CLI and dependencies</h3>
 <p>Install the Allmaps CLI:</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @allmaps/cli</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @allmaps/cli</span></code></pre></div>
 <p>Confirm that Allmaps CLI and GDAL are available:</p>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> <span class="at">--help</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalinfo</span> <span class="at">--version</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> <span class="at">--help</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalinfo</span> <span class="at">--version</span></span></code></pre></div>
 <p>One example in this portion uses a small local web server to preview
 files in the browser. If Python 3 is already installed, you can use its
 built-in server.</p>
@@ -1055,34 +1101,34 @@ metadata and <code>dezoomify-rs</code> to download a full-resolution
 image when the source image dimensions do not match the Allmaps
 annotation.</p>
 <p>On Ubuntu/Debian or Ubuntu on WSL, install jq:</p>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install jq</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install jq</span></code></pre></div>
 <p>On macOS, install jq with Homebrew:</p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install jq</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install jq</span></code></pre></div>
 <p><a
 href="https://github.com/lovasoa/dezoomify-rs"><code>dezoomify-rs</code></a>
 is used for full image extraction.</p>
 <p>On Ubuntu/Debian or Ubuntu on WSL, install Rust and then install
 <code>dezoomify-rs</code> with Cargo:</p>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">&#39;=https&#39;</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://sh.rustup.rs <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">--proto</span> <span class="st">&#39;=https&#39;</span> <span class="at">--tlsv1.2</span> <span class="at">-sSf</span> https://sh.rustup.rs <span class="kw">|</span> <span class="fu">sh</span></span></code></pre></div>
 <p>Load Cargo in your current terminal session:</p>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.cargo/env&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="st">&quot;</span><span class="va">$HOME</span><span class="st">/.cargo/env&quot;</span></span></code></pre></div>
 <p>Confirm Cargo is available:</p>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> <span class="at">--version</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> <span class="at">--version</span></span></code></pre></div>
 <p>Install dezoomify-rs:</p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> install dezoomify-rs</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cargo</span> install dezoomify-rs</span></code></pre></div>
 <p>On macOS, install dezoomify-rs with Homebrew instead:</p>
-<div class="sourceCode" id="cb25"><pre
-class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install dezoomify-rs</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install dezoomify-rs</span></code></pre></div>
 <p>Confirm the tools are available:</p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jq</span> <span class="at">--version</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dezoomify-rs</span> <span class="at">--help</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jq</span> <span class="at">--version</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dezoomify-rs</span> <span class="at">--help</span></span></code></pre></div>
 <div class="alert alert-warning">
 <p>If installation fails, the most likely missing pieces are Node.js,
 npm, GDAL, Rust/Cargo, or small command-line utilities such as
@@ -1097,11 +1143,16 @@ the original unwarped map.</p>
 <p>In the command-line examples below, <code>jq</code> is a small tool
 for inspecting and reshaping JSON data.</p>
 <h3 id="paris-example">Paris example</h3>
-<p>For the main walkthrough, this example overlays the full medieval
-road network from around 1300 on the 1821 AGSL map of Paris.</p>
-<p>It is helpful to keep a record of the URLs for the resources you are
-working with for easy reference, particularly if you’re using an example
-other than the one provided.</p>
+<p>For the main walkthrough, this example overlays a medieval road
+network from around 1300 on the 1821 AGSL map of Paris. The goal is to
+draw historical vector data directly on the scanned map image, rather
+than placing both layers on a modern web map. This lets us ask how the
+medieval street network relates to the geography shown on the
+nineteenth-century map.</p>
+<p>Keep a logbook or text file for the URLs, manifests, IDs, filenames,
+and other reference information you use in a project, particularly if
+you’re using an example other than the one provided.</p>
+<p>For this walkthrough, the key values are:</p>
 <div class="table-wrapper" data-markdown="block">
 <table>
 <colgroup>
@@ -1156,16 +1207,6 @@ href="https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550">https://cdm17272.con
 <td>Lesson-ready file</td>
 <td>assets/voiries1300_2009_clean.json</td>
 </tr>
-<tr class="even">
-<td>Original ALPAGE source page</td>
-<td><a
-href="https://alpage.huma-num.fr/ancient-urban-fabric/">https://alpage.huma-num.fr/ancient-urban-fabric/</a></td>
-</tr>
-<tr class="odd">
-<td>Original ALPAGE download</td>
-<td><a
-href="https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip">https://alpage.huma-num.fr/documents/ressources/shapes/52-voieries1300_2009.zip</a></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1182,34 +1223,24 @@ from that source. A cleaned teaching version is included,
 <code>assets/voiries1300_2009_clean.json</code>, where each
 <code>MultiLineString</code> has already been split into separate
 <code>LineString</code> features.</p>
-<h3 id="process-overview">Process Overview</h3>
-<ol type="1">
-<li>Start with a historical map georeferenced with Allmaps.</li>
-<li>Copy the frozen georeference annotation (JSON) for that image.</li>
-<li>Feed that annotation to the Allmaps CLI to build the transformation
-between geographic coordinates and image pixels.</li>
-<li>Convert your GeoJSON from longitude/latitude into SVG coordinates
-measured in the original image space.</li>
-<li>Display the transformed SVG as an overlay on the original, unwarped
-IIIF image.</li>
-</ol>
+<h3 id="process-overview">Process overview</h3>
+<p>The workflow starts with a historical map that has already been
+georeferenced in Allmaps. We use a frozen copy of the georeference
+annotation for that image, feed it to the Allmaps CLI, and use it to
+build the transformation between geographic coordinates and image
+pixels. Then we convert the GeoJSON from longitude/latitude into SVG
+coordinates measured in the original image space and display that
+transformed SVG as an overlay on the original, unwarped IIIF image.</p>
 <p>Allmaps is not changing the GeoJSON into a new map projection for
 display in a web map. It is converting the GeoJSON into image-space
 coordinates so the shapes can be drawn directly on the scanned map
 image.</p>
-<h3 id="the-ingredients">The ingredients</h3>
-<p>For this example, we need three things:</p>
-<ol type="1">
-<li>A historical image that has been georeferenced in Allmaps. Here that
-is the <a
+<p>For this example, we need three things: a historical image
+georeferenced in Allmaps, the georeference annotation for that image,
+and some geographic data to overlay. Here, those are the <a
 href="https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/">1821
-AGSL Paris map</a>.</li>
-<li>The georeference annotation for that image. Here that is
-<code>assets/annotation.json</code>, a frozen copy included with the
-lesson package.</li>
-<li>Some geographic data to overlay. Here that is
-<code>assets/voiries1300_2009_clean.json</code>.</li>
-</ol>
+AGSL Paris map</a>, <code>assets/annotation.json</code>, and
+<code>assets/voiries1300_2009_clean.json</code>.</p>
 <h4 id="use-the-frozen-annotation.json">Use the frozen
 <code>annotation.json</code></h4>
 <p>Because Allmaps georeferencing data can be edited, this lesson uses a
@@ -1219,6 +1250,10 @@ frozen copy of the Paris georeference annotation included at
 using the Paris map’s IIIF manifest URL:</p>
 <p><a
 href="https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json">https://annotations.allmaps.org/?url=https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json</a></p>
+<p>For your own map, you can download the current annotation JSON from
+the annotations service with <code>curl</code>:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="st">&quot;https://annotations.allmaps.org/?url=YOUR_IIIF_MANIFEST_URL&quot;</span> <span class="at">-o</span> annotation.json</span></code></pre></div>
 <h4 id="confirm-that-the-map-has-georeference-metadata">Confirm that the
 map has georeference metadata</h4>
 <p>The file <code>assets/annotation.json</code> contains:</p>
@@ -1229,24 +1264,24 @@ map has georeference metadata</h4>
 <li>the transformation type</li>
 </ul>
 <p>You can inspect it with:</p>
-<div class="sourceCode" id="cb27"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> annotation parse assets/annotation.json</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> annotation parse assets/annotation.json</span></code></pre></div>
 <p>You should see output like this:</p>
-<div class="sourceCode" id="cb28"><pre
-class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schemas.allmaps.org/map/2/context.json&quot;</span><span class="fu">,</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;GeoreferencedMap&quot;</span><span class="fu">,</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://annotations.allmaps.org/maps/2543dadd9c2fa8b1&quot;</span><span class="fu">,</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;created&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-04-03T16:46:18.241Z&quot;</span><span class="fu">,</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;modified&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-04-03T16:46:18.241Z&quot;</span><span class="fu">,</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span><span class="fu">,</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">10784</span><span class="fu">,</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">6941</span><span class="fu">,</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ImageService2&quot;</span><span class="fu">,</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;partOf&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="er">...</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;@context&quot;</span><span class="fu">:</span> <span class="st">&quot;https://schemas.allmaps.org/map/2/context.json&quot;</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;GeoreferencedMap&quot;</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://annotations.allmaps.org/maps/2543dadd9c2fa8b1&quot;</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;created&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-04-03T16:46:18.241Z&quot;</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;modified&quot;</span><span class="fu">:</span> <span class="st">&quot;2026-04-03T16:46:18.241Z&quot;</span><span class="fu">,</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span><span class="fu">,</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">10784</span><span class="fu">,</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">6941</span><span class="fu">,</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ImageService2&quot;</span><span class="fu">,</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;partOf&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="er">...</span></span></code></pre></div>
 <p>That command translates the annotation into Allmaps’ internal
 <code>GeoreferencedMap</code> format. This is the moment where the CLI
 learns how the Paris image relates to real-world coordinates.</p>
@@ -1260,11 +1295,11 @@ basemap. This confirms that the file is valid GeoJSON with geographic
 longitude/latitude coordinates.</p>
 <p>Then use <code>jq</code> to check what kinds of geometry appear in
 the file:</p>
-<div class="sourceCode" id="cb29"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;[.features[].geometry.type] | unique[]&#39;</span> <span class="st">&#39;assets/voiries1300_2009_clean.json&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;[.features[].geometry.type] | unique[]&#39;</span> <span class="st">&#39;assets/voiries1300_2009_clean.json&#39;</span></span></code></pre></div>
 <p>For this dataset, the result is:</p>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">LineString</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">LineString</span></span></code></pre></div>
 <p>This matters because the next steps assume each feature can be
 transformed and drawn as a line, rather than as mixed geometry types
 that would need extra cleanup or styling.</p>
@@ -1282,11 +1317,11 @@ JSON file.</p>
 <h4 id="transform-geojson-into-image-space-svg">Transform GeoJSON into
 image-space SVG</h4>
 <p>Now we can run the actual Allmaps transformation:</p>
-<div class="sourceCode" id="cb31"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> transform geojson <span class="dt">\</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-a</span> assets/annotation.json <span class="dt">\</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span> assets/voiries1300_2009_clean.geometries.ndjson <span class="dt">\</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;</span> voiries1300_2009.svg</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> transform geojson <span class="dt">\</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-a</span> assets/annotation.json <span class="dt">\</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span> assets/voiries1300_2009_clean.geometries.ndjson <span class="dt">\</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">&gt;</span> voiries1300_2009.svg</span></code></pre></div>
 <p>If this runs without error, expect not to see anything output to your
 shell.</p>
 <p>This command is worth unpacking carefully:</p>
@@ -1318,71 +1353,71 @@ SVG with the IIIF image first, then adds the transformed road lines on
 top.</p>
 <p>From <code>assets/annotation.json</code>, we know the original image
 dimensions:</p>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>    <span class="er">&quot;resource&quot;:</span> <span class="fu">{</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span><span class="fu">,</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">10784</span><span class="fu">,</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">6941</span><span class="fu">,</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>      <span class="er">...</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="er">&quot;resource&quot;:</span> <span class="fu">{</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span><span class="fu">,</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;width&quot;</span><span class="fu">:</span> <span class="dv">10784</span><span class="fu">,</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;height&quot;</span><span class="fu">:</span> <span class="dv">6941</span><span class="fu">,</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>      <span class="er">...</span></span></code></pre></div>
 <p>Create a file named <code>paris-road-overlay.html</code> (in the same
 directory as <code>voiries1300_2009.svg</code>) that contains the
 content below:</p>
-<div class="sourceCode" id="cb33"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span> <span class="er">lang</span><span class="ot">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">&quot;utf-8&quot;</span> <span class="dt">/&gt;</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Paris road overlay<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>      body {</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">margin</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>      svg {</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">width</span>: <span class="dv">100</span><span class="dt">vw</span><span class="op">;</span></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">height</span>: <span class="bu">auto</span><span class="op">;</span></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;map&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> width <span class="op">=</span> <span class="dv">10784</span></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> height <span class="op">=</span> <span class="dv">6941</span></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> imageUrl <span class="op">=</span></span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/full/full/0/default.jpg&#39;</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Use fetch() to request the file voiries1300_2009.svg</span></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>      <span class="kw">async</span> <span class="kw">function</span> <span class="fu">main</span>() {</span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> transformedSvg <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">&#39;voiries1300_2009.svg&#39;</span>)<span class="op">.</span><span class="fu">then</span>(</span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>          (response) <span class="kw">=&gt;</span> response<span class="op">.</span><span class="fu">text</span>()</span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Take the SVG generated by Allmaps, remove its outer wrapper</span></span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> roadLines <span class="op">=</span> transformedSvg</span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replace</span>(<span class="st">&#39;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&#39;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)</span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replace</span>(<span class="st">&#39;&lt;/svg&gt;&#39;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)</span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>          <span class="co">// Style the road lines in cyan for high contrast</span></span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replaceAll</span>(</span>
-<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;&lt;polyline &#39;</span><span class="op">,</span></span>
-<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;&lt;polyline style=&quot;stroke: #00ffff; fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;&quot; &#39;</span></span>
-<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Find the empty map container, fill it with one SVG containing the Paris map image plus the transformed road overlay.</span></span>
-<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;#map&#39;</span>)<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
-<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;svg viewBox=&quot;0 0 </span><span class="sc">${</span>width<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot; width=&quot;</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">&quot; height=&quot;</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot;&gt;</span></span>
-<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;image href=&quot;</span><span class="sc">${</span>imageUrl<span class="sc">}</span><span class="vs">&quot; width=&quot;</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">&quot; height=&quot;</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot; /&gt;</span></span>
-<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>roadLines<span class="sc">}</span></span>
-<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/svg&gt;</span></span>
-<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="vs">        `</span></span>
-<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">main</span>()</span>
-<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!doctype </span>html<span class="dt">&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span> <span class="er">lang</span><span class="ot">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">&quot;utf-8&quot;</span> <span class="dt">/&gt;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Paris road overlay<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>      body {</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">margin</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>      svg {</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">width</span>: <span class="dv">100</span><span class="dt">vw</span><span class="op">;</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">height</span>: <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;map&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> width <span class="op">=</span> <span class="dv">10784</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> height <span class="op">=</span> <span class="dv">6941</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> imageUrl <span class="op">=</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/full/full/0/default.jpg&#39;</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Use fetch() to request the file voiries1300_2009.svg</span></span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>      <span class="kw">async</span> <span class="kw">function</span> <span class="fu">main</span>() {</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> transformedSvg <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">&#39;voiries1300_2009.svg&#39;</span>)<span class="op">.</span><span class="fu">then</span>(</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>          (response) <span class="kw">=&gt;</span> response<span class="op">.</span><span class="fu">text</span>()</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Take the SVG generated by Allmaps, remove its outer wrapper</span></span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> roadLines <span class="op">=</span> transformedSvg</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replace</span>(<span class="st">&#39;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&#39;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replace</span>(<span class="st">&#39;&lt;/svg&gt;&#39;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>          <span class="co">// Style the road lines in cyan for high contrast</span></span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>          <span class="op">.</span><span class="fu">replaceAll</span>(</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;&lt;polyline &#39;</span><span class="op">,</span></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;&lt;polyline style=&quot;stroke: #00ffff; fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round;&quot; &#39;</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Find the empty map container, fill it with one SVG containing the Paris map image plus the transformed road overlay.</span></span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;#map&#39;</span>)<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;svg viewBox=&quot;0 0 </span><span class="sc">${</span>width<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot; width=&quot;</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">&quot; height=&quot;</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot;&gt;</span></span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;image href=&quot;</span><span class="sc">${</span>imageUrl<span class="sc">}</span><span class="vs">&quot; width=&quot;</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">&quot; height=&quot;</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">&quot; /&gt;</span></span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a><span class="vs">            </span><span class="sc">${</span>roadLines<span class="sc">}</span></span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/svg&gt;</span></span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a><span class="vs">        `</span></span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">main</span>()</span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>This HTML page loads the original IIIF image, reads the SVG created
 by Allmaps, styles the road lines, and draws both layers together in the
 same pixel coordinate space.</p>
@@ -1390,11 +1425,11 @@ same pixel coordinate space.</p>
 <code>voiries1300_2009.svg</code>, open it through a small local web
 server.</p>
 <p>If Python 3 is installed, use its built-in server:</p>
-<div class="sourceCode" id="cb34"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server 8000</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> http.server 8000</span></code></pre></div>
 <p>Alternatively, use Node/npm:</p>
-<div class="sourceCode" id="cb35"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server . <span class="at">-p</span> 8000</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npx</span> http-server . <span class="at">-p</span> 8000</span></code></pre></div>
 <p>Then open <code>http://localhost:8000/paris-road-overlay.html</code>
 in your browser. You should see the 1821 Paris map with the medieval
 road network drawn over it as high-contrast cyan lines.</p>
@@ -1403,8 +1438,8 @@ map image pixels. In this example, we use that transformation to move
 GeoJSON into the image’s own coordinate space, then draw the resulting
 SVG on top of the original IIIF image.</p>
 <!-- Begin Part 3.02 -->
-<h2 id="exporting-a-geotiff-with-allmaps-cli">Exporting a GeoTIFF with
-Allmaps CLI</h2>
+<h2 id="export-a-geotiff-with-allmaps-cli">Export a GeoTIFF with Allmaps
+CLI</h2>
 <p>In the previous section, you used the Paris annotation to transform
 GeoJSON into image-space SVG. Now you will use the same annotation to
 generate a georeferenced Cloud Optimized GeoTIFF (COG). This format is
@@ -1413,67 +1448,71 @@ datasets.</p>
 <p>For an introduction to COGs and how they enable efficient, web-based
 access to raster data, see <a
 href="https://cogeo.org/">https://cogeo.org/</a>.</p>
-<h3 id="confirm-the-georeference-annotation">Confirm the Georeference
-Annotation</h3>
+<h3 id="confirm-the-georeference-annotation">Confirm the georeference
+annotation</h3>
 <p>If you are working through this section with the lesson’s Paris
 example, use the frozen annotation at
 <code>assets/annotation.json</code>. If you are using a different map,
 use the annotation for that map instead.</p>
-<h3 id="download-the-iiif-image">Download the IIIF Image</h3>
-<div class="sourceCode" id="cb36"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> fetch full-image <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="pp">*</span>.jpg</span></code></pre></div>
+<h3 id="download-the-iiif-image">Download the IIIF image</h3>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">allmaps</span> fetch full-image <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="pp">*</span>.jpg</span></code></pre></div>
 <div class="alert alert-warning">
-<p>For this example, the downloaded file should be named
+<p>For this Paris example, the generated script expects the downloaded
+image to be named with its Allmaps Image ID:
 <code>adeae8a56aaf59fb.jpg</code>. If your file has a different name,
 rename it before continuing:</p>
-<div class="sourceCode" id="cb37"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> current-filename.jpg adeae8a56aaf59fb.jpg</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> current-filename.jpg adeae8a56aaf59fb.jpg</span></code></pre></div>
+<p>If you use a different map, your Allmaps ID and filename will be
+different. Check the generated script for the exact filename it
+expects.</p>
 </div>
 <p>By default, <code>allmaps fetch full-image</code> may not download
 the highest-resolution version.</p>
 <p>To see which sizes the IIIF server can provide, inspect the image
 service metadata:</p>
-<div class="sourceCode" id="cb38"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/info.json <span class="kw">|</span> <span class="ex">jq</span> <span class="st">&#39;.sizes&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/info.json <span class="kw">|</span> <span class="ex">jq</span> <span class="st">&#39;.sizes&#39;</span></span></code></pre></div>
 <p>For this example, the largest size listed should be
 <code>10784 x 6941</code>, matching the dimensions in the Allmaps
 annotation. If your local JPEG is smaller than the largest size, it will
 not match the pixel coordinates in the Allmaps annotation. In that case,
 use <code>dezoomify-rs</code> to download the full-resolution image:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dezoomify-rs</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span> full.jpg</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> full.jpg adeae8a56aaf59fb.jpg</span></code></pre></div>
+<h3 id="generate-the-geotiff-script">Generate the GeoTIFF script</h3>
 <div class="sourceCode" id="cb39"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dezoomify-rs</span> <span class="st">&quot;https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550&quot;</span> full.jpg</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> full.jpg adeae8a56aaf59fb.jpg</span></code></pre></div>
-<h3 id="generate-the-geotiff-script">Generate the GeoTIFF Script</h3>
-<div class="sourceCode" id="cb40"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> assets/annotation.json <span class="kw">|</span> <span class="ex">allmaps</span> script geotiff <span class="op">&gt;</span> paris_geotiff.sh</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> assets/annotation.json <span class="kw">|</span> <span class="ex">allmaps</span> script geotiff <span class="op">&gt;</span> paris_geotiff.sh</span></code></pre></div>
 <p>This will generate a shell script file <code>paris_geotiff.sh</code>
 that you will run soon.</p>
 <p><strong>The generated script expects a specific filename; if yours
 differs, it will fail.</strong></p>
-<h3 id="edit-the-script">Edit the Script</h3>
+<h3 id="edit-the-script">Edit the script</h3>
 <p>Open the script in VS Code or your text editor of choice:</p>
-<div class="sourceCode" id="cb41"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual Studio Code:</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> paris_geotiff.sh</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># nano</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> paris_geotiff.sh</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual Studio Code:</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> paris_geotiff.sh</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># nano</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> paris_geotiff.sh</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div>
 <p>Look for this block near line 66:</p>
-<div class="sourceCode" id="cb42"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalwarp</span> <span class="dt">\</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-of</span> COG <span class="at">-co</span> COMPRESS=JPEG <span class="at">-co</span> QUALITY=75 <span class="dt">\</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-dstalpha</span> <span class="at">-overwrite</span> <span class="dt">\</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-r</span> cubic <span class="dt">\</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-cutline</span> ./adeae8a56aaf59fb_2543dadd9c2fa8b1.geojson <span class="at">-crop_to_cutline</span> <span class="at">-cutline_srs</span> <span class="st">&quot;EPSG:4326&quot;</span> <span class="dt">\</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-s_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-ts</span> 9819 6706 <span class="dt">\</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-order</span> 1 <span class="dt">\</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt <span class="dt">\</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalwarp</span> <span class="dt">\</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-of</span> COG <span class="at">-co</span> COMPRESS=JPEG <span class="at">-co</span> QUALITY=75 <span class="dt">\</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-dstalpha</span> <span class="at">-overwrite</span> <span class="dt">\</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-r</span> cubic <span class="dt">\</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-cutline</span> ./adeae8a56aaf59fb_2543dadd9c2fa8b1.geojson <span class="at">-crop_to_cutline</span> <span class="at">-cutline_srs</span> <span class="st">&quot;EPSG:4326&quot;</span> <span class="dt">\</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-s_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-ts</span> 9819 6706 <span class="dt">\</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-order</span> 1 <span class="dt">\</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt <span class="dt">\</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif</span></code></pre></div>
 <p>This command uses <a
 href="https://gdal.org/en/stable/programs/gdalwarp.html"><code>gdalwarp</code></a>
 to apply the georeferencing from the annotation and generate a
@@ -1497,19 +1536,19 @@ will terminate early and cause errors such as ‘command not found’ or ‘No
 target filename specified’.</p>
 <p>Your updated <code>gdalwarp</code> command block should read like
 this:</p>
-<div class="sourceCode" id="cb43"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalwarp</span> <span class="dt">\</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-of</span> COG <span class="at">-co</span> COMPRESS=JPEG <span class="at">-co</span> QUALITY=75 <span class="dt">\</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-dstalpha</span> <span class="at">-overwrite</span> <span class="dt">\</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-r</span> cubic <span class="dt">\</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-cutline</span> ./adeae8a56aaf59fb_2543dadd9c2fa8b1.geojson <span class="at">-crop_to_cutline</span> <span class="dt">\</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-multi</span> <span class="at">-wm</span> 2048 <span class="dt">\</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-s_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-ts</span> 9819 6706 <span class="dt">\</span></span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-order</span> 1 <span class="dt">\</span></span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt <span class="dt">\</span></span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalwarp</span> <span class="dt">\</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">-of</span> COG <span class="at">-co</span> COMPRESS=JPEG <span class="at">-co</span> QUALITY=75 <span class="dt">\</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">-dstalpha</span> <span class="at">-overwrite</span> <span class="dt">\</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">-r</span> cubic <span class="dt">\</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">-cutline</span> ./adeae8a56aaf59fb_2543dadd9c2fa8b1.geojson <span class="at">-crop_to_cutline</span> <span class="dt">\</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">-multi</span> <span class="at">-wm</span> 2048 <span class="dt">\</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">-s_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t_srs</span> <span class="st">&#39;EPSG:3857&#39;</span> <span class="dt">\</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">-ts</span> 9819 6706 <span class="dt">\</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">-order</span> 1 <span class="dt">\</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1.vrt <span class="dt">\</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  ./adeae8a56aaf59fb_2543dadd9c2fa8b1-warped.tif</span></code></pre></div>
 <p>Save the script file:</p>
 <p><strong>VS Code</strong>: File &gt; Save or <kbd>Ctrl+S</kbd> to
 save.</p>
@@ -1523,9 +1562,9 @@ nano</p>
 issue</a> related to the <code>-cutline_srs</code> flag on the Allmaps
 repository.</p>
 </div>
-<h3 id="run-the-script">Run the Script</h3>
-<div class="sourceCode" id="cb44"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> paris_geotiff.sh</span></code></pre></div>
+<h3 id="run-the-script">Run the script</h3>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> paris_geotiff.sh</span></code></pre></div>
 <p>If the script runs successfully, the output file is now georeferenced
 using the control points from the Allmaps annotation.</p>
 <div class="alert alert-warning">
@@ -1540,9 +1579,9 @@ to start over if you mess up.</li>
 script expects.</li>
 </ul>
 </div>
-<h3 id="verify-the-output-with-gdal">Verify the Output with GDAL</h3>
-<div class="sourceCode" id="cb45"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalinfo</span> <span class="pp">*</span>-warped.tif</span></code></pre></div>
+<h3 id="verify-the-output-with-gdal">Verify the output with GDAL</h3>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gdalinfo</span> <span class="pp">*</span>-warped.tif</span></code></pre></div>
 <p><strong>Check for the following in the output:</strong></p>
 <ul>
 <li><code>EPSG:3857</code> — confirms the map is in Web Mercator</li>
@@ -1557,7 +1596,7 @@ values appear.</p>
 annotation. This file can be used in GIS software or served as a
 web-accessible raster.</p>
 <!-- Begin Part 3.03 -->
-<h2 id="using-allmaps-with-leaflet">Using Allmaps with Leaflet</h2>
+<h2 id="use-allmaps-with-leaflet">Use Allmaps with Leaflet</h2>
 <p>Allmaps provides three different libraries for loading georeferenced
 maps as web map layers. You can use Leaflet, OpenLayers, or
 MapLibre.</p>
@@ -1579,7 +1618,8 @@ Allmaps Leaflet plugin in a simple Leaflet web map. Those files are:</p>
 map</li>
 <li><code>script.js</code>: the necessary JavaScript for creating a
 Leaflet map with two layers, a base map and an Allmaps overlay</li>
-<li><code>style.css</code>: a CSS file that makes the map visible</li>
+<li><code>style.css</code>: the CSS that gives the page and map
+container their size and layout</li>
 </ul>
 <p>Open the <code>assets/allmaps-leaflet-demo</code> folder in a text
 editor like VS Code. If need be, install the “Live Server” extension by
@@ -1604,63 +1644,66 @@ structure for our web page.</p>
 That’s where we’re actually fetching all the Leaflet code, as well as
 loading our local files.</p>
 <p>Line 8 loads the <code>style.css</code> file:</p>
-<div class="sourceCode" id="cb46"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;style.css&quot;</span> <span class="dt">/&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;style.css&quot;</span> <span class="dt">/&gt;</span></span></code></pre></div>
 <p>Lines 11 and 12 load Leaflet and the Allmaps Leaflet plugins:</p>
-<div class="sourceCode" id="cb47"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>Line 15 loads Leaflet’s external CSS library:</p>
-<div class="sourceCode" id="cb48"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.css&quot;</span> <span class="dt">/&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.css&quot;</span> <span class="dt">/&gt;</span></span></code></pre></div>
 <p>And finally, line 18 loads our local <code>script.js</code>, where we
 are actually creating the web map:</p>
-<div class="sourceCode" id="cb49"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;script.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;script.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>The <code>body</code> tags contain a minimal structure for the map
 itself:</p>
-<div class="sourceCode" id="cb50"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;wrapper&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Hi, Allmaps Leaflet Plugin!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;map&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;wrapper&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Hi, Allmaps Leaflet Plugin!<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;map&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span></code></pre></div>
 <p>Here, <code>&lt;div id="wrapper"&gt;</code> creates a nice container
 for our map by applying these CSS values to the page…</p>
-<div class="sourceCode" id="cb51"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#wrapper</span> {</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">right</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">bottom</span>: <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">flex</span><span class="op">;</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span>: <span class="dv">column</span><span class="op">;</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#wrapper</span> {</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">right</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">bottom</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">flex-direction</span>: <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>… and then, <code>&lt;div id="map"&gt;&lt;/div&gt;</code> creates a
 fullscreen map inside of our parent <code>div</code>, according to this
 CSS:</p>
-<div class="sourceCode" id="cb52"><pre
-class="sourceCode css"><code class="sourceCode css"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#map</span> {</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">height</span>: <span class="dv">100</span><span class="dt">vw</span><span class="op">;</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span>:<span class="dv">1</span><span class="op">;</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#map</span> {</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">height</span>: <span class="dv">100</span><span class="dt">vw</span><span class="op">;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span>:<span class="dv">1</span><span class="op">;</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Try opening the <code>style.css</code> file to inspect this stuff
 directly, or even tweaking some of the values as a matter of
 experimentation.</p>
 <h3 id="script.js">script.js</h3>
 <p>The Allmaps Leaflet plugin uses georeference annotations to overlay
 maps. We’ll be using this georeference annotation…</p>
-<div class="sourceCode" id="cb53"><pre
-class="sourceCode html"><code class="sourceCode html"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>https://annotations.allmaps.org/manifests/cfb327e4b43395e3</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>https://annotations.allmaps.org/manifests/cfb327e4b43395e3</span></code></pre></div>
 <p>… which corresponds to <a
 href="https://collections.leventhalmap.org/search/commonwealth:3f463198b">this
 map of Boston</a>:</p>
 <figure>
 <img src="figures/allmaps-historic-maps-20.jpg" alt="A map of Boston from 1838, by T.G. Bradford">
-<figcaption>Figure 20: A map of Boston from 1838, by T.G. Bradford. Source: https://collections.leventhalmap.org/search/commonwealth:3f463198b</figcaption>
+<figcaption>
+Figure 20: A map of Boston from 1838, by T.G. Bradford. Source:
+https://collections.leventhalmap.org/search/commonwealth:3f463198b
+</figcaption>
 </figure>
 <h4 id="map-setup">Map setup</h4>
 <p>To instantiate a Leaflet map, define a variable as
@@ -1668,31 +1711,31 @@ map of Boston</a>:</p>
 map’s parameters, like where it’s centered, its starting zoom, and other
 features.</p>
 <p>We define our map like this:</p>
-<div class="sourceCode" id="cb54"><pre
-class="sourceCode js"><code class="sourceCode javascript"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> map <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(<span class="st">&quot;map&quot;</span><span class="op">,</span> {</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">center</span><span class="op">:</span> [<span class="fl">42.3518</span><span class="op">,</span> <span class="op">-</span><span class="fl">71.05</span>]<span class="op">,</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoom</span><span class="op">:</span> <span class="dv">13</span><span class="op">,</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">minZoom</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">24</span><span class="op">,</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoomControl</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> map <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(<span class="st">&quot;map&quot;</span><span class="op">,</span> {</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">center</span><span class="op">:</span> [<span class="fl">42.3518</span><span class="op">,</span> <span class="op">-</span><span class="fl">71.05</span>]<span class="op">,</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoom</span><span class="op">:</span> <span class="dv">13</span><span class="op">,</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">minZoom</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">24</span><span class="op">,</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoomControl</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <h4 id="add-a-base-map">Add a base map</h4>
 <p>We want to add a base map to our Leaflet map. We’ll use
 OpenStreetMap’s free XYZ tiles, provided at <a
 href="https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png"
 class="uri">https://tile.openstreetmap.org/{z}/{x}/{y}.png</a>.</p>
 <p>First, we define options for the XYZ tiles:</p>
-<div class="sourceCode" id="cb55"><pre
-class="sourceCode js"><code class="sourceCode javascript"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> tileLayerDetails <span class="op">=</span> {</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">tileSize</span><span class="op">:</span> <span class="dv">512</span><span class="op">,</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoomOffset</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">minZoom</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span></span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">24</span><span class="op">,</span></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">crossOrigin</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> tileLayerDetails <span class="op">=</span> {</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">tileSize</span><span class="op">:</span> <span class="dv">512</span><span class="op">,</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">zoomOffset</span><span class="op">:</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">minZoom</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">24</span><span class="op">,</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">crossOrigin</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
 <p>Then, we can add it to the map with a single line of code:</p>
-<div class="sourceCode" id="cb56"><pre
-class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> streets_base <span class="op">=</span> L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">&quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;</span><span class="op">,</span> tileLayerDetails)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> streets_base <span class="op">=</span> L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">&quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;</span><span class="op">,</span> tileLayerDetails)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
 <p>Next, now that our map has been instantiated and contains an
 OpenStreetMap base, we define two new variables:</p>
 <ul>
@@ -1701,9 +1744,9 @@ annotation</li>
 <li><code>WarpedMapLayer</code> creates a new
 <code>WarpedMapLayer</code> and adds it to the map</li>
 </ul>
-<div class="sourceCode" id="cb57"><pre
-class="sourceCode js"><code class="sourceCode javascript"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> annotationUrl <span class="op">=</span> <span class="st">&#39;https://annotations.allmaps.org/manifests/cfb327e4b43395e3&#39;</span><span class="op">;</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> warpedMapLayer <span class="op">=</span> <span class="kw">new</span> Allmaps<span class="op">.</span><span class="fu">WarpedMapLayer</span>(annotationUrl)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> annotationUrl <span class="op">=</span> <span class="st">&#39;https://annotations.allmaps.org/manifests/cfb327e4b43395e3&#39;</span><span class="op">;</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> warpedMapLayer <span class="op">=</span> <span class="kw">new</span> Allmaps<span class="op">.</span><span class="fu">WarpedMapLayer</span>(annotationUrl)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
 <p>In a <a
 href="https://stackoverflow.com/questions/20435653/what-is-vanillajs">vanilla
 JS setup</a> like ours, note that you must call the
@@ -1717,19 +1760,22 @@ it in a front-end framework like Svelte, Vue, or React.</p>
 <h4 id="add-the-layer-list">Add the layer list</h4>
 <p>All that’s left is to create a layer list, which allows us to toggle
 the map’s visibility on and off, with these three lines of code:</p>
-<div class="sourceCode" id="cb58"><pre
-class="sourceCode js"><code class="sourceCode javascript"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> base <span class="op">=</span> { <span class="st">&quot;OpenStreetMap&quot;</span><span class="op">:</span> streets_base }<span class="op">;</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> overlay <span class="op">=</span> { <span class="st">&quot;Allmaps overlay&quot;</span><span class="op">:</span> warpedMapLayer }<span class="op">;</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> layerControl <span class="op">=</span> L<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="fu">layers</span>(base<span class="op">,</span> overlay)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> base <span class="op">=</span> { <span class="st">&quot;OpenStreetMap&quot;</span><span class="op">:</span> streets_base }<span class="op">;</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> overlay <span class="op">=</span> { <span class="st">&quot;Allmaps overlay&quot;</span><span class="op">:</span> warpedMapLayer }<span class="op">;</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> layerControl <span class="op">=</span> L<span class="op">.</span><span class="at">control</span><span class="op">.</span><span class="fu">layers</span>(base<span class="op">,</span> overlay)<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span></code></pre></div>
 <p>In Leaflet-speak, these are called “layer controls,” and you can <a
 href="https://leafletjs.com/examples/layers-control/">read more about
 them here</a>.</p>
 <h3 id="final-map">Final map</h3>
 <iframe src="assets/allmaps-leaflet-demo/index.html" width="100%" height="500px">
 </iframe>
-<p><a href="assets/allmaps-leaflet-demo/index.html" target="_blank">View sample map in a new window</a></p>
+<p><a href="assets/allmaps-leaflet-demo/index.html" target="_blank">View
+sample map in a new window</a></p>
 <p>Try adding different annotations (just note you’ll have to update the
 <code>center</code> array, which is hard-coded to a lat/long pair for
 Boston).</p>
+<h2 id="conclusions">Conclusions</h2>
+<!-- TODO: Write a conclusion paragraph -->
 </body>
 </html>
