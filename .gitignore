@@ -39,3 +39,4 @@ __pycache__/
 
 # Local agent/workspace files
 .codex
+mise.toml
