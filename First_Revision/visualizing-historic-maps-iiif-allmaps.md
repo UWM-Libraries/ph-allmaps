@@ -24,7 +24,7 @@ doi: XX.XXXXX/phen0000
 {% include toc.html %}
 
 <!-- Begin Part 1.00 -->
-## IIIF-powered georeferencing
+## Web-based georeferencing with Allmaps
 
 [Georeferencing](https://en.wikipedia.org/wiki/Georeferencing) turns scanned maps into spatial data by corresponding the pixels in a digital map image to real geographic locations. The process emerged from the practice of transforming aerial and satellite photography into usable spatial data.[^1] Today, historians and other humanities researchers georeference maps for things like data creation, change detection, and comparative analysis.
 
@@ -35,15 +35,39 @@ curating and georeferencing digital maps.
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-01.jpg" alt="A georeferenced historic map, overlaid in the Allmaps platform" caption="Figure 1. A georeferenced historic map, overlaid in the Allmaps platform." %}
 
-Allmaps is a free, publicly accessible, and web-based solution to georeferencing. Instead of requiring users to upload image files to a GIS or web client, Allmaps fetches image files directly from digital collections and dynamically warps them in a web browser. It's powered by a simple JSON file---a *georeference annotation*---which contains all the metadata necessary to warp a map. In addition to providing a simple interface for georeferencing, Allmaps provides a robust set of command-line tools and web-mapping libraries that advanced users can use to extend their research and visualization workflows.
+Allmaps is a free, publicly accessible, and web-based solution to georeferencing.
+Instead of requiring users to upload image files to a GIS or web client, Allmaps fetches
+image files directly from digital collections and dynamically warps them in a web
+browser. It is powered by a simple JSON file---a *georeference annotation*---which
+contains all the metadata necessary to warp a map. In addition to providing a simple
+interface for georeferencing, Allmaps provides a robust set of command-line tools and
+web-mapping libraries that advanced users can use to extend their research and
+visualization workflows.
+
+### Lesson path and prerequisites
+
+The first part of this lesson is beginner-friendly and browser-based.
+You will learn how to find a map shared through the International Image Interoperability
+Framework (IIIF), georeference it in Allmaps Editor, and inspect the result in Allmaps Viewer.
+These sections assume comfort using a web browser, copying URLs, and reading short snippets of JSON,
+but they do not require command-line experience.
+
+The later sections are more advanced. 
+They use the command line to reuse Allmaps georeferencing data in local files, GIS workflows, and a small web map example.
+Those sections assume familiarity with installing software, navigating files from a terminal, and running commands. 
+You can complete the browser-based sections first and return to the command-line sections later.
+
+IIIF appears here as prerequisite context for working with Allmaps resources.
+This lesson does not teach how to create or host IIIF images and manifests from scratch.
+For that, see the lesson "Creating and Hosting Basic IIIF Images and Manifests Using GitHub."
 
 ### What you will learn
 
 1. Why georeferencing is useful for research and scholarship
 2. The IIIF concepts needed to work with resources in Allmaps
 3. How to use Allmaps to view and georeference IIIF maps
-4. How to use Allmaps' advanced features, including command-line tools
-5. How to use Allmaps with open-source web mapping tools like Leaflet
+4. How to reuse Allmaps georeferencing data with command-line tools
+5. How Allmaps annotations can move into GIS and web mapping workflows
 
 ### Why georeference?
 
@@ -64,9 +88,9 @@ Georeferencing makes it possible to:
 
 Traditional georeferencing solutions are built into geographic information systems (GIS) like QGIS
 or ArcGIS. Although GIS-based georeferencing tools can still be useful for some workflows, they do
-have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where the
-International Image Interoperability Framework (IIIF) comes in: Allmaps can fetch compatible map
-images directly from digital collections and warp them in a browser.
+have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where IIIF
+comes in: Allmaps can fetch compatible map images directly from digital collections and warp them
+in a browser.
 
 ### What you need to know about IIIF for Allmaps
 
@@ -78,12 +102,10 @@ points applications toward the image data they need.
 To georeference a map in Allmaps, you usually start with a IIIF manifest URL.
 Allmaps reads that manifest to locate the map image and its image service.
 
-This lesson assumes that you are working with maps that already have IIIF manifests.
-You do not need to create or host a manifest here. For a fuller introduction to IIIF images,
-manifests, and GitHub-based hosting workflows, see the companion lesson,
-"Creating and Hosting Basic IIIF Images and Manifests Using GitHub."
+The short IIIF context below is meant to help you recognize and use the resources that
+Allmaps needs, not to explain every part of the IIIF standard.
 
-From there, Allmaps can request the image data it needs, create a georeference annotation, 
+From there, Allmaps can request the image data it needs, create a georeference annotation,
 and warp the map in a browser.
 For this lesson, you mainly need to be able to tell the difference between three URLs:
 
