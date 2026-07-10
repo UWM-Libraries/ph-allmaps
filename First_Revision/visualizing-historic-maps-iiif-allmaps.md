@@ -133,7 +133,8 @@ The manifest leads Allmaps to the underlying IIIF image service.
 A IIIF Image API URL can request the full image, a smaller version,
 or a cropped region of the same source image.[^2]
 
-UWM’s digital collections are publicly accessed through `collections.lib.uwm.edu`,
+The American Geographical Society Library Digital Map Collection is publicly accessed
+through UWM Libraries at `collections.lib.uwm.edu`,
 but some IIIF image service URLs resolve to the underlying CONTENTdm/OCLC host,
 `cdm17272.contentdm.oclc.org`.
 For most browsing purposes these point to the same resource.
@@ -146,27 +147,44 @@ For example, this URL requests a smaller version of the Leardo image:
 
 ### IIIF map collections
 
-Allmaps uses these APIs (and others) to fetch IIIF images from digital repository servers and warp them in a web browser. The Allmaps platform consists of two main apps: [Allmaps Editor](https://editor.allmaps.org), which allows you to georeference a IIIF map, and [Allmaps Viewer](https://viewer.allmaps.org), which allows you to view them.
+Allmaps uses these APIs (and others) to fetch IIIF images from digital repository servers
+and warp them in a web browser.
+The Allmaps platform consists of two main apps: [Allmaps Editor](https://editor.allmaps.org),
+which allows you to georeference a IIIF map, and [Allmaps Viewer](https://viewer.allmaps.org),
+which allows you to view them.
 
-All of the maps in [AGSL](https://uwm.edu/lib-collections/agsl-digital-map-collection/) and [LMEC](https://collections.leventhalmap.org) digital collections are IIIF compliant. Additionally, the Allmaps project maintains a [list of IIIF map collections](https://github.com/allmaps/iiif-map-collections/blob/main/iiif-map-collections.yml) across the world. Any of the collections that you see in this list should be easy to work with in Allmaps.
+All of the maps in [AGSL](https://uwm.edu/lib-collections/agsl-digital-map-collection/)
+and [LMEC](https://collections.leventhalmap.org) digital collections are IIIF compliant.
+Additionally, the Allmaps project maintains a [list of IIIF map collections](https://github.com/allmaps/iiif-map-collections/blob/main/iiif-map-collections.yml)
+across the world.
+Any of the collections that you see in this list should be easy to work with in Allmaps.
 
-Other websites may require more sleuthing to find the manifest. On the [David Rumsey Map Collection](https://www.davidrumsey.com), the IIIF manifest is listed under the share menu:
+Other websites may require more sleuthing to find the manifest.
+On the [David Rumsey Map Collection](https://www.davidrumsey.com), the IIIF manifest is
+listed under the share menu:
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-04.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options." caption="Figure 4. Finding a IIIF manifest in the David Rumsey Map Collection." %}
 
-If you're comfortable installing a browser extension, [DetektIIIF](https://seige.digital/en/detektiiif/) can help identify IIIF resources on pages where the manifest link is not visible. If a IIIF image is present on a website, DetektIIIF can usually find its manifest.
+If you are comfortable installing a browser extension, [DetektIIIF](https://seige.digital/en/detektiiif/)
+can help identify IIIF resources on pages where the manifest link is not visible.
+If a IIIF image is present on a website, DetektIIIF can usually find its manifest.
 
 <!-- Begin Part 1.01 -->
 ## Allmaps Editor
 
-Let's get started with some georeferencing.
+Now that you know what kind of resource Allmaps needs, we can begin georeferencing.
 
-First, launch the Allmaps Editor by going to [editor.allmaps.org](https://editor.allmaps.org). You can choose a map to georeference by either:
+First, launch Allmaps Editor by going to [https://editor.allmaps.org](https://editor.allmaps.org).
+You can choose a map to georeference by either:
 
-1. Entering a IIIF Manifest URL in the text box at the top of the page
+1. Entering a IIIF manifest URL in the text box at the top of the page
 2. Scrolling down to find a map in one of the featured collections
 
-Allmaps uses metadata in the IIIF manifest to fetch image data from the host institution's servers.
+When entering a manifest, paste the manifest URL itself, not the JSON text that appears
+when you open the manifest in a browser.
+
+Allmaps uses metadata in the IIIF manifest to fetch image data from the host institution's
+servers.
 
 Allmaps is especially useful for large-scale maps whose content can be matched to modern geography,
 such as:
@@ -175,7 +193,7 @@ such as:
 - County and state maps, highway maps, and recreation maps
 - Topographic or thematic map series
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-05.png" alt="UWM digital collection item page showing the IIIF Manifest URL field." caption="Figure 5. Finding the IIIF Manifest URL in the UWM digital collection." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-05.png" alt="American Geographical Society Library Digital Map Collection item page showing the IIIF manifest URL field." caption="Figure 5. Finding the IIIF manifest URL in the American Geographical Society Library Digital Map Collection." %}
 
 This lesson will use screenshots from georeferencing this
 [chart of New Zealand](https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/),
@@ -198,7 +216,7 @@ In the figure below, note that the pink line defines the mask and excludes the m
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-06.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area." caption="Figure 6. Drawing a clipping mask in Allmaps Editor." %}
 
-It's possible your image includes multiple maps! If so, each map gets its own mask.
+Your image may include multiple maps! If so, each map gets its own mask.
 
 In the figure below, three maps are defined from a single image: the main map image (labeled 1) and two inset map areas (labeled 2 and 3).
 
@@ -225,7 +243,7 @@ In the figure below, note the pink dot labeled `2` on both sides of the image, i
 When placing ground control points---especially for cartographic corpora like urban atlases---consider the following:
 
 - **Avoid water bodies**: they change too much over time to be reliable.
-- **Use roads and buildings**: as long as they haven’t been torn down or significantly altered.
+- **Use roads and buildings**: as long as they have not been torn down or significantly altered.
 - **Check your progress**: sometimes only a few GCPs are needed. Too many can actually introduce unwanted distortion. A good check-in is after placing 5-10 points.
 
 These guidelines are adapted from the Leventhal Map & Education Center's guide to georeferencing with Allmaps.[^4]
@@ -261,16 +279,20 @@ Allmaps uses this data to calculate the warping or stretching needed to align th
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-10.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points" caption="Figure 10. Coordinate precision, by xkcd." %}
 
-Georeference annotations are automatically created when you draw a mask or place a control point. From Allmaps Editor, here's how you can locate a map's georeference annotation:
+Georeference annotations are automatically created when you draw a mask or place a control point.
+From Allmaps Editor, here is how you can locate a map's georeference annotation:
 
 1. Click the green "Export" button
 2. Click the up-right arrow by the "Georeference annotation" to open it in a new tab, or click the purple `</> Code` button to inspect the annotation in Allmaps Editor
 
-Here's the georeference annotation for that chart of New Zealand:
+Here is the georeference annotation for that chart of New Zealand:
 
 [`https://annotations.allmaps.org/images/ed34bf1e16463906`](https://annotations.allmaps.org/images/ed34bf1e16463906)
 
-That ID, `ed34bf1e16463906`, is called an "Allmaps ID." It is unique to the Allmaps data ecosystem. It's generated by passing the IIIF manifest through a hashing algorithm that produces a unique, 16-digit alphanumeric identifier.
+That ID, `ed34bf1e16463906`, is called an "Allmaps ID."
+It is unique to the Allmaps data ecosystem.
+It is generated by passing the IIIF manifest through a hashing algorithm that produces a
+unique, 16-digit alphanumeric identifier.
 
 Open the annotation in a new tab and inspect it. Can you make sense of what each `key` and each `value` are communicating? Can you locate the resource coordinates and geometry coordinates?
 
@@ -278,13 +300,14 @@ Open the annotation in a new tab and inspect it. Can you make sense of what each
 
 ### Review results
 
-The "Results" tab displays a preview of the map with georeferencing applied. It's a great way to check alignment and see if you're on the right track.
+The "Results" tab displays a preview of the map with georeferencing applied.
+It is a useful way to check alignment and see if you are on the right track.
 
 Notice in the figure below that the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-12.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 12. Previewing georeferencing results in Allmaps." %}
 
-In the upper right, under *Export*, you’ll see a drawer with more tools:
+In the upper right, under *Export*, you will see a drawer with more tools:
 
 - Link to view in Allmaps Viewer
 - Link to the annotation
@@ -294,7 +317,7 @@ In the upper right, under *Export*, you’ll see a drawer with more tools:
 On the bottom right, under *Maps* you can find:
 
 - **Transformation** and **Projection** to modify how the map is warped and how its coordinates are stored
-- **GCP List** – lists all your points; delete ones that don't work
+- **GCP List** – lists all your points; delete ones that do not work
 
 The *Transformation* option controls the algorithm Allmaps uses to warp the image from your control points. Different algorithms will produce different results. 
 Some stretch or distort the image more than others, so changing the transformation can change how you interpret the map, not just how it looks.
@@ -325,7 +348,9 @@ Common tools (found at the bottom of the screen) include sliders that control la
 
 Background removal is especially useful with historical maps—it removes the blank paper and helps isolate printed geographic content from the scanned page, making overlays easier to interpret.
 
-Viewer is not used to georeference maps. Instead, it's used for inspecting results and assessing how a warped historical map behaves in relation to modern geography.
+Viewer is not used to georeference maps.
+Instead, it is used for inspecting results and assessing how a warped historical map
+behaves in relation to modern geography.
 
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
@@ -620,7 +645,7 @@ This lets us ask how the medieval street network relates to the geography shown 
 nineteenth-century map.
 
 Keep a logbook or text file for the URLs, manifests, IDs, filenames, and other reference information you use in a project,
-particularly if you're using an example other than the one provided.
+particularly if you are using an example other than the one provided.
 
 For this walkthrough, the key values are:
 
@@ -629,7 +654,7 @@ For this walkthrough, the key values are:
 | Resource | Location / URL |
 | --- | --- |
 | AGSL Map of Paris, 1821 | [https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/](https://collections.lib.uwm.edu/digital/collection/agdm/id/1550/) |
-| IIIF Manifest URL       | [https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json](https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json) |
+| IIIF manifest URL       | [https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json](https://collections.lib.uwm.edu/iiif/info/agdm/1550/manifest.json) |
 | Viewer URL | [https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb](https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fimages%2Fadeae8a56aaf59fb) |
 | Georeference annotation | [https://annotations.allmaps.org/images/adeae8a56aaf59fb](https://annotations.allmaps.org/images/adeae8a56aaf59fb) |
 | Allmaps Image ID        | `adeae8a56aaf59fb` |
@@ -760,7 +785,8 @@ This command is worth unpacking carefully:
 * `> voiries1300_2009.svg` saves the transformed output as SVG
 * `\` is a line continuation character. It tells the shell to treat the next line as part of the same command.
 
-The result is not new GeoJSON. It is an SVG graphic whose coordinates match the pixel grid of the 1821 Paris image.
+The result is not a new GeoJSON.
+It is an SVG graphic whose coordinates match the pixel grid of the 1821 Paris image.
 
 #### Overlay the SVG on the IIIF image
 
@@ -1012,7 +1038,8 @@ If the script runs successfully, the output file is now georeferenced using the 
 Troubleshooting script failures and errors:
 
 * See above "Download the IIIF Image" step if your image size is wrong.
-* Ensure you've made the appropriate adjustments in the generated shell script in the "Edit the Script" step above. Regenerate the script to start over if you mess up.
+* Ensure you have made the appropriate adjustments in the generated shell script in the
+  "Edit the Script" step above. Regenerate the script to start over if you make a mistake.
 * Triple check your filenames and ensure they match what the shell script expects.
 </div>
 
@@ -1068,7 +1095,8 @@ If you want to learn more about Leaflet, check out these *Programming Historian*
 
 Open the `index.html` file. This file contains the structure for our web page.
 
-The `head` tags contain a lot of important information. That's where we're actually fetching all the Leaflet code, as well as loading our local files.
+The `head` tags contain a lot of important information.
+That is where we are fetching all the Leaflet code, as well as loading our local files.
 
 Line 8 loads the `style.css` file:
 
@@ -1134,7 +1162,8 @@ Try opening the `style.css` file to inspect this CSS directly, or even tweaking 
 
 ### script.js
 
-The Allmaps Leaflet plugin uses georeference annotations to overlay maps. We'll be using this georeference annotation...
+The Allmaps Leaflet plugin uses georeference annotations to overlay maps.
+We will use this georeference annotation...
 
 ```html
 https://annotations.allmaps.org/manifests/cfb327e4b43395e3
@@ -1146,7 +1175,9 @@ https://annotations.allmaps.org/manifests/cfb327e4b43395e3
 
 #### Map setup
 
-To instantiate a Leaflet map, define a variable as `L.map("map", { ... })`, where `...` includes the map's parameters, like where it's centered, its starting zoom, and other features.
+To instantiate a Leaflet map, define a variable as `L.map("map", { ... })`, where `...`
+includes the map's parameters, like where it is centered, its starting zoom, and other
+features.
 
 We define our map like this:
 
@@ -1162,7 +1193,9 @@ const map = L.map("map", {
 
 #### Add a base map
 
-We want to add a base map to our Leaflet map. We'll use OpenStreetMap's free XYZ tiles, provided at <https://tile.openstreetmap.org/{z}/{x}/{y}.png>.
+We want to add a base map to our Leaflet map.
+We will use OpenStreetMap's free XYZ tiles, provided at
+<https://tile.openstreetmap.org/{z}/{x}/{y}.png>.
 
 First, we define options for the XYZ tiles:
 
@@ -1198,7 +1231,8 @@ At this point, the map should display the georeferenced overlay.
 
 #### Add the layer list
 
-All that's left is to create a layer list, which allows us to toggle the map's visibility on and off, with these three lines of code:
+All that remains is to create a layer list, which allows us to toggle the map's
+visibility on and off, with these three lines of code:
 
 ```js
 let base = { "OpenStreetMap": streets_base };
@@ -1214,7 +1248,8 @@ In Leaflet-speak, these are called "layer controls," and you can [read more abou
 
 [View sample map in a new window](https://programminghistorian.github.io/ph-submissions/assets/visualizing-historic-maps-iiif-allmaps/allmaps-leaflet-demo/index.html){:target="_blank"}
 
-Try adding different annotations (just note you'll have to update the `center` array, which is hard-coded to a latitude/longitude pair for Boston).
+Try adding different annotations (just note you will have to update the `center` array,
+which is hard-coded to a latitude/longitude pair for Boston).
 
 ## Conclusions
 
