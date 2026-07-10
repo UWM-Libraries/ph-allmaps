@@ -40,7 +40,7 @@ Allmaps is a free, publicly accessible, and web-based solution to georeferencing
 ### What you will learn
 
 1. Why georeferencing is useful for research and scholarship
-2. The principles of IIIF, including how to identify IIIF maps
+2. The IIIF concepts needed to work with resources in Allmaps
 3. How to use Allmaps to view and georeference IIIF maps
 4. How to use Allmaps' advanced features, including command-line tools
 5. How to use Allmaps with open-source web mapping tools like Leaflet
@@ -62,122 +62,65 @@ Georeferencing makes it possible to:
 
 {% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-02.png" alt="Historic map image aligned over a modern GIS basemap." caption="Figure 2. The georeferencing process places a digital image into a GIS." %}
 
-Traditional georeferencing solutions are built into geographic information systems (GIS) like QGIS or ArcGIS. Although GIS-based georeferencing tools can still be useful for some workflows, they do have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where the International Image Interoperability Framework (IIIF) comes in: Allmaps' IIIF-powered georeferencing capabilities make it easier to do more with georeferenced maps, provided you have a basic handle on IIIF.
+Traditional georeferencing solutions are built into geographic information systems (GIS) like QGIS
+or ArcGIS. Although GIS-based georeferencing tools can still be useful for some workflows, they do
+have a steep learning curve, and in the case of ArcGIS, are quite expensive. This is where the
+International Image Interoperability Framework (IIIF) comes in: Allmaps can fetch compatible map
+images directly from digital collections and warp them in a browser.
 
-### What's IIIF?
+### What you need to know about IIIF for Allmaps
 
-[IIIF](https://iiif.io/) (pronounced "triple-eye-eff") is a set of open standards for delivering high-quality, attributed digital objects online at scale. IIIF provides a consistent way for institutions to share digital images, maps, manuscripts, artworks, and even audio/visual files across different platforms.
+[IIIF](https://iiif.io/) (pronounced "triple-eye-eff") is a set of open standards for
+delivering high-quality digital objects online. In this lesson, the most important IIIF
+object is the manifest: a web-accessible JSON file that describes a digital object and
+points applications toward the image data they need.
 
-Rather than locking media inside specific viewers or software tools, IIIF offers a standardized, flexible way to deliver these resources to any compatible application. This means:
+To georeference a map in Allmaps, you usually start with a IIIF manifest URL.
+Allmaps reads that manifest to locate the map image and its image service.
 
-- A digitized map from one library can be viewed side-by-side with one from another institution.
-- A scholar can annotate or compare high-resolution images without downloading large files.
-- Tools like [Allmaps](https://allmaps.org/), [Mirador](https://projectmirador.org/), [Universal Viewer](https://universalviewer.io/), and [others](https://iiif.io/get-started/vendors/) can all read the same IIIF content.
+This lesson assumes that you are working with maps that already have IIIF manifests.
+You do not need to create or host a manifest here. For a fuller introduction to IIIF images,
+manifests, and GitHub-based hosting workflows, see the companion lesson,
+"Creating and Hosting Basic IIIF Images and Manifests Using GitHub."
 
-At its core, then, IIIF enables *interoperability*, making it easier for cultural heritage institutions, educators, and developers to build user experiences around maps, photographs, documents, and other media from all over the world.
+From there, Allmaps can request the image data it needs, create a georeference annotation, 
+and warp the map in a browser.
+For this lesson, you mainly need to be able to tell the difference between three URLs:
 
-This lesson introduces more detail about IIIF than is ultimately necessary to get started georeferencing with Allmaps.
+- A collection record URL, which is the human-readable page for an item in a digital collection
+- A IIIF manifest URL, which is the JSON file that Allmaps needs in order to load the map
+- An Allmaps annotation URL, which points to the georeferencing data created after a map has been
+  worked on in Allmaps
 
-### What problems does IIIF respond to?
-
-The main problem that IIIF responds to is that digital images can be huge. Even physically small photos can have a large file size when they are stored in a digital repository system and served to a user---and that footprint grows with the dimensions of the physical resource.
-
-Consider the map below, *Kaart van het Brugse Vrije* by Pieter II Claeissens. It's physically massive. As Jan Trachet and coauthors write, digitizing it required taking dozens of separate photographs and stitching them together in software like Photoshop.[^3]
-
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-03.jpg" alt="A photographer shoots a large wall map by Pieter II Claeissens." caption="Figure 3. Photographing the Claeissens wall map." %}
-
-It also takes up many gigabytes of storage. Delivering multiple gigabytes of image data over the web is a pretty big payload---and that large payload is exactly what most libraries and museums are often dealing with.
-
-In short, IIIF provides a solution to this problem of delivering large images over the web.
-
-### How does IIIF work?
-
-IIIF divides images into smaller regions of **tile pyramids**. When a digital repository implements IIIF, it produces tile pyramids that make each digitized image available at different resolutions, preserving the fidelity of deep zoom without having to deal with the payload of a massive file size all at once.
-
-The interactive below, [by Jules Schoonman](https://observablehq.com/@allmaps/tile-pyramid), provides a great visualization for how tile pyramids work. An image is shown on the left, while its corresponding tile pyramid is shown on the right. As you zoom into the image, the relevant section of the tile pyramid is highlighted in gray.
-
-Zoom into the image to try it out:
-
-<iframe width="100%" height="470px" frameborder="0"
-  src="https://observablehq.com/embed/@allmaps/tile-pyramid?cells=viz"></iframe>
-
-In practice, IIIF images are usually delivered through viewers like [Mirador](https://projectmirador.org) or [OpenSeadragon](https://openseadragon.github.io). Below, take a look at the AGSL's treasured [Leardo Mappamundi](https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/), embedded in a Mirador Viewer. Clicking on the expand arrows allows us to view the map in full-resolution detail directly in the browser---no need to download image files.
-
-<iframe
-  src="https://programminghistorian.github.io/ph-submissions/assets/visualizing-historic-maps-iiif-allmaps/leardo-mirador.html"
-  title="Side-by-side Mirador comparison of the original and multispectral Leardo Mappamundi"
-  width="100%"
-  height="650"
-  allowfullscreen>
-</iframe>
-
-[Open the Leardo Mappamundi comparison in a new page](https://programminghistorian.github.io/ph-submissions/assets/visualizing-historic-maps-iiif-allmaps/leardo-mirador.html)
-
-### The IIIF manifest
-
-Allmaps builds on the IIIF protocol to warp IIIF maps directly in a web browser. In order to georeference a map in Allmaps, you need a IIIF manifest.
-
-A "manifest" is the prime unit in IIIF. Like the manifest for a plane or a ship, IIIF manifests contain information about their cargo. In our case, the "cargo" includes the pixels of the digital resource, its metadata, and any optional parameters for how the image should be displayed.
-
-Once you have the manifest, you can do a lot with it. Take, for instance, the Leardo Mappamundi we mentioned above. Its digital collection record is:
+For example, the digital collection record for the Leardo Mappamundi is:
 
 **Tip:** Open each of the URLs in a new tab as you go.
 
 [`https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/`](https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/)
 
-The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo. If you open the link below, you'll see a big jumble of [JSON](https://www.json.org/json-en.html) (JavaScript Object Notation) data:
+The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo:
 
 [`https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json`](https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json)
 
-That big JSON jumble is our IIIF Manifest for the Leardo Mappamundi. It contains metadata about the object itself, like the title of the work and its publication date, but it also includes information about the IIIF image, like width and height in pixels.
+If you open the manifest link in a browser, you will see [JSON](https://www.json.org/json-en.html)
+(JavaScript Object Notation) data.
+You do not need to copy that JSON text into Allmaps.
+You only need the manifest URL itself.
 
-Open the manifest in a new tab and scroll through its contents. Can you find these values? What other metadata do you see?
-
-### IIIF Image API
-
-The IIIF Image API allows you to request an image in response to a standard HTTP or HTTPS request and specify the region, size, rotation, and more.[^2]
+The manifest leads Allmaps to the underlying IIIF image service.
+A IIIF Image API URL can request the full image, a smaller version,
+or a cropped region of the same source image.[^2]
 
 UWM’s digital collections are publicly accessed through `collections.lib.uwm.edu`,
 but some IIIF image service URLs resolve to the underlying CONTENTdm/OCLC host,
 `cdm17272.contentdm.oclc.org`.
-For most browsing purposes these point to the same resource. 
-However, Allmaps generates IDs from the exact image service URL string, so changing the host changes the Allmaps ID and the expected filenames in some later steps.
+For most browsing purposes these point to the same resource.
+However, Allmaps generates IDs from the exact image service URL string, so changing the
+host changes the Allmaps ID and the expected filenames in some later steps.
 
-Now that you have the manifest, you can point to the image through the IIIF Image API at the 
-URL: `https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/full/0/default.jpg`.
-You will likely see a 403 error for this example.
-
-For very large images, servers may refuse a `full/full` request because it exceeds their maximum pixel threshold. 
-
-Instead, request a smaller version of the image:
+For example, this URL requests a smaller version of the Leardo image:
 
 [`https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg`](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg)
-
-Here, we've replaced `/full/full/0/` with `/full/1200,/0/`, which tells any browser or application requesting this URL to fetch the image at a maximum resolution of 1,200 pixels wide.
-
-We could also deliver a smaller, zoomed-in crop of the source image by specifying a bounding box, turning `/full/1200,/0/` into `/7000,7600,3500,4200/1200,/0/`:
-
-[`https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg`](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/0/default.jpg)
-
-Finally, we can even pass a variety of parameters like rotation. In the URL below, we've added the value `280` at the rotation position:
-
-```html
-https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/7000,7600,3500,4200/1200,/280/default.jpg
-```
-
-All of these things are possible because of IIIF's built-in application programming interfaces (or APIs), which allow you to query images according to different parameters in the URL. It's obviously difficult to manipulate the values in the URL by hand, but thankfully, the presence of an API makes it possible to build applications on top of the IIIF protocol. One example is the Leventhal Center's [IIIF Tools](https://iiif-tools.leventhal.center), which provides a user-friendly interface for manipulating the IIIF Image API and constructing different image endpoints.
-
-To test your knowledge of IIIF, try the following challenge:
-
-1. Pick another map from [AGSL's digital collections](https://uwm.edu/lib-collections/agsl-digital-map-collection/)
-2. Copy its IIIF manifest
-3. Paste the manifest into the [IIIF Tools](https://iiif-tools.leventhal.center) app
-4. Load the image
-5. Copy the URL labeled "IIIF Endpoint" (this is the "Image API endpoint")
-6. Paste it into the visualizer below to view the structure of its IIIF tile pyramid
-
-<iframe width="100%" height="709" frameborder="0"
-  src="https://observablehq.com/embed/@allmaps/tile-pyramid?cells=viewof+tileSourceUrl%2Cviz"></iframe>
 
 ### IIIF map collections
 
@@ -1268,8 +1211,6 @@ Other contributors and partners are listed on [allmaps.org](https://allmaps.org/
 [^1]: C. D. Lippitt, "Georeferencing and Georectification," in *The Geographic Information Science & Technology Body of Knowledge*, 3rd Quarter 2020 ed., ed. John P. Wilson (UCGIS, 2020), https://gistbok-ltb.ucgis.org/page/current/concept/DC-01-030, doi:10.22224/gistbok/2020.3.3.
 
 [^2]: International Image Interoperability Framework, "Image API 2.1.1," accessed May 11, 2026, https://iiif.io/api/image/2.1/.
-
-[^3]: Jan Trachet et al., "Mapathon 1571: Building Community Cartography Through Collective Georeferencing," Leventhal Map & Education Center at the Boston Public Library, November 10, 2025, https://www.leventhalmap.org/articles/mapathon-1571/.
 
 [^4]: Leventhal Map & Education Center, "Georeference Urban Atlases with Allmaps," *Cartinal*, accessed May 11, 2026, https://cartinal.leventhalmap.org/guides/georeferencing-with-allmaps.html#best-practices-for-creating-gcps.
 
