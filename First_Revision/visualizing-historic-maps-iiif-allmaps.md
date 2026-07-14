@@ -1187,7 +1187,36 @@ which is hard-coded to a latitude/longitude pair for Boston).
 
 ## Conclusions
 
-We hope that you will give Allmaps a try and have fun exploring IIIF map collections from all around the world!
+In this lesson, you learned how to move from a map image in a digital collection
+to a georeferenced layer that can be viewed, inspected, exported, and reused.
+You found IIIF manifest URLs, opened maps in Allmaps Editor, placed control
+points, drew masks, reviewed alignment in Allmaps Viewer, and inspected the
+georeference annotation that Allmaps creates behind the scenes.
+All of this was done in your web browser and without GIS software!
+
+The georeference annotation is the key object that makes this reuse possible.
+It records the relationship between the pixels of a map image and geographic
+coordinates in a standard, portable format.
+That means the work you do in Allmaps Editor does not stay locked inside a
+single viewer.
+The same annotation can be read by Allmaps Viewer, used by command-line tools,
+converted into files for GIS, or loaded into a web map with the Allmaps Leaflet
+plugin.
+
+Open [Allmaps Editor](https://editor.allmaps.org) and try the same
+process with another map.
+You can start with one of the maps suggested by Allmaps, or use a manifest URL
+for a map from another IIIF collection.
+From there, you can compare historical maps, prepare georeferenced images for
+teaching, or build lightweight web maps for research projects.
+The [Allmaps Observable notebooks](https://observablehq.com/@allmaps) are also
+a useful place to see development examples, experiments, and features in
+progress.
+
+And if you want to have fun with georeferencing, check out
+[Allmaps Here](https://here.allmaps.org), which turns georeferenced maps into
+postcards, or [Allmaps Arcade](https://arcade.allmaps.org), a game for placing
+old maps on the globe.
 
 ##### Endnotes
 
