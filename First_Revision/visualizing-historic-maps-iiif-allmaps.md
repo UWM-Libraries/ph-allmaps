@@ -124,11 +124,11 @@ For example, the digital collection record for the Leardo Mappamundi is:
 
 **Tip:** Open each of the URLs in a new tab as you go.
 
-[`https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/`](https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/)
+[https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/](https://collections.lib.uwm.edu/digital/collection/agdm/id/37085/)
 
 The Leardo map's IIIF manifest is listed at the bottom of the page, near the IIIF logo:
 
-[`https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json`](https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json)
+[https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json](https://collections.lib.uwm.edu/iiif/info/agdm/37085/manifest.json)
 
 If you open the manifest link in a browser, you will see [JSON](https://www.json.org/json-en.html)
 (JavaScript Object Notation) data.
@@ -149,7 +149,7 @@ host changes the Allmaps ID and the expected filenames in some later steps.
 
 For example, this URL requests a smaller version of the Leardo image:
 
-[`https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg`](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg)
+[https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg](https://cdm17272.contentdm.oclc.org/iiif/2/agdm:37085/full/1200,/0/default.jpg)
 
 ### IIIF map collections
 
@@ -293,7 +293,7 @@ From Allmaps Editor, here is how you can locate a map's georeference annotation:
 
 Here is the georeference annotation for that chart of New Zealand:
 
-[`https://annotations.allmaps.org/images/ed34bf1e16463906`](https://annotations.allmaps.org/images/ed34bf1e16463906)
+[https://annotations.allmaps.org/images/ed34bf1e16463906](https://annotations.allmaps.org/images/ed34bf1e16463906)
 
 That ID, `ed34bf1e16463906`, is called an "Allmaps ID."
 It is unique to the Allmaps data ecosystem.
@@ -376,9 +376,7 @@ Allmaps Viewer has some useful keyboard shortcuts:
 The example below uses georeferenced atlas sheets for Lynn, Massachusetts.
 The Allmaps annotation is:
 
-```html
-https://annotations.allmaps.org/manifests/23379602e8187445
-```
+[https://annotations.allmaps.org/manifests/23379602e8187445](https://annotations.allmaps.org/manifests/23379602e8187445)
 
 <iframe
   src="https://viewer.allmaps.org/?url=https%3A%2F%2Fannotations.allmaps.org%2Fmanifests%2F23379602e8187445"
@@ -489,7 +487,7 @@ Install the current long-term support (LTS) version of Node.js using the standar
 
 On Ubuntu, Debian, or Ubuntu on WSL, you can use the instructions from Node.js:
 
-https://nodejs.org/en/download
+[https://nodejs.org/en/download](https://nodejs.org/en/download)
 
 Use Node.js 22 or newer, preferably the current LTS version.
 
@@ -1114,9 +1112,7 @@ The second line loads the Allmaps plugin so that we can use it in `script.js`.
 The Allmaps Leaflet plugin uses georeference annotations to overlay maps.
 We will use this georeference annotation...
 
-```html
-https://annotations.allmaps.org/manifests/cfb327e4b43395e3
-```
+[https://annotations.allmaps.org/manifests/cfb327e4b43395e3](https://annotations.allmaps.org/manifests/cfb327e4b43395e3)
 
 ... which corresponds to [this map of Boston](https://collections.leventhalmap.org/search/commonwealth:3f463198b):
 
