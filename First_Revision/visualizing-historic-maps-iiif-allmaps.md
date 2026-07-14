@@ -58,8 +58,10 @@ but they do not require command-line experience.
 
 The later sections are more advanced. 
 They use the command line to reuse Allmaps georeferencing data in local files, GIS workflows, and a small web map example.
-Those sections assume familiarity with installing software, navigating files from a terminal, and running commands. 
+They assume familiarity with installing software, navigating files from a terminal, and running commands. 
 You can complete the browser-based sections first and return to the command-line sections later.
+The Leaflet section also assumes basic familiarity with HTML, CSS, JavaScript, and the
+structure of a simple Leaflet map.
 
 IIIF appears here as prerequisite context for working with Allmaps resources.
 This lesson does not teach how to create or host IIIF images and manifests from scratch.
@@ -1069,7 +1071,8 @@ You have now generated a georeferenced GeoTIFF from an Allmaps annotation. This 
 
 Allmaps provides three different libraries for loading georeferenced maps as web map layers. You can use Leaflet, OpenLayers, or MapLibre.
 
-This section introduces the Allmaps Leaflet plugin. Once you understand this workflow, the OpenLayers and MapLibre options follow a similar pattern.
+This section focuses on the Allmaps Leaflet plugin.
+Once you understand this workflow, the OpenLayers and MapLibre options follow a similar pattern.
 
 The Allmaps Leaflet plugin, described in greater detail in [this Observable Notebook](https://observablehq.com/@allmaps/leaflet-plugin) as well as the [official Allmaps documentation](https://allmaps.org/docs/packages/leaflet/#_top), is distributed via [npm](https://www.npmjs.com/package/@allmaps/leaflet).
 
@@ -1091,78 +1094,20 @@ building blocks) of VS Code.
 
 If you click "Go Live" in the bottom right-hand corner of VS Code, the Leaflet web map should open in your default web browser.
 
-The rest of this section explains how the code works. We will focus on the HTML, JavaScript, and CSS needed to understand this Allmaps example.
-
 If you want to learn more about Leaflet, check out these *Programming Historian* lessons by [Kim Pham on geocoding](https://programminghistorian.org/en/lessons/mapping-with-python-leaflet) and [Stephanie J. Richmond and Tommy Tavenner on maps of correspondences](https://programminghistorian.org/en/lessons/using-javascript-to-create-maps).
 
-### index.html
+### Find the Allmaps plugin
 
-Open the `index.html` file. This file contains the structure for our web page.
-
-The `head` tags contain a lot of important information.
-That is where we are fetching all the Leaflet code, as well as loading our local files.
-
-Line 8 loads the `style.css` file:
-
-```html
-<link rel="stylesheet" href="style.css" />
-```
-
-Lines 11 and 12 load Leaflet and the Allmaps Leaflet plugin:
+Open the `index.html` file.
+Near the top of the file, two lines load Leaflet and the Allmaps Leaflet plugin:
 
 ```html
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/@allmaps/leaflet/dist/bundled/allmaps-leaflet-1.9.umd.js"></script>
 ```
 
-Line 15 loads Leaflet's external CSS library:
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-```
-
-And finally, line 18 loads our local `script.js`, where we are actually creating the web map:
-
-```html
-<script type="module" src="script.js"></script>
-```
-
-The `body` tags contain a minimal structure for the map itself:
-
-```html
-<body>
-  <div id="wrapper">
-    <h1>Hi, Allmaps Leaflet Plugin!</h1>
-    <div id="map"></div>
-  </div>
-</body>
-```
-
-Here, `<div id="wrapper">` creates a container for our map by applying these CSS values to the page...
-
-```css
-#wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-}
-```
-
-... and then, `<div id="map"></div>` creates a fullscreen map inside of our parent `div`, according to this CSS:
-
-```css
-#map {
-  width: 100%;
-  height: 100vw;
-  z-index: 1;
-}
-```
-
-Try opening the `style.css` file to inspect this CSS directly, or even tweaking some of the values as a matter of experimentation.
+The first line loads Leaflet.
+The second line loads the Allmaps plugin so that we can use it in `script.js`.
 
 ### script.js
 
@@ -1179,11 +1124,8 @@ https://annotations.allmaps.org/manifests/cfb327e4b43395e3
 
 #### Map setup
 
-To instantiate a Leaflet map, define a variable as `L.map("map", { ... })`, where `...`
-includes the map's parameters, like where it is centered, its starting zoom, and other
-features.
-
-We define our map like this:
+Open `script.js`.
+The file starts by creating a Leaflet map centered on Boston:
 
 ```js
 const map = L.map("map", {
@@ -1195,13 +1137,7 @@ const map = L.map("map", {
 });
 ```
 
-#### Add a base map
-
-We want to add a base map to our Leaflet map.
-We will use OpenStreetMap's free XYZ tiles, provided at
-<https://tile.openstreetmap.org/{z}/{x}/{y}.png>.
-
-First, we define options for the XYZ tiles:
+The map also includes an OpenStreetMap base layer:
 
 ```js
 let tileLayerDetails = {
@@ -1211,15 +1147,13 @@ let tileLayerDetails = {
   maxZoom: 24,
   crossOrigin: true,
 };
-```
 
-Then, we can add it to the map with a single line of code:
-
-```js
 let streets_base = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", tileLayerDetails).addTo(map);
 ```
 
-Next, now that our map has been instantiated and contains an OpenStreetMap base, we define two new variables:
+#### Add the Allmaps layer
+
+The Allmaps work happens in two lines:
 
 - `annotationUrl` contains the URL of the georeference annotation
 - `WarpedMapLayer` creates a new `WarpedMapLayer` and adds it to the map
