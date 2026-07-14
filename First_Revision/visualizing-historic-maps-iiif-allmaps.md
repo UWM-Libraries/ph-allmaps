@@ -44,6 +44,10 @@ interface for georeferencing, Allmaps provides a robust set of command-line tool
 web-mapping libraries that advanced users can use to extend their research and
 visualization workflows.
 
+Allmaps was founded by [Bert Spaan](https://bertspaan.nl/) and [Jules Schoonman](https://www.tudelft.nl/en/staff/j.a.schoonman/).
+Bert Spaan is lead developer, and Jules Schoonman leads educational projects for the platform.
+Other contributors and partners are listed on [allmaps.org](https://allmaps.org/#about-allmaps).
+
 ### Lesson path and prerequisites
 
 The first part of this lesson is beginner-friendly and browser-based.
@@ -1254,14 +1258,6 @@ which is hard-coded to a latitude/longitude pair for Boston).
 ## Conclusions
 
 We hope that you will give Allmaps a try and have fun exploring IIIF map collections from all around the world!
-
-Allmaps is created by:
-
-[Bert Spaan](https://bertspaan.nl/), founder of Allmaps and lead developer.
-
-[Jules Schoonman](https://www.tudelft.nl/en/staff/j.a.schoonman/), Digital Curator at Delft University of Technology Library, founder of Allmaps, and lead for educational projects.
-
-Other contributors and partners are listed on [allmaps.org](https://allmaps.org/#about-allmaps).
 
 ##### Endnotes
 
