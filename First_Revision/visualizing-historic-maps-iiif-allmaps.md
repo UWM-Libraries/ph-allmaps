@@ -1223,7 +1223,7 @@ old maps on the globe.
 
 [Ian Spangler](https://itspangler.com/) is Associate Curator of Digital & Participatory Geography at the Norman B. Leventhal Map & Education Center at the Boston Public Library and teaches a Geospatial Humanities course at Tufts University; Boston, Massachusetts, United States.
 
-##### Endnotes
+## Endnotes
 
 [^1]: C. D. Lippitt, "Georeferencing and Georectification," in *The Geographic Information Science & Technology Body of Knowledge*, 3rd Quarter 2020 ed., ed. John P. Wilson (UCGIS, 2020), https://gistbok-ltb.ucgis.org/page/current/concept/DC-01-030, doi:10.22224/gistbok/2020.3.3.
 
