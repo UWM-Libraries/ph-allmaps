@@ -169,7 +169,7 @@ Other websites may require more sleuthing to find the manifest.
 On the [David Rumsey Map Collection](https://www.davidrumsey.com), the IIIF manifest is
 listed under the share menu:
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-04.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options." caption="Figure 4. Finding a IIIF manifest in the David Rumsey Map Collection." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-03.png" alt="David Rumsey Map Collection share menu showing IIIF manifest options." caption="Figure 3. Finding a IIIF manifest in the David Rumsey Map Collection." %}
 
 If you are comfortable installing a browser extension, [DetektIIIF](https://seige.digital/en/detektiiif/)
 can help identify IIIF resources on pages where the manifest link is not visible.
@@ -199,7 +199,7 @@ such as:
 - County and state maps, highway maps, and recreation maps
 - Topographic or thematic map series
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-05.png" alt="American Geographical Society Library Digital Map Collection item page showing the IIIF manifest URL field." caption="Figure 5. Finding the IIIF manifest URL in the American Geographical Society Library Digital Map Collection." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-04.png" alt="American Geographical Society Library Digital Map Collection item page showing the IIIF manifest URL field." caption="Figure 4. Finding the IIIF manifest URL in the American Geographical Society Library Digital Map Collection." %}
 
 This lesson will use screenshots from georeferencing this
 [chart of New Zealand](https://collections.lib.uwm.edu/digital/collection/agdm/id/3198/),
@@ -220,17 +220,17 @@ If you mess up, click "Cancel" to start over.
 
 In the figure below, note that the pink line defines the mask and excludes the map collar from the defined map.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-06.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area." caption="Figure 6. Drawing a clipping mask in Allmaps Editor." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-05.png" alt="Screenshot of Allmaps Editor with a polygon mask drawn around the map area." caption="Figure 5. Drawing a clipping mask in Allmaps Editor." %}
 
 Your image may include multiple maps! If so, each map gets its own mask.
 
 In the figure below, three maps are defined from a single image: the main map image (labeled 1) and two inset map areas (labeled 2 and 3).
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-07.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3." caption="Figure 7. A scanned page with multiple maps, each of which would need its own mask." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-06.jpg" alt="Scanned page showing multiple maps on one sheet. Main map labeled 1, inset maps labeled 2 and 3." caption="Figure 6. A scanned page with multiple maps, each of which would need its own mask." %}
 
 Much of the time, your mask will simply be a rectangle drawn just inside the map's neatline.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-08.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 8. A rectangular mask drawn near the map corners." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-07.png" alt="Screenshot zoomed to a corner showing the mask just inside the neatline." caption="Figure 7. A rectangular mask drawn near the map corners." %}
 
 ### Georeference the map
 
@@ -244,7 +244,7 @@ Click the same spot on both sides of the editor.
 
 In the figure below, note the pink dot labeled `2` on both sides of the image, in this case an easily identifiable location near Cape Reinga on the Aupōuri Peninsula of New Zealand.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-09.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap." caption="Figure 9. Adding ground control points in Allmaps Editor." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-08.png" alt="Screenshot of Allmaps Editor with matching ground control points placed on the scanned map and the modern basemap." caption="Figure 8. Adding ground control points in Allmaps Editor." %}
 
 When placing ground control points---especially for cartographic corpora like urban atlases---consider the following:
 
@@ -283,7 +283,7 @@ Each point creates a pair of values:
 
 Allmaps uses this data to calculate the warping or stretching needed to align the map image in geographic space. Six-digit coordinate precision is probably overkill, but hey, it gives us an excuse to use [one of our favorite xkcd comics](https://xkcd.com/2170):
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-10.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points" caption="Figure 10. Coordinate precision, by xkcd." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-09.png" alt="A humorous comic that highlights the diminishing returns of latitude/longitude precision beyond four decimal points" caption="Figure 9. Coordinate precision, by xkcd." %}
 
 Georeference annotations are automatically created when you draw a mask or place a control point.
 From Allmaps Editor, here is how you can locate a map's georeference annotation:
@@ -302,7 +302,7 @@ unique, 16-digit alphanumeric identifier.
 
 Open the annotation in a new tab and inspect it. Can you make sense of what each `key` and each `value` are communicating? Can you locate the resource coordinates and geometry coordinates?
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-11.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 11. Resource coordinates and geometry coordinates in a georeference annotation." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-10.png" alt="Diagram showing how pixel coordinates in the image correspond to geographic coordinates in the georeference annotation." caption="Figure 10. Resource coordinates and geometry coordinates in a georeference annotation." %}
 
 ### Review results
 
@@ -311,7 +311,7 @@ It is a useful way to check alignment and see if you are on the right track.
 
 Notice in the figure below that the map is displayed with its collar removed beyond the neatline and the shape is no longer rectangular and has taken on a parallelogram shape.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-12.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 12. Previewing georeferencing results in Allmaps." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-11.png" alt="Screenshot of the Results tab in Allmaps Editor showing the georeferenced preview over the basemap." caption="Figure 11. Previewing georeferencing results in Allmaps." %}
 
 In the upper right, under *Export*, you will see a drawer with more tools:
 
@@ -335,10 +335,10 @@ Compare transformation and projection options as different interpretations of th
 
 The animation below shows just how much changing the transformation algorithm can impact the overlay.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-13.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 13. Different transformation algorithms can produce different warping results." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-12.gif" alt="Animated comparison showing how different transformation algorithms warp the same georeferenced map in different ways." caption="Figure 12. Different transformation algorithms can produce different warping results." %}
 
 <!-- TODO: Need updated screenshot. -->
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-14.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 14. The share menu in Allmaps." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-13.png" alt="Screenshot of the Allmaps export drawer showing links to the viewer, annotation, code, and tile tools." caption="Figure 13. The share menu in Allmaps." %}
 
 Click the *View in Allmaps Viewer* link in the Export menu to continue.
 Next we will work with the map in Allmaps Viewer.
@@ -360,7 +360,7 @@ behaves in relation to modern geography.
 
 The figure below shows a georeferenced map of New Zealand with the background removed.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-15.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 15. Background removal in Allmaps Viewer." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-14.png" alt="Comparison in Allmaps Viewer showing the same map with background removal off and on." caption="Figure 14. Background removal in Allmaps Viewer." %}
 
 Allmaps Viewer has some useful keyboard shortcuts:
 
@@ -411,20 +411,20 @@ Note: this is not intended for permanent hosting.
 
 In QGIS, use the Add XYZ Layer tool:
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-16.png" alt="QGIS dialog for adding a new XYZ tile layer." caption="Figure 16. Opening the XYZ tile layer dialog in QGIS." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-15.png" alt="QGIS dialog for adding a new XYZ tile layer." caption="Figure 15. Opening the XYZ tile layer dialog in QGIS." %}
 
 Copy the XYZ Tile URL from the Allmaps Editor Share tools:
 
 <!-- TODO: Update this screenshot before submission. -->
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-17.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Figure 17. Finding the XYZ tile URL in Allmaps." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-16.png" alt="Allmaps export menu showing where to copy the XYZ tile URL." caption="Figure 16. Finding the XYZ tile URL in Allmaps." %}
 
 Then create a new XYZ Connection in QGIS and paste in the URL. No other changes are usually needed.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-18.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Figure 18. Creating a new XYZ connection in QGIS." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-17.png" alt="QGIS form for creating a new XYZ connection by pasting the tile URL." caption="Figure 17. Creating a new XYZ connection in QGIS." %}
 
 Now you can use your georeferenced map directly in desktop GIS as a reference layer alongside other raster and vector data.
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-19.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 19. A georeferenced map displayed in QGIS." %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-18.png" alt="Georeferenced historical map displayed in QGIS from the Allmaps XYZ tile service." caption="Figure 18. A georeferenced map displayed in QGIS." %}
 
 Use the Allmaps Tile Server for testing desktop GIS workflows or other software that needs an XYZ
 tile URL.
@@ -1116,7 +1116,7 @@ We will use this georeference annotation...
 
 ... which corresponds to [this map of Boston](https://collections.leventhalmap.org/search/commonwealth:3f463198b):
 
-{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-20.jpg" alt="A map of Boston from 1838, by T.G. Bradford" caption="Figure 20. A map of Boston from 1838, by T.G. Bradford. Source: https://collections.leventhalmap.org/search/commonwealth:3f463198b" %}
+{% include figure.html filename="en-or-visualizing-historic-maps-iiif-allmaps-19.jpg" alt="A map of Boston from 1838, by T.G. Bradford" caption="Figure 19. A map of Boston from 1838, by T.G. Bradford. Source: https://collections.leventhalmap.org/search/commonwealth:3f463198b" %}
 
 #### Map setup
 
