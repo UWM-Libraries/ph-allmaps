@@ -473,8 +473,11 @@ This lesson requires installing software such as
 [Allmaps Command Line](https://www.npmjs.com/package/@allmaps/cli),
 [Node.js](https://nodejs.org/en/download),
 [GDAL](https://gdal.org/en/stable/download.html),
-[dezoomify-rs](https://github.com/lovasoa/dezoomify-rs),
 and other dependencies.
+One optional tool,
+[dezoomify-rs](https://github.com/lovasoa/dezoomify-rs),
+is only needed if the map you choose cannot be downloaded at full resolution through
+the Allmaps CLI.
 
 Installation and compatibility will vary depending on your operating system,
 OS version, and shell environment.
@@ -594,8 +597,14 @@ brew install jq
 ```
 
 [`dezoomify-rs`](https://github.com/lovasoa/dezoomify-rs) is optional.
-Install it only if the map you choose cannot be downloaded at full resolution with
-`allmaps fetch full-image` and needs to be "dezoomified" from the IIIF image service.
+Consider skipping this installation unless you need it: installation can be tricky, and
+the tool is unnecessary if `allmaps fetch full-image` can download your map at full
+resolution.
+You will only need `dezoomify-rs` if the map you choose cannot be downloaded at full
+resolution and needs to be "dezoomified" from the IIIF image service.
+
+If you need `dezoomify-rs`, install it after confirming that `allmaps fetch full-image`
+does not produce a full-resolution image.
 
 On Ubuntu/Debian or Ubuntu on WSL, install Rust and then install `dezoomify-rs` with Cargo:
 
@@ -640,7 +649,9 @@ dezoomify-rs --help
 ```
 
 <div class="alert alert-warning" markdown="block">
-If installation fails, the most likely missing pieces are Node.js, npm, GDAL, Rust/Cargo, or small command-line utilities such as `jq`.
+If installation fails, the most likely missing pieces are Node.js, npm, GDAL,
+or small command-line utilities such as `jq`.
+If you chose to install `dezoomify-rs`, Rust/Cargo may also be a missing piece.
 After installing a new tool, you may need to restart your terminal before the command is available.
 </div>
 
@@ -972,11 +983,15 @@ curl -s https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550/info.json | jq '.si
 ```
 
 For this example, the largest size listed should be `10784 x 6941`, matching the dimensions in the Allmaps annotation.
-If your local JPEG is smaller than the largest size, it will not match the pixel coordinates in the Allmaps annotation. In that case, use `dezoomify-rs` to download the full-resolution image:
+If your local JPEG is smaller than the largest size, it will not match the pixel coordinates in the Allmaps annotation.
+If you already installed `dezoomify-rs`, use it to download the full-resolution image:
 
 ```bash
 dezoomify-rs "https://cdm17272.contentdm.oclc.org/iiif/2/agdm:1550" adeae8a56aaf59fb.jpg
 ```
+
+If you skipped `dezoomify-rs` earlier, return to the optional installation instructions
+only if you need this full-resolution fallback.
 
 ### Generate the GeoTIFF script
 
