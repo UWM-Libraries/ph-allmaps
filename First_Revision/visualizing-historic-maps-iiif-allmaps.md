@@ -1279,12 +1279,6 @@ And if you want to have fun with georeferencing, check out
 postcards, or [Allmaps Arcade](https://arcade.allmaps.org), a game for placing
 old maps on the globe.
 
-## About the Authors
-
-[Stephen Appel](https://srappel.github.io) is the Geospatial Information Librarian at the American Geographical Society Library at the University of Wisconsin Milwaukee Libraries; Milwaukee, Wisconsin, United States.
-
-[Ian Spangler](https://itspangler.com/) is Associate Curator of Digital & Participatory Geography at the Norman B. Leventhal Map & Education Center at the Boston Public Library and teaches a Geospatial Humanities course at Tufts University; Boston, Massachusetts, United States.
-
 ## Endnotes
 
 [^1]: C. D. Lippitt, "Georeferencing and Georectification," in *The Geographic Information Science & Technology Body of Knowledge*, 3rd Quarter 2020 ed., ed. John P. Wilson (UCGIS, 2020), https://gistbok-ltb.ucgis.org/page/current/concept/DC-01-030, doi:10.22224/gistbok/2020.3.3.
